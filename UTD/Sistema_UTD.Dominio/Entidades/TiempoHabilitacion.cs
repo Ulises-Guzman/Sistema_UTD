@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sistema_UTD.Dominio.Entidades
+{
+    internal class TiempoHabilitacion
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return Descripcion;
+        }
+    }
+}
