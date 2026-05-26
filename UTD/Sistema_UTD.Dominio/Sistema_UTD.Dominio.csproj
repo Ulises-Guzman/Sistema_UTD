@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Destino.cs" />
-    <Compile Include="Entidades\EquipoCalibracion.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\Instrumento.cs" />
     <Compile Include="Entidades\Log.cs" />
