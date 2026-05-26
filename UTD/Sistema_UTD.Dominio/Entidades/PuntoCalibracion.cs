@@ -12,6 +12,7 @@ namespace Sistema_UTD.Dominio.Entidades
         public decimal ValorInstrumento { get; set; }
         public decimal ValorReal { get; set; } // Patron
         public int Error { get; set; } // En ejecucion trasformar a %
+        public bool Activo { get; set; }
 
         public int PlanillaCalibracionId { get; set; }
         public PlanillaCalibracion PlanillaCalibracion { get; set; }

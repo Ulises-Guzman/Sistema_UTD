@@ -12,6 +12,9 @@ namespace Sistema_UTD.Dominio.Entidades
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
 
-        // Sobreescribir lo que devuelve Descripcion
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }
