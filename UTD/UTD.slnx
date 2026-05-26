@@ -2,7 +2,9 @@
   <Folder Name="/1. Dominio/">
     <Project Path="Sistema_UTD.Dominio/Sistema_UTD.Dominio.csproj" Id="fe1ff69d-3aff-4ce0-9b56-f62047e8c950" />
   </Folder>
-  <Folder Name="/2. Acceso a datos/" />
+  <Folder Name="/2. Datos/">
+    <Project Path="Sistema_UTD.Datos/Sistema_UTD.Datos.csproj" Id="75e73704-455d-4e20-b96e-33783583c7e5" />
+  </Folder>
   <Folder Name="/3. Negocio/" />
   <Folder Name="/4. Presentacion/">
     <Project Path="Sistema_UTD/Sistema_UTD.Web.csproj" Id="3799b774-91a6-4547-9fca-3339fbaee493" />
