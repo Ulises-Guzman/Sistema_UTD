@@ -5,7 +5,9 @@
   <Folder Name="/2. Datos/">
     <Project Path="Sistema_UTD.Datos/Sistema_UTD.Datos.csproj" Id="75e73704-455d-4e20-b96e-33783583c7e5" />
   </Folder>
-  <Folder Name="/3. Negocio/" />
+  <Folder Name="/3. Negocio/">
+    <Project Path="Sistema_UTD.Negocio/Sistema_UTD.Negocio.csproj" Id="80843ea2-c179-49c3-af76-41b93444fd03" />
+  </Folder>
   <Folder Name="/4. Presentacion/">
     <Project Path="Sistema_UTD/Sistema_UTD.Web.csproj" Id="3799b774-91a6-4547-9fca-3339fbaee493" />
   </Folder>

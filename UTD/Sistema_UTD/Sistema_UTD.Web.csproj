@@ -94,6 +94,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sistema_UTD.Dominio\Sistema_UTD.Dominio.csproj">
+      <Project>{fe1ff69d-3aff-4ce0-9b56-f62047e8c950}</Project>
+      <Name>Sistema_UTD.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sistema_UTD.Negocio\Sistema_UTD.Negocio.csproj">
+      <Project>{80843ea2-c179-49c3-af76-41b93444fd03}</Project>
+      <Name>Sistema_UTD.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
