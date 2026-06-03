@@ -97,6 +97,11 @@
   <ItemGroup>
     <Content Include="Content\fonts\bootstrap-icons.woff" />
     <Content Include="Content\fonts\bootstrap-icons.woff2" />
+    <Content Include="Admin\.gitkeep" />
+    <Content Include="Account\.gitkeep" />
+    <Content Include="GestionInstrumentos\.gitkeep" />
+    <Content Include="Calibraciones\.gitkeep" />
+    <Content Include="Auditorias\.gitkeep" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
@@ -107,12 +112,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Auditorias\" />
-    <Folder Include="Calibraciones\" />
-    <Folder Include="GestionInstrumentos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
