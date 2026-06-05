@@ -7,65 +7,61 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sistema_UTD
+namespace Sistema_UTD.Admin
 {
 
 
-    public partial class Site
+    public partial class Usuarios
     {
 
         /// <summary>
-        /// Control head.
+        /// Control lnkBtnCrearUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCrearUsuario;
 
         /// <summary>
-        /// Control form1.
+        /// Control lnkBtnModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnModificar;
 
         /// <summary>
-        /// Control hlkInicio.
+        /// Control lnkBtnEliminarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlkInicio;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnEliminarUsuario;
 
         /// <summary>
-        /// Control hlkUsuarios.
+        /// Control lnkBtnBuscarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlkUsuarios;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnBuscarUsuario;
 
         /// <summary>
-        /// Control rptBreadcrumbs.
+        /// Propiedad Master.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Propiedad generada automáticamente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptBreadcrumbs;
-
-        /// <summary>
-        /// Control ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        public new Sistema_UTD.Site Master
+        {
+            get
+            {
+                return ((Sistema_UTD.Site)(base.Master));
+            }
+        }
     }
 }

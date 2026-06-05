@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Usuarios.aspx" />
     <Content Include="Content\bootstrap-icons.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
@@ -75,6 +76,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -119,6 +127,10 @@
     <ProjectReference Include="..\Sistema_UTD.Dominio\Sistema_UTD.Dominio.csproj">
       <Project>{fe1ff69d-3aff-4ce0-9b56-f62047e8c950}</Project>
       <Name>Sistema_UTD.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sistema_UTD.Helpers\Sistema_UTD.Helpers.csproj">
+      <Project>{09e9f6ab-e89b-4ebd-a76a-28851e23134b}</Project>
+      <Name>Sistema_UTD.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sistema_UTD.Negocio\Sistema_UTD.Negocio.csproj">
       <Project>{80843ea2-c179-49c3-af76-41b93444fd03}</Project>

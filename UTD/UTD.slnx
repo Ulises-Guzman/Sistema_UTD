@@ -11,5 +11,7 @@
   <Folder Name="/4. Presentacion/">
     <Project Path="Sistema_UTD/Sistema_UTD.Web.csproj" Id="3799b774-91a6-4547-9fca-3339fbaee493" />
   </Folder>
-  <Folder Name="/5. Transversal/" />
+  <Folder Name="/5. Transversal/">
+    <Project Path="Sistema_UTD.Helpers/Sistema_UTD.Helpers.csproj" Id="09e9f6ab-e89b-4ebd-a76a-28851e23134b" />
+  </Folder>
 </Solution>

@@ -63,9 +63,15 @@
                         </a>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
-                                <a href="Default.aspx" class="nav-link align-middle px-0 text-white link-secondary">
+                                <%--<a href='<%= ResolveUrl("~/Default.aspx") %>' class="nav-link align-middle px-0 text-white link-secondary">
                                     <i class="fs-4 bi bi-house-door"></i><span class="ms-3 d-none d-sm-inline">Inicio</span>
-                                </a>
+                                </a>--%>
+                                <asp:HyperLink ID="hlkInicio"
+                                    CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                    NavigateUrl="~/Default.aspx"
+                                    runat="server">
+                                    <i class="fs-4 bi bi-house-door"></i><span class="ms-3 d-none d-sm-inline">Inicio</span>
+                                </asp:HyperLink>
                             </li>
                             <li>
                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white link-secondary">
@@ -96,22 +102,15 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white link-secondary">
-                                    <i class="fs-4 bi bi-people"></i><span class="ms-3 d-none d-sm-inline">Usuarios</span> </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Product</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Product</span> 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Product</span> 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Product</span> 4</a>
-                                    </li>
-                                </ul>
+                                <%--data-bs-toggle="collapse"--%>
+                                <%--<a href="Admin/usuarios.aspx" class="nav-link px-0 align-middle text-white link-secondary">
+                                    <i class="fs-4 bi bi-people"></i><span class="ms-3 d-none d-sm-inline">usuarios</span> </a>--%>
+                                <asp:HyperLink ID="hlkUsuarios"
+                                    CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                    NavigateUrl="~/Admin/Usuarios.aspx"
+                                    runat="server">
+                                    <i class="fs-4 bi bi-people"></i><span class="ms-3 d-none d-sm-inline">Usuarios</span>
+                                </asp:HyperLink>
                             </li>
                             <li>
                                 <a href="#" class="nav-link px-0 align-middle text-white link-secondary">
@@ -140,15 +139,29 @@
 
                 <div class="col">
                     <div class="row">
-                        <!-- Nav BreadCrumb -->
+                        <!-- Breadcrumb -->
                         <div class="col rounded bg-body-tertiary shadow-sm">
                             <nav class="fs-4 fw-semibold" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a class="text-decoration-none text-dark link-secondary" href="Default.aspx">Inicio</a></li>
-                                    <%--<li class="breadcrumb-item active" aria-current="page">Page_Test</li>--%>
+                                    <asp:Repeater ID="rptBreadcrumbs" runat="server">
+                                        <ItemTemplate>
+                                            <%# (bool)Eval("EsActivo") ? 
+                                                $"<li class='breadcrumb-item active' aria-current='page'>{Eval("Titulo")}</li>" : 
+                                                $"<li class='breadcrumb-item'><a class='text-decoration-none text-dark link-secondary' href='{ResolveUrl((string)Eval("Url"))}'>{Eval("Titulo")}</a></li>" %>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ol>
                             </nav>
                         </div>
+
+                        <%--<div class="col rounded bg-body-tertiary shadow-sm">
+                            <nav class="fs-4 fw-semibold" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a class="text-decoration-none text-dark link-secondary" href="Default.aspx">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Page_Test</li>
+                                </ol>
+                            </nav>
+                        </div>--%>
                     </div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>

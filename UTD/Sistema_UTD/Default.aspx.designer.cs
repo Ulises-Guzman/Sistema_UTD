@@ -15,13 +15,13 @@ namespace Sistema_UTD
     {
 
         /// <summary>
-        /// Control LinkButton1.
+        /// Control lnkBtnConfiguracionCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnConfiguracionCuenta;
 
         /// <summary>
         /// Control LinkButton2.
@@ -40,5 +40,19 @@ namespace Sistema_UTD
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new Sistema_UTD.Site Master
+        {
+            get
+            {
+                return ((Sistema_UTD.Site)(base.Master));
+            }
+        }
     }
 }

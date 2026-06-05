@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Sistema_UTD.Helpers;
 
 namespace Sistema_UTD
 {
@@ -12,6 +13,12 @@ namespace Sistema_UTD
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void ActualizarBreadcrumb(List<BreadcrumbItem> item)
+        {
+            rptBreadcrumbs.DataSource = item;
+            rptBreadcrumbs.DataBind();
         }
     }
 }
