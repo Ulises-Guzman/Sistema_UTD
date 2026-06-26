@@ -12,12 +12,12 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="bg-light">
     <form id="form1" runat="server">
         <!-- Navbar -->
         <div class="row">
             <div class="col">
-                <nav class="navbar navbar-expand-lg shadow-sm mb-1 bg-body-tertiary border-bottom" data-bs-theme="ligth">
+                <nav class="navbar navbar-expand-lg mb-1 bg-white border-bottom" data-bs-theme="ligth">
                     <div class="container-fluid">
                         <i class="bi bi-nut-fill me-2 fs-4" aria-hidden="true"></i>
                         <a class="navbar-brand" href="Default.aspx">Sistema UTD</a>
@@ -140,8 +140,8 @@
                 <div class="col">
                     <div class="row">
                         <!-- Breadcrumb -->
-                        <div class="col rounded bg-body-tertiary shadow-sm">
-                            <nav class="fs-4 fw-semibold" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <div class="col rounded bg-white shadow-sm" data-bs-theme="ligth">
+                            <nav class="fs-5 fw-semibold mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <asp:Repeater ID="rptBreadcrumbs" runat="server">
                                         <ItemTemplate>
@@ -154,14 +154,6 @@
                             </nav>
                         </div>
 
-                        <%--<div class="col rounded bg-body-tertiary shadow-sm">
-                            <nav class="fs-4 fw-semibold" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a class="text-decoration-none text-dark link-secondary" href="Default.aspx">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Page_Test</li>
-                                </ol>
-                            </nav>
-                        </div>--%>
                     </div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
@@ -181,5 +173,6 @@
     </form>
     <!-- JS Boostrap -->
     <script src="/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="/Scripts/modals.js"></script>
 </body>
 </html>

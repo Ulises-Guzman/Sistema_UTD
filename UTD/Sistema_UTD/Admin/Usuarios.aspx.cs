@@ -17,7 +17,7 @@ namespace Sistema_UTD.Admin
                 List<BreadcrumbItem> listaRutas = new List<BreadcrumbItem>
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Usuarios", Url = "", EsActivo = true}
+                    new BreadcrumbItem { Titulo = "Usuarios", Url = "", EsActivo = true }
                 };
 
                 if (Master != null)
@@ -25,6 +25,22 @@ namespace Sistema_UTD.Admin
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
             }
+        }
+
+        protected void lnkBtnCrearUsuario_Click(object sender, EventArgs e)
+        {
+            //string accion = "Crear";
+            //Response.Redirect("~/Admin/FormularioUsuario.aspx?accion=" + accion, false);
+            
+            lblTituloModalABM.Text = "Crear Usuario";
+            lblDescripcionModalABM.InnerText = "Cree un usuario para dar acceso el sistema";
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalABM();", true);
+        }
+
+        protected void lnkBtnModificar_Click(object sender, EventArgs e)
+        {
+            string accion = "Modificar";
+            Response.Redirect("~/Admin/FormularioUsuario.aspx?accion=" + accion, false);
         }
     }
 }

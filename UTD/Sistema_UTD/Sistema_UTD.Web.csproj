@@ -67,15 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\FormularioUsuario.aspx" />
     <Content Include="Admin\Usuarios.aspx" />
     <Content Include="Content\bootstrap-icons.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\modals.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\FormularioUsuario.aspx.cs">
+      <DependentUpon>FormularioUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FormularioUsuario.aspx.designer.cs">
+      <DependentUpon>FormularioUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
