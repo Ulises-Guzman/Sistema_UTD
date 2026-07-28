@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class Log
+    public class Log
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }

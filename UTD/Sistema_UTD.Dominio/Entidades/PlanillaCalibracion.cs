@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class PlanillaCalibracion
+    public class PlanillaCalibracion
     {
         public int Id { get; set; }
         public int NumPlanilla { get; set; }

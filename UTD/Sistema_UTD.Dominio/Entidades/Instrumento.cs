@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class Instrumento : ModeloInstrumento
+    public class Instrumento : ModeloInstrumento
     {
         public new int Id { get; set; }
         public string NumSerie { get; set; }

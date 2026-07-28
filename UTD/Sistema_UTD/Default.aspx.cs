@@ -29,5 +29,16 @@ namespace Sistema_UTD
             }
 
         }
+
+        protected void lnkBtnGestionComponentes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/GestionCompModInst.aspx");
+        }
+
+        protected void lnkGestionComponentesAsoc_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/GestionCompAsocInst.aspx");
+        }
+
     }
 }

@@ -33,6 +33,15 @@ namespace Sistema_UTD.Admin
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// Control alertaSatisfactoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
+
+        /// <summary>
         /// Control lnkBtnCrearUsuario.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace Sistema_UTD.Admin
         protected global::System.Web.UI.WebControls.LinkButton lnkBtnCrearUsuario;
 
         /// <summary>
-        /// Control lnkBtnModificar.
+        /// Control lnkBtnModificarUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnModificar;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnModificarUsuario;
 
         /// <summary>
         /// Control lnkBtnBuscarUsuario.
@@ -60,22 +69,22 @@ namespace Sistema_UTD.Admin
         protected global::System.Web.UI.WebControls.LinkButton lnkBtnBuscarUsuario;
 
         /// <summary>
-        /// Control lblTituloModalABM.
+        /// Control lblTituloModalUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloModalABM;
+        protected global::System.Web.UI.WebControls.Label lblTituloModalUsuario;
 
         /// <summary>
-        /// Control lblDescripcionModalABM.
+        /// Control lblDescripcionModalUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescripcionModalABM;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescripcionModalUsuario;
 
         /// <summary>
         /// Control txtUsuario.
@@ -121,6 +130,24 @@ namespace Sistema_UTD.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
+
+        /// <summary>
+        /// Control btnCancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
+
+        /// <summary>
+        /// Control btnAceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceptar;
 
         /// <summary>
         /// Propiedad Master.

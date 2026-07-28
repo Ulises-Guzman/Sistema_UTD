@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class PuntoCalibracion
+    public class PuntoCalibracion
     {
         public int Id { get; set; }
         public decimal ValorInstrumento { get; set; }

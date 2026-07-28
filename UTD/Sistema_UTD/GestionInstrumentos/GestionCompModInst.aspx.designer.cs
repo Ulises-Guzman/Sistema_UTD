@@ -7,66 +7,66 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sistema_UTD
+namespace Sistema_UTD.GestionInstrumentos
 {
 
 
-    public partial class Default
+    public partial class GestionCompModInst
     {
 
         /// <summary>
-        /// Control ScriptManager1.
+        /// Control lnkAgregarModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarModelo;
 
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control lnkModificarModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarModelo;
 
         /// <summary>
-        /// Control alertaSatisfactoria.
+        /// Control lnkAgregarRango.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarRango;
 
         /// <summary>
-        /// Control lnkBtnGestionComponentes.
+        /// Control lnkModificarRango.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnGestionComponentes;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarRango;
 
         /// <summary>
-        /// Control lnkGestionComponentesAsoc.
+        /// Control lnkAgregarUnidadMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGestionComponentesAsoc;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarUnidadMedida;
 
         /// <summary>
-        /// Control lnkBtnConfiguracionCuenta.
+        /// Control lnkModificarUnidadMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnConfiguracionCuenta;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarUnidadMedida;
 
         /// <summary>
         /// Propiedad Master.

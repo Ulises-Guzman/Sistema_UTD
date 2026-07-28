@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class Estado
+    public class Estado
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }

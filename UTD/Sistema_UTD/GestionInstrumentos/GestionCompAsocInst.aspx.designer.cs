@@ -7,66 +7,84 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Sistema_UTD
+namespace Sistema_UTD.GestionInstrumentos
 {
 
 
-    public partial class Default
+    public partial class GestionCompAsocInst
     {
 
         /// <summary>
-        /// Control ScriptManager1.
+        /// Control lnkAgregarDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarDestino;
 
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control lnkModificarDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarDestino;
 
         /// <summary>
-        /// Control alertaSatisfactoria.
+        /// Control lnkAgregarSeccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarSeccion;
 
         /// <summary>
-        /// Control lnkBtnGestionComponentes.
+        /// Control lnkModificarSeccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnGestionComponentes;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarSeccion;
 
         /// <summary>
-        /// Control lnkGestionComponentesAsoc.
+        /// Control lnkAgregarEstadoInst.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGestionComponentesAsoc;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarEstadoInst;
 
         /// <summary>
-        /// Control lnkBtnConfiguracionCuenta.
+        /// Control lnkModificarEstadoInst.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnConfiguracionCuenta;
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarEstadoInst;
+
+        /// <summary>
+        /// Control lnkAgregarTiempoHab.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarTiempoHab;
+
+        /// <summary>
+        /// Control lnkModificarTiempoHab.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkModificarTiempoHab;
 
         /// <summary>
         /// Propiedad Master.

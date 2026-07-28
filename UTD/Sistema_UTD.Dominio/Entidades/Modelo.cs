@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio
 {
-    internal class Modelo
+    public class Modelo
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }

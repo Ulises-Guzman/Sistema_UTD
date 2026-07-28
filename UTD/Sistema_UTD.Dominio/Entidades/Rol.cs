@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.Entidades
 {
-    internal class Rol
+    public class Rol
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
