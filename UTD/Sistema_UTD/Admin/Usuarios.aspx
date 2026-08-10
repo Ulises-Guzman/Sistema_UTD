@@ -123,14 +123,14 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validar();" OnClick="btnAceptar_Click" runat="server" />
+                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUsuarioNuevo();" OnClick="btnAceptar_Click" runat="server" />
                         </div>
                     </div>
                 </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <script src="/Scripts/modalUsuario.js"></script>
-    <script src="/Scripts/validarNuevoUsuario.js"></script>
-    <script src="/Scripts/alertUsuario.js"></script>
+    <script src="/Scripts/modalUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

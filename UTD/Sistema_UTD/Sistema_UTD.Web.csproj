@@ -92,6 +92,7 @@
     <Content Include="Scripts\alertUsuario.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\modalUsuario.js" />
+    <Content Include="Scripts\validarBuscarAvanzado.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />
     <Content Include="Web.config" />

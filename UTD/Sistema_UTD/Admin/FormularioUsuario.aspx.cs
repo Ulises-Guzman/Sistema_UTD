@@ -30,13 +30,30 @@ namespace Sistema_UTD.Admin
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
 
-                // Cargar datos para el ddl del buscador
+                // Refactoring
+                // --- ddlCriterioCampo ---
+                ddlCriterioCampo.Items.Clear();
+                ddlCriterioCampo.Items.Add(new ListItem("Apellido"));
+                ddlCriterioCampo.Items.Add(new ListItem("Nombre"));
+
+                // --- ddlCriterioRol ---
                 RolNegocio rolNegocio = new RolNegocio();
                 List<Rol> lista = rolNegocio.Listar();
                 ddlCriterioRol.DataSource = lista;
                 ddlCriterioRol.DataValueField = "Id";
                 ddlCriterioRol.DataTextField = "Descripcion";
                 ddlCriterioRol.DataBind();
+                ddlCriterioRol.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+                ddlCriterioRol.SelectedIndex = 0;
+
+                // --- ddlCriterioEstado ---
+                ddlCriterioEstado.Items.Clear();
+                //ddlCriterioEstado.Items.Add(new ListItem("", ""));
+                ddlCriterioEstado.Items.Add(new ListItem("Activo"));
+                ddlCriterioEstado.Items.Add(new ListItem("Inactivo"));
+                ddlCriterioEstado.Items.Add(new ListItem("Todos"));
+                ddlCriterioEstado.Items.Insert(0, new ListItem("-- Seleccione --", ""));
+                ddlCriterioEstado.SelectedIndex = 0;
 
                 // Cargar datos para el ddl del formulario modal
                 ddlRol.DataSource = lista;
@@ -44,17 +61,14 @@ namespace Sistema_UTD.Admin
                 ddlRol.DataTextField = "Descripcion";
                 ddlRol.DataBind();
 
+                // Cargar el gv con la lista de usuarios
                 UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
                 Session.Add("listaUsuario", usuarioNegocio.ListarUsuario());
                 gvUsuarios.DataSource = Session["listaUsuario"];
                 gvUsuarios.DataBind();
 
+                txtContrasenia.Enabled = false;
             }
-        }
-
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,14 +79,15 @@ namespace Sistema_UTD.Admin
 
             // Para eliminar la carga fantasma del modal con la selección del checkbox y la ejecución del update panel
             chkCambioContrasenia.Checked = false;
-            alertaSatisfactoria.Style["display"] = "none";
-
+            BloquearNotificacion();
 
             // Recupero datos
             List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
 
             // Obterner el id del usuario seleccionado
             int id = int.Parse(gvUsuarios.SelectedDataKey.Value.ToString());
+
+            // búsqueda del usuario seleccionado
             Usuario usuarioSeleccionado = lista.Find(x => x.Id == id);
 
             if (usuarioSeleccionado != null)
@@ -87,10 +102,18 @@ namespace Sistema_UTD.Admin
                 if (usuarioSeleccionado.Activo)
                 {
                     chkUsuarioActivo.Checked = true;
+                    txtUsuario.Enabled = true;
+                    ddlRol.Enabled = true;
+                    txtApellido.Enabled = true;
+                    txtNombre.Enabled = true;
                 }
                 else
                 {
                     chkUsuarioActivo.Checked = false;
+                    txtUsuario.Enabled = false;
+                    ddlRol.Enabled = false;
+                    txtApellido.Enabled = false;
+                    txtNombre.Enabled = false;
                 }
 
             }
@@ -214,7 +237,66 @@ namespace Sistema_UTD.Admin
 
         protected void chkFiltro_CheckedChanged(object sender, EventArgs e)
         {
-            // Para eliminar la carga fantasma del alerta de notificación con la selección del checkbox
+            BloquearNotificacion();
+            txtBuscar.Text = "";
+            txtBuscar.Enabled = !chkFiltro.Checked;
+            pnlFiltroAvanzado.Visible = chkFiltro.Checked;
+        }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            try
+            {
+                List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
+                List<Usuario> listaBusqueda = new List<Usuario>();
+                listaBusqueda = lista.FindAll(x => x.NombUsuario.ToLower().Contains(txtBuscar.Text.ToLower()));
+                gvUsuarios.DataSource = listaBusqueda;
+                gvUsuarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                // Redirigir a página de error o notificación
+                throw ex;
+            }
+        }
+
+        protected void btnBuscarAvanzado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BloquearNotificacion();
+
+                UsuarioNegocio negocio = new UsuarioNegocio();
+                List<Usuario> listaBuscarAvanzado = new List<Usuario>();
+                listaBuscarAvanzado = negocio.BuscarAvanzado(
+                                                             ddlCriterioCampo.SelectedItem.ToString(),
+                                                             txtBuscarAvanzado.Text,
+                                                             ddlCriterioRol.SelectedItem.ToString(),
+                                                             ddlCriterioEstado.SelectedItem.ToString()
+                                                             );
+                gvUsuarios.DataSource = listaBuscarAvanzado;
+                gvUsuarios.DataBind();
+
+                // Piso la lista general para modificar usuario
+                Session.Add("listaUsuario", listaBuscarAvanzado);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        protected void lnkBtnActualizar_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+            ActualizarGrilla();
+        }
+
+        protected void BloquearNotificacion() {
+            // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
         }
     }

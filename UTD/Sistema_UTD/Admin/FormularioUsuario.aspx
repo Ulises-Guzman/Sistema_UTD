@@ -34,79 +34,83 @@
                 </div>
             </div>
 
-
             <!-- Panel Buscador -->
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
                     <div class="row justify-content-center">
                         <div class="col-xl-10 mb-2">
-                            <div class="p-3 mb-2 bg-white shadow-sm rounded" data-bs-theme="ligth">
-                                <!-- Menu filtro avanzado -->
-                                <% if (chkFiltro.Checked) %>
-                                <% { %>
-                                <div class="row mt-1 mb-2">
-                                    <div class="col-md-3">
-                                        <label class="form-label">Campo</label>
-                                        <asp:DropDownList ID="ddlCampo" CssClass="form-select" runat="server">
-                                            <asp:ListItem Text="Apellido" />
-                                            <asp:ListItem Text="Nombre" />
-                                        </asp:DropDownList>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label class="form-label">Rol</label>
-                                        <asp:DropDownList ID="ddlCriterioRol" CssClass="form-select" runat="server">
-                                        </asp:DropDownList>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div>
-                                            <label class="form-label">Estado</label>
-
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <asp:RadioButton ID="rbTodos" ClientIDMode="Static" CssClass="form-check mb-0 me-2" GroupName="filtroEstado" runat="server" />
-                                            <label class="form-check-label" for="rbTodos">Todos</label>
-                                            <asp:RadioButton ID="rbActivo" ClientIDMode="Static" CssClass="form-check mb-0 me-2" GroupName="filtroEstado" runat="server" />
-                                            <label class="form-check-label" for="rbActivo">Activo</label>
-                                            <asp:RadioButton ID="rdInactivo" ClientIDMode="Static" CssClass="form-check mb-0 me-2" GroupName="filtroEstado" runat="server" />
-                                            <label class="form-check-label" for="rdInactivo">Inactivo</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <% } %>
-
+                            <div class="p-3 bg-white shadow-sm rounded" data-bs-theme="ligth">
                                 <!-- Buscador -->
                                 <div class="row">
-                                    <div class="col-md-4 mt-2">
-                                        <asp:TextBox ID="txtBuscar" CssClass="form-control" placeholder="Buscar usuario..." runat="server"></asp:TextBox>
-                                    </div>
-                                    <div class="col-md-4 mt-2">
-                                        <asp:Button ID="btnBuscar"
-                                            CssClass="btn btn-primary"
-                                            Text="Buscar"
-                                            OnClick="btnBuscar_Click"
-                                            runat="server" />
+                                    <div class="col-md-4">
+                                        <label for="txtBuscar" class="col-form-label">Buscador</label>
+                                        <asp:TextBox ID="txtBuscar" ClientIDMode="Static" CssClass="form-control" placeholder="Buscar usuario..." AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
 
-                                <div class="d-flex align-items-center mt-2">
-                                    <asp:CheckBox ID="chkFiltro" CssClass="form-check mb-0 me-2" AutoPostBack="true" OnCheckedChanged="chkFiltro_CheckedChanged" runat="server" />
-                                    <label class="form-label mb-0">Filtro</label>
+                                <div class="d-flex align-items-center mt-4 mb-2">
+                                    <asp:CheckBox ID="chkFiltro" ClientIDMode="Static" CssClass="form-check mb-0 me-2" AutoPostBack="true" OnCheckedChanged="chkFiltro_CheckedChanged" runat="server" />
+                                    <label class="form-label mb-0">Filtro Avazado</label>
                                 </div>
 
+                                <!-- Menu filtro avanzado -->
+                                <asp:Panel ID="pnlFiltroAvanzado" Visible="false" runat="server">
+                                    <div class="row mt-3 mb-4">
+                                        <div class="col-md-4">
+                                            <label for="ddlCriterioCampo" class="form-label">Campo</label>
+                                            <asp:DropDownList ID="ddlCriterioCampo" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label for="ddlCriterioRol" class="form-label">Rol</label>
+                                            <asp:DropDownList ID="ddlCriterioRol" ClientIDMode="Static" CssClass="form-select" runat="server">
+                                            </asp:DropDownList>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label for="ddlCriterioEstado" class="form-label">Estado</label>
+                                            <asp:DropDownList ID="ddlCriterioEstado" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-2 mb-3">
+                                        <div class="col-md-4">
+                                            <asp:TextBox ID="txtBuscarAvanzado" ClientIDMode="Static" CssClass="form-control" placeholder="Ingrese palabra clave..." runat="server"></asp:TextBox>
+                                            <div class="invalid-feedback">Por favor, ingrese una palabra clave.</div>
+                                            <div class="valid-feedback">Ok</div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <asp:Button ID="btnBuscarAvanzado"
+                                                ClientIDMode="Static"
+                                                CssClass="btn btn-primary"
+                                                Text="Buscar"
+                                                OnClientClick="return validarUsuarioBuscado();"
+                                                OnClick="btnBuscarAvanzado_Click"
+                                                runat="server" />
+                                        </div>
+                                    </div>
+                                </asp:Panel>
                             </div>
                         </div>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
+            <!-- Título y botón actualizar -->
+            <div class="row justify-content-center">
+                <div class="col-xl-10 mt-3 mb-2 d-flex justify-content-between align-items-center">
+                    <h4 class="m-0">Lista de Usuarios</h4>
+                    <asp:LinkButton ID="lnkBtnActualizar" ClientIDMode="Static" CssClass="btn btn-success align-content-end" OnClick="lnkBtnActualizar_Click" runat="server">
+                        <i class="bi bi-arrow-clockwise"></i> Actualizar
+                    </asp:LinkButton>
+                </div>
+            </div>
             <!-- Grilla -->
             <div class="row justify-content-center">
                 <div class="col-xl-10 mt-3 mb-4">
-                    <h5 class="mb-3">Lista de Usuarios</h5>
                     <asp:GridView
                         ID="gvUsuarios"
+                        ClientIDMode="Static"
                         CssClass="table table-striped table-hover"
                         AutoGenerateColumns="false"
                         DataKeyNames="Id"
@@ -151,22 +155,22 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="form-check form-switch ms-1">
-                                        <input class="form-check-input" type="checkbox" clientidmode="Static" id="chkUsuarioActivo" onclick="cambiarCampos(this)" runat="server">
-                                        <label class="form-check-label" for="chkActivo" runat="server">Activo</label>
+                                        <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkUsuarioActivo" onclick="cambiarCamposModificar(this)" runat="server">
+                                        <label class="form-check-label" for="chkUsuarioActivo" runat="server">Activo</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <label for="txtContrasenia" class="col-form-label">Contraseña</label>
                                 <div class="col">
-                                    <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" Enabled="false" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                                     <div class="invalid-feedback">Por favor, ingrese una contraseña.</div>
                                     <div class="valid-feedback">Ok</div>
                                 </div>
                                 <div class="col-3">
                                     <div class="form-check form-switch ms-1">
-                                        <input class="form-check-input" type="checkbox" clientidmode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
-                                        <label class="form-check-label" for="chkActivo" runat="server">Cambio</label>
+                                        <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
+                                        <label class="form-check-label" for="chkCambioContrasenia" runat="server">Cambio</label>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +195,7 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validar();" OnClick="btnAceptar_Click" runat="server" />
+                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUsuarioModificado(chkUsuarioActivo, txtContrasenia);" OnClick="btnAceptar_Click" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -199,7 +203,8 @@
 
         </ContentTemplate>
     </asp:UpdatePanel>
-    <script src="/Scripts/modalUsuario.js"></script>
-    <script src="/Scripts/validarModificarUsuario.js"></script>
-    <script src="/Scripts/alertUsuario.js"></script>
+    <script src="/Scripts/modalUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarModificarUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarBuscarAvanzado.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

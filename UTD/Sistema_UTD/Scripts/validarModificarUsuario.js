@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-// 1. Declaramos las variables globales
+// 1. Declaración las variables globales
 let txtUsuario, txtContrasenia, ddlRol, txtApellido, txtNombre;
 
 // 2. Función para enganchar eventos (preparada para el UpdatePanel)
@@ -28,8 +28,8 @@ if (typeof Sys !== 'undefined') {
     document.addEventListener("DOMContentLoaded", enlazarEventos);
 }
 
-// 4. NUEVA LÓGICA: Función que maneja el switch general (Usuario Activo/Inactivo)
-function cambiarCampos(checkbox) {
+// 4. Función que maneja el switch general (Usuario Activo/Inactivo)
+function cambiarCamposModificar(checkbox) {
     let camposGenerales = [txtUsuario, ddlRol, txtApellido, txtNombre];
     let estaActivo = checkbox.checked;
 
@@ -37,7 +37,7 @@ function cambiarCampos(checkbox) {
     camposGenerales.forEach(campo => {
         if (campo) {
             campo.disabled = !estaActivo;
-            // Si acabamos de deshabilitarlo, le quitamos los colores de validación
+            // Si se acaba de deshabilitarlo, se le quita los colores de validación
             if (!estaActivo) {
                 campo.classList.remove("is-valid", "is-invalid");
             }
@@ -45,29 +45,29 @@ function cambiarCampos(checkbox) {
     });
 
     // Lógica adicional de seguridad: Si desactivo al usuario, el switch de contraseña
-    // también debería desactivarse para no dejar cabos sueltos.
+    // también debe desactivarse para no dejar cabos sueltos.
     let chkPass = document.getElementById("chkCambioContrasenia");
     if (chkPass) {
         if (!estaActivo) {
-            chkPass.checked = false;       // Le quitamos el check
-            chkPass.disabled = true;       // Lo bloqueamos
-            cambiarCampoContrasenia(chkPass); // Llamamos a su función para que limpie el TextBox
+            chkPass.checked = false;       // Se le quita el check
+            chkPass.disabled = true;       // Se bloquea
+            cambiarCampoContrasenia(chkPass); // Llamo a su función para que limpie el TextBox
         } else {
-            chkPass.disabled = false;      // Lo volvemos a habilitar si el usuario está activo
+            chkPass.disabled = false;      // Se lo vuelve a habilitar si el usuario está activo
         }
     }
 }
 
-// 5. NUEVA LÓGICA: Función que maneja el switch de la Contraseña
+// 5. Función que maneja el switch de la Contraseña
 function cambiarCampoContrasenia(checkbox) {
     if (txtContrasenia) {
         // Habilita o deshabilita el TextBox de la contraseña
         txtContrasenia.disabled = !checkbox.checked;
 
-        // Si el usuario apaga el switch, limpiamos los colores y borramos lo que escribió
+        // Si el usuario apaga el switch, se limpian los colores y se borran lo que escribió
         if (!checkbox.checked) {
             txtContrasenia.classList.remove("is-valid", "is-invalid");
-            txtContrasenia.value = ""; // Vaciamos el campo por seguridad
+            txtContrasenia.value = ""; // Se vacía el campo por seguridad
         }
     }
 }
@@ -77,12 +77,13 @@ function validarCampo(campo) {
     if (!campo) return false;
 
     // REGLA CLAVE: Si el campo está deshabilitado, es válido por defecto y no lleva colores
-    if (campo.disabled) {
-        campo.classList.remove("is-valid", "is-invalid");
-        return true;
-    }
+    // campo.disabled
+    // if (txtContrasenia.disabled) {
+    //     campo.classList.remove("is-valid", "is-invalid");
+    //     return true;
+    // }
 
-    // Validamos normal si el campo está habilitado
+    // Se valida normal si el campo está habilitado
     if (campo.value.trim() === "") {
         campo.classList.remove("is-valid");
         campo.classList.add("is-invalid");
@@ -95,19 +96,74 @@ function validarCampo(campo) {
 }
 
 // 7. Función principal para el botón Aceptar
-function validar() {
-    enlazarEventos(); // Forzamos actualización de variables
+function validarUsuarioModificado(checkboxUsuario, txtContrasenia) {
+    let estaActivoUsuario = checkboxUsuario.checked;
+    let estaActivoTxtContrasenia = !txtContrasenia.disabled;
 
-    const usuarioValido = validarCampo(txtUsuario);
-    const contraseniaValido = validarCampo(txtContrasenia);
-    const rolValido = validarCampo(ddlRol);
-    const nombreValido = validarCampo(txtNombre);
-    const apellidoValido = validarCampo(txtApellido);
+    if (!estaActivoUsuario) {
+        return true; // Todo en orden, para desactivar al usuario
+    } else if (!estaActivoTxtContrasenia) {
+        enlazarEventos(); // Forzamos actualización de variables
 
-    // Si ALGUNO es falso (y no estaba deshabilitado), bloqueamos el guardado
-    if (!usuarioValido || !contraseniaValido || !rolValido || !nombreValido || !apellidoValido) {
-        return false;
+        const usuarioValido = validarCampo(txtUsuario);
+        const rolValido = validarCampo(ddlRol);
+        const nombreValido = validarCampo(txtNombre);
+        const apellidoValido = validarCampo(txtApellido);
+
+        // Si ALGUNO es falso (y no estaba deshabilitado), bloqueamos el guardado
+        if (!usuarioValido || !rolValido || !nombreValido || !apellidoValido) {
+            return false;
+        }
+
+        return true; // Todo en orden
+    } else {
+        enlazarEventos(); // Forzamos actualización de variables
+
+        const usuarioValido = validarCampo(txtUsuario);
+        const contraseniaValido = validarCampo(txtContrasenia);
+        const rolValido = validarCampo(ddlRol);
+        const nombreValido = validarCampo(txtNombre);
+        const apellidoValido = validarCampo(txtApellido);
+
+        // Si ALGUNO es falso (y no estaba deshabilitado), bloqueamos el guardado
+        if (!usuarioValido || !contraseniaValido || !rolValido || !nombreValido || !apellidoValido) {
+            return false;
+        }
+
+        return true; // Todo en orden
     }
 
-    return true; // Todo en orden
+    // Refactoring
+    // 7. Función principal para el botón Aceptar
+    // function validarUsuarioModificado(checkboxUsuario, txtContrasenia) {
+    //     // Si el usuario no está activo, no se valida nada y se permite continuar
+    //     if (!checkboxUsuario.checked) {
+    //         return true;
+    //     }
+
+    //     enlazarEventos(); // Forzamos actualización de variables
+
+    //     // 1. Validamos los campos que SIEMPRE son obligatorios
+    //     const usuarioValido = validarCampo(txtUsuario);
+    //     const rolValido = validarCampo(ddlRol);
+    //     const nombreValido = validarCampo(txtNombre);
+    //     const apellidoValido = validarCampo(txtApellido);
+
+    //     // REPARACIÓN: Detectamos si realmente está deshabilitado según ASP.NET
+    //     const contraseniaRealmenteDeshabilitada = txtContrasenia.disabled || txtContrasenia.classList.contains("aspNetDisabled");
+
+    //     // 2. Validamos la contraseña SOLO si el campo NO está deshabilitado
+    //     let contraseniaValido = true;
+    //     if (!contraseniaRealmenteDeshabilitada) {
+    //         contraseniaValido = validarCampo(txtContrasenia);
+    //     }
+
+    //     // 3. Evaluamos el resultado final de todas las variables
+    //     if (!usuarioValido || !rolValido || !nombreValido || !apellidoValido || !contraseniaValido) {
+    //         return false; // Si alguno falla, bloqueamos el guardado
+    //     }
+
+    //     return true; // Todo en orden
+    // }
+
 }

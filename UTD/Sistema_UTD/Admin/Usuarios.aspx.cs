@@ -49,8 +49,8 @@ namespace Sistema_UTD.Admin
             lblDescripcionModalUsuario.InnerText = "Cree un usuario para dar acceso el sistema";
 
             // Para eliminar la carga fantasma del servidor con la notificación
-            alertaSatisfactoria.Style["display"] = "none"; 
-
+            alertaSatisfactoria.Style["display"] = "none";
+            
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUsuario();", true);
         }
 
@@ -79,7 +79,7 @@ namespace Sistema_UTD.Admin
                 // Agregar usuario nuevo
                 negocio.AgregarUsuario(nuevo);
 
-                // 2. Muestrar la alerta (le quitas el display:none)
+                // 2. Muestra la alerta (quita el display:none)
                 alertaSatisfactoria.Style["display"] = "block";
 
                 // Limpiar campos
@@ -102,7 +102,5 @@ namespace Sistema_UTD.Admin
             }
 
         }
-
-        
     }
 }

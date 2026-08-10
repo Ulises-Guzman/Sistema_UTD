@@ -70,6 +70,7 @@
                                     <i class="fs-4 bi bi-house-door"></i><span class="ms-3 d-none d-sm-inline">Inicio</span>
                                 </a>--%>
                                 <asp:HyperLink ID="hlkInicio"
+                                    ClientIDMode="Static"
                                     CssClass="nav-link px-0 align-middle text-white link-secondary"
                                     NavigateUrl="~/Default.aspx"
                                     runat="server">
@@ -109,6 +110,7 @@
                                 <%--<a href="Admin/usuarios.aspx" class="nav-link px-0 align-middle text-white link-secondary">
                                     <i class="fs-4 bi bi-people"></i><span class="ms-3 d-none d-sm-inline">usuarios</span> </a>--%>
                                 <asp:HyperLink ID="hlkUsuarios"
+                                    ClientIDMode="Static"
                                     CssClass="nav-link px-0 align-middle text-white link-secondary"
                                     NavigateUrl="~/Admin/Usuarios.aspx"
                                     runat="server">
@@ -163,6 +165,7 @@
                 </div>
             </div>
         </div>
+        <!-- Footer -->
         <div class="row">
             <div class="col bg-danger-subtle">
                 <h2>
@@ -176,6 +179,5 @@
     </form>
     <!-- JS Boostrap -->
     <script src="/Scripts/bootstrap.bundle.min.js"></script>
-    <%--<script src="/Scripts/modalUsuario.js"></script>--%>
 </body>
 </html>
