@@ -278,14 +278,43 @@ namespace Sistema_UTD.Negocio
             }
         }
 
-        public void CargarTarjetaTecnicos()
+        public string CargarTarjetaTecnicos()
         {
-            
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT COUNT(*) FROM Usuarios WHERE RolId = @rolId AND Activo = @activo");
+                datos.SetearParametro("@rolId", 2);
+                datos.SetearParametro("@activo", 1);
+
+                object resultado = datos.EjecutarScalar();
+                return resultado != null ? resultado.ToString() : "0";
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public void CargarTrajetaClientes()
+        public string CargarTrajetaClientes()
         {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("SELECT COUNT(*) FROM Usuarios WHERE RolId = @rolId AND Activo = @activo");
+                datos.SetearParametro("@rolId", 3);
+                datos.SetearParametro("@activo", 1);
 
+                object resultado = datos.EjecutarScalar();
+                return resultado != null ? resultado.ToString() : "0";
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

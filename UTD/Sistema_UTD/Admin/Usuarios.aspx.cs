@@ -36,8 +36,7 @@ namespace Sistema_UTD.Admin
                 ddlRol.DataTextField = "Descripcion";
                 ddlRol.DataBind();
 
-                UsuarioNegocio negocioUsuario = new UsuarioNegocio();
-                lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
+                CargarTarjetasUsuarios();
 
             }
         }
@@ -93,8 +92,7 @@ namespace Sistema_UTD.Admin
                 txtNombre.Text = string.Empty;
 
                 // Actualiza tarjetas
-                UsuarioNegocio negocioUsuario = new UsuarioNegocio();
-                lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
+                CargarTarjetasUsuarios();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
@@ -108,6 +106,14 @@ namespace Sistema_UTD.Admin
                 // 3. Pagina de error
             }
 
+        }
+
+        protected void CargarTarjetasUsuarios()
+        {
+            UsuarioNegocio negocioUsuario = new UsuarioNegocio();
+            lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
+            lblNumTecnico.Text = negocioUsuario.CargarTarjetaTecnicos();
+            lblNumCliente.Text = negocioUsuario.CargarTrajetaClientes();
         }
     }
 }
