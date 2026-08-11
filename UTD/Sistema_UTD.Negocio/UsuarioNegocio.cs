@@ -252,5 +252,40 @@ namespace Sistema_UTD.Negocio
                 datos.CerrarConexion();
             }
         }
+
+        public string CargarTarjetaAdministradores()
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT COUNT(*) FROM Usuarios WHERE RolId = @rolId AND Activo = @activo");
+                datos.SetearParametro("@rolId", 1);
+                datos.SetearParametro("@activo", 1);
+
+                // EjecutarScalar para obtener un solo valor y pasar a string
+                object resultado = datos.EjecutarScalar();
+                return resultado != null ? resultado.ToString() : "0";
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public void CargarTarjetaTecnicos()
+        {
+            
+        }
+
+        public void CargarTrajetaClientes()
+        {
+
+        }
     }
 }

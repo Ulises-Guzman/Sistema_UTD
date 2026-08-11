@@ -73,5 +73,25 @@ namespace Sistema_UTD.Datos
                 conexion.Close();
             conexion.Close();
         }
+
+        public object EjecutarScalar()
+        {
+            try
+            {
+                // 1. Asignar la conexión al comando
+                comando.Connection = conexion;
+
+                // 2. Abrir la conexión a la base de datos
+                conexion.Open();
+
+                // 3. Ejecutar y retornar el único valor (objeto)
+                return comando.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

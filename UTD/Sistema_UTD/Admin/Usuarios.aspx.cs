@@ -28,13 +28,16 @@ namespace Sistema_UTD.Admin
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
 
-                RolNegocio negocio = new RolNegocio();
-                List<Rol> lista = negocio.Listar();
+                RolNegocio negocioRol = new RolNegocio();
+                List<Rol> lista = negocioRol.Listar();
 
                 ddlRol.DataSource = lista;
                 ddlRol.DataValueField = "Id";
                 ddlRol.DataTextField = "Descripcion";
                 ddlRol.DataBind();
+
+                UsuarioNegocio negocioUsuario = new UsuarioNegocio();
+                lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
 
             }
         }
@@ -79,7 +82,7 @@ namespace Sistema_UTD.Admin
                 // Agregar usuario nuevo
                 negocio.AgregarUsuario(nuevo);
 
-                // 2. Muestra la alerta (quita el display:none)
+                // Muestra la alerta (quita el display:none)
                 alertaSatisfactoria.Style["display"] = "block";
 
                 // Limpiar campos
@@ -88,6 +91,10 @@ namespace Sistema_UTD.Admin
                 ddlRol.SelectedIndex = 0;
                 txtApellido.Text = string.Empty;
                 txtNombre.Text = string.Empty;
+
+                // Actualiza tarjetas
+                UsuarioNegocio negocioUsuario = new UsuarioNegocio();
+                lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }

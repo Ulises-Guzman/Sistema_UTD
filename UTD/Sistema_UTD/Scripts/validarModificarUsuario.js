@@ -132,38 +132,4 @@ function validarUsuarioModificado(checkboxUsuario, txtContrasenia) {
 
         return true; // Todo en orden
     }
-
-    // Refactoring
-    // 7. Función principal para el botón Aceptar
-    // function validarUsuarioModificado(checkboxUsuario, txtContrasenia) {
-    //     // Si el usuario no está activo, no se valida nada y se permite continuar
-    //     if (!checkboxUsuario.checked) {
-    //         return true;
-    //     }
-
-    //     enlazarEventos(); // Forzamos actualización de variables
-
-    //     // 1. Validamos los campos que SIEMPRE son obligatorios
-    //     const usuarioValido = validarCampo(txtUsuario);
-    //     const rolValido = validarCampo(ddlRol);
-    //     const nombreValido = validarCampo(txtNombre);
-    //     const apellidoValido = validarCampo(txtApellido);
-
-    //     // REPARACIÓN: Detectamos si realmente está deshabilitado según ASP.NET
-    //     const contraseniaRealmenteDeshabilitada = txtContrasenia.disabled || txtContrasenia.classList.contains("aspNetDisabled");
-
-    //     // 2. Validamos la contraseña SOLO si el campo NO está deshabilitado
-    //     let contraseniaValido = true;
-    //     if (!contraseniaRealmenteDeshabilitada) {
-    //         contraseniaValido = validarCampo(txtContrasenia);
-    //     }
-
-    //     // 3. Evaluamos el resultado final de todas las variables
-    //     if (!usuarioValido || !rolValido || !nombreValido || !apellidoValido || !contraseniaValido) {
-    //         return false; // Si alguno falla, bloqueamos el guardado
-    //     }
-
-    //     return true; // Todo en orden
-    // }
-
 }
