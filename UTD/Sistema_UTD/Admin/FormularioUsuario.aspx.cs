@@ -160,12 +160,7 @@ namespace Sistema_UTD.Admin
 
                     alertaSatisfactoria.Style["display"] = "block";
 
-                    // Limpieza de campos
-                    txtUsuario.Text = string.Empty;
-                    txtContrasenia.Text = string.Empty;
-                    ddlRol.SelectedIndex = 0;
-                    txtApellido.Text = string.Empty;
-                    txtNombre.Text = string.Empty;
+                    LimpiarCampos();
 
                     ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
                 }
@@ -187,12 +182,7 @@ namespace Sistema_UTD.Admin
 
                     alertaSatisfactoria.Style["display"] = "block";
 
-                    // Limpieza de campos
-                    txtUsuario.Text = string.Empty;
-                    txtContrasenia.Text = string.Empty;
-                    ddlRol.SelectedIndex = 0;
-                    txtApellido.Text = string.Empty;
-                    txtNombre.Text = string.Empty;
+                    LimpiarCampos();
 
                     ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
                 }
@@ -298,6 +288,15 @@ namespace Sistema_UTD.Admin
         protected void BloquearNotificacion() {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void LimpiarCampos()
+        {
+            txtUsuario.Text = string.Empty;
+            txtContrasenia.Text = string.Empty;
+            ddlRol.SelectedIndex = 0;
+            txtApellido.Text = string.Empty;
+            txtNombre.Text = string.Empty;
         }
     }
 }
