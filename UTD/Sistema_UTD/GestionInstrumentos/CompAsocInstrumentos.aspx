@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GestionCompAsocInst.aspx.cs" Inherits="Sistema_UTD.GestionInstrumentos.GestionCompAsocInst" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompAsocInstrumentos.aspx.cs" Inherits="Sistema_UTD.GestionInstrumentos.GestionCompAsocInst" %>
 
 <%@ MasterType VirtualPath="~/Site.Master" %>
 

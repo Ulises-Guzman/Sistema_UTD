@@ -42,31 +42,40 @@ namespace Sistema_UTD
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
-        /// Control lnkBtnGestionComponentes.
+        /// Control lnkBtnCompAsocModelos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnGestionComponentes;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocModelos;
 
         /// <summary>
-        /// Control lnkGestionComponentesAsoc.
+        /// Control lnkBtnCompAsocInstrumentos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkGestionComponentesAsoc;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocInstrumentos;
 
         /// <summary>
-        /// Control lnkBtnConfiguracionCuenta.
+        /// Control lnkBtnInstrumentosRecibidos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnConfiguracionCuenta;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnInstrumentosRecibidos;
+
+        /// <summary>
+        /// Control lnkBtnUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnUsuarios;
 
         /// <summary>
         /// Propiedad Master.

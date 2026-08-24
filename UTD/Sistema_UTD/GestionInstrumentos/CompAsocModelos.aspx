@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GestionCompModInst.aspx.cs" Inherits="Sistema_UTD.GestionInstrumentos.GestionCompModInst" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CompAsocModelos.aspx.cs" Inherits="Sistema_UTD.GestionInstrumentos.GestionCompModInst" %>
 
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
@@ -10,7 +10,7 @@
             <div class="p-3 bg-white shadow-sm rounded" data-bs-theme="ligth">
                 <h4>
                     <i class="bi bi-wrench-adjustable me-1"></i>
-                    Gestión componentes asociados a modelo de instrumentos
+                    Gestión componentes asociados a modelos de instrumentos
                 </h4>
                 <small class="mb-1 text-secondary">Agregue, modifique o desactive nuevos modelos, rangos y unidades de medida</small>
             </div>

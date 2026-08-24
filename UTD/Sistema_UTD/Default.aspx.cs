@@ -30,15 +30,19 @@ namespace Sistema_UTD
 
         }
 
-        protected void lnkBtnGestionComponentes_Click(object sender, EventArgs e)
+        protected void lnkBtnCompAsocModelos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/GestionInstrumentos/GestionCompModInst.aspx");
+            Response.Redirect("~/GestionInstrumentos/CompAsocModelos.aspx");
         }
 
-        protected void lnkGestionComponentesAsoc_Click(object sender, EventArgs e)
+        protected void lnkBtnCompAsocInstrumentos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/GestionInstrumentos/GestionCompAsocInst.aspx");
+            Response.Redirect("~/GestionInstrumentos/CompAsocInstrumentos.aspx");
         }
 
+        protected void lnkBtnUsuarios_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Admin/Usuarios.aspx");
+        }
     }
 }

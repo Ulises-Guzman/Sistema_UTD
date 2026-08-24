@@ -231,6 +231,7 @@ namespace Sistema_UTD.Admin
             txtBuscar.Text = "";
             txtBuscar.Enabled = !chkFiltro.Checked;
             pnlFiltroAvanzado.Visible = chkFiltro.Checked;
+            txtBuscarAvanzado.Text = "";
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)

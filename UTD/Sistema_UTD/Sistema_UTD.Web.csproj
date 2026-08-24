@@ -86,8 +86,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\icon-colors.css" />
     <Content Include="Default.aspx" />
-    <Content Include="GestionInstrumentos\GestionCompAsocInst.aspx" />
-    <Content Include="GestionInstrumentos\GestionCompModInst.aspx" />
+    <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
+    <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\alertUsuario.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -119,19 +119,19 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GestionInstrumentos\GestionCompAsocInst.aspx.cs">
-      <DependentUpon>GestionCompAsocInst.aspx</DependentUpon>
+    <Compile Include="GestionInstrumentos\CompAsocInstrumentos.aspx.cs">
+      <DependentUpon>CompAsocInstrumentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionInstrumentos\GestionCompAsocInst.aspx.designer.cs">
-      <DependentUpon>GestionCompAsocInst.aspx</DependentUpon>
+    <Compile Include="GestionInstrumentos\CompAsocInstrumentos.aspx.designer.cs">
+      <DependentUpon>CompAsocInstrumentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GestionInstrumentos\GestionCompModInst.aspx.cs">
-      <DependentUpon>GestionCompModInst.aspx</DependentUpon>
+    <Compile Include="GestionInstrumentos\CompAsocModelos.aspx.cs">
+      <DependentUpon>CompAsocModelos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GestionInstrumentos\GestionCompModInst.aspx.designer.cs">
-      <DependentUpon>GestionCompModInst.aspx</DependentUpon>
+    <Compile Include="GestionInstrumentos\CompAsocModelos.aspx.designer.cs">
+      <DependentUpon>CompAsocModelos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

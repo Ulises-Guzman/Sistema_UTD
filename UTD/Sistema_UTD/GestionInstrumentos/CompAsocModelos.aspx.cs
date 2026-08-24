@@ -17,7 +17,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 List<BreadcrumbItem> listaRutas = new List<BreadcrumbItem>
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Gestión de componentes", Url = "", EsActivo = true}
+                    new BreadcrumbItem { Titulo = "Gestión de componentes asociados", Url = "", EsActivo = true}
                 };
 
                 if (Master != null)
