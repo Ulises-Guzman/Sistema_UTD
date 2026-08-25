@@ -18,10 +18,20 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 mb-2">
+        <div class="col-xl-10 text-start mb-1">
+            <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                <h5>
+                    Destinos
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-10 mb-1">
             <asp:LinkButton ID="lnkAgregarDestino"
                 ClientIDMode="Static"
-                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
                 runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar destino <span class="float-end">></span>
@@ -32,7 +42,8 @@
     <div class="row justify-content-center text-center">
         <div class="col-xl-10 mb-4">
             <asp:LinkButton ID="lnkModificarDestino"
-                ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+                ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                runat="server">
                 <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                 Modificar destino <span class="float-end">></span>
             </asp:LinkButton>
@@ -40,8 +51,21 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 mb-2">
-            <asp:LinkButton ID="lnkAgregarSeccion" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+        <div class="col-xl-10 text-start mb-1">
+            <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                <h5>
+                    Secciones
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-10 mb-1">
+            <asp:LinkButton ID="lnkAgregarSeccion"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
+                runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar sección <span class="float-end">></span>
             </asp:LinkButton>
@@ -50,7 +74,10 @@
 
     <div class="row justify-content-center text-center">
         <div class="col-xl-10 mb-4">
-            <asp:LinkButton ID="lnkModificarSeccion" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+            <asp:LinkButton ID="lnkModificarSeccion"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                runat="server">
                 <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                 Modificar sección <span class="float-end">></span>
             </asp:LinkButton>
@@ -58,8 +85,21 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 mb-2">
-            <asp:LinkButton ID="lnkAgregarEstadoInst" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+        <div class="col-xl-10 text-start mb-1">
+            <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                <h5>
+                    Estados de instrumento
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-10 mb-1">
+            <asp:LinkButton ID="lnkAgregarEstadoInst"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
+                runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar estado de instrumento <span class="float-end">></span>
             </asp:LinkButton>
@@ -68,7 +108,10 @@
 
     <div class="row justify-content-center text-center">
         <div class="col-xl-10 mb-4">
-            <asp:LinkButton ID="lnkModificarEstadoInst" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+            <asp:LinkButton ID="lnkModificarEstadoInst"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                runat="server">
                 <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                 Modificar estado de instrumento <span class="float-end">></span>
             </asp:LinkButton>
@@ -76,8 +119,21 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 mb-2">
-            <asp:LinkButton ID="lnkAgregarTiempoHab" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+        <div class="col-xl-10 text-start mb-1">
+            <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                <h5>
+                    Tiempos de habilitación
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-10 mb-1">
+            <asp:LinkButton ID="lnkAgregarTiempoHab"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
+                runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar tiempo de habilitación <span class="float-end">></span>
             </asp:LinkButton>
@@ -86,7 +142,10 @@
 
     <div class="row justify-content-center text-center">
         <div class="col-xl-10 mb-4">
-            <asp:LinkButton ID="lnkModificarTiempoHab" ClientIDMode="Static" CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100" runat="server">
+            <asp:LinkButton ID="lnkModificarTiempoHab"
+                ClientIDMode="Static"
+                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                runat="server">
                 <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                 Modificar tiempo de habilitación <span class="float-end">></span>
             </asp:LinkButton>
