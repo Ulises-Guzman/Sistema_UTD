@@ -87,15 +87,6 @@ namespace Sistema_UTD.Admin
         protected global::System.Web.UI.WebControls.LinkButton lnkBtnModificarUsuario;
 
         /// <summary>
-        /// Control lnkBtnBuscarUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnBuscarUsuario;
-
-        /// <summary>
         /// Control lblTituloModalUsuario.
         /// </summary>
         /// <remarks>

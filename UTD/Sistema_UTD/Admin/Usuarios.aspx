@@ -41,26 +41,28 @@
                     <div class="row">
                         <div class="col-lg-3 mb-5">
                             <div class="card border-light shadow-sm">
-                                <div class="card-body">
-
+                                <div class="card-body d-flex flex-column">
                                     <h6 class="card-title"><i class="bi bi-pen me-2 fs-5"></i>Administradores</h6>
-                                    <asp:Label ID="lblNumAdministrador" ClientIDMode="Static" CssClass="card-text float-end fs-1" Text="0" runat="server"></asp:Label>
+                                    <asp:Label ID="lblNumAdministrador" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
+                                    <small class="text-secondary mt-auto">Activo</small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 mb-5">
                             <div class="card border-light shadow-sm">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h6 class="card-title"><i class="bi bi-wrench me-2 fs-5"></i>Técnicos</h6>
-                                    <asp:Label ID="lblNumTecnico" ClientIDMode="Static" CssClass="card-text float-end fs-1" Text="0" runat="server"></asp:Label>
+                                    <asp:Label ID="lblNumTecnico" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
+                                    <small class="text-secondary mt-auto">Activo</small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 mb-5">
                             <div class="card border-light shadow-sm">
-                                <div class="card-body">
+                                <div class="card-body d-flex flex-column">
                                     <h6 class="card-title"><i class="bi bi-person-standing me-2 fs-5"></i>Clientes</h6>
-                                    <asp:Label ID="lblNumCliente" ClientIDMode="Static" CssClass="card-text float-end fs-1" Text="0" runat="server"></asp:Label>
+                                    <asp:Label ID="lblNumCliente" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
+                                    <small class="text-secondary mt-auto">Activo</small>
                                 </div>
                             </div>
                         </div>
@@ -70,32 +72,42 @@
 
             <!-- Panel de botones -->
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 mb-2" data-bs-theme="light">
+                <div class="col-xl-10 text-start mb-1">
+                    <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                        <h5>
+                            Usuarios
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center text-center">
+                <div class="col-xl-10 mb-1" data-bs-theme="light">
                     <asp:LinkButton ID="lnkBtnCrearUsuario"
                         ClientIDMode="Static"
-                        CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100"
+                        CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
                         OnClick="lnkBtnCrearUsuario_Click"
                         runat="server">
-                        <i class="bi bi-person-add me-2 icon-green fs-4"></i>
+                        <i class="bi bi-person-add me-2 icon-green"></i>
                         Crear usuario <span class="float-end">></span>
                     </asp:LinkButton>
                 </div>
             </div>
 
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 mb-2" data-bs-theme="light">
+                <div class="col-xl-10 mb-4" data-bs-theme="light">
                     <asp:LinkButton ID="lnkBtnModificarUsuario"
                         ClientIDMode="Static"
-                        CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100"
+                        CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
                         OnClick="lnkBtnModificarUsuario_Click"
                         runat="server">
-                        <i class="bi bi-person-exclamation me-2 icon-orange fs-4"></i>
+                        <i class="bi bi-person-exclamation me-2 icon-orange"></i>
                         Modificar usuario <span class="float-end">></span>
                     </asp:LinkButton>
                 </div>
             </div>
 
-            <div class="row justify-content-center text-center">
+            <%--<div class="row justify-content-center text-center">
                 <div class="col-xl-10 mb-2" data-bs-theme="light">
                     <asp:LinkButton ID="lnkBtnBuscarUsuario"
                         ClientIDMode="Static"
@@ -105,7 +117,7 @@
                         Buscar usuario <span class="float-end">></span>
                     </asp:LinkButton>
                 </div>
-            </div>
+            </div>--%>
 
             <!-- Formulario Modal Crear Usuario -->
             <div class="modal fade" id="frmModalUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
