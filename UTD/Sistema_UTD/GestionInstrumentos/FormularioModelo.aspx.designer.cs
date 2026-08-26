@@ -11,8 +11,17 @@ namespace Sistema_UTD.GestionInstrumentos
 {
 
 
-    public partial class GestionCompModInst
+    public partial class Modelos
     {
+
+        /// <summary>
+        /// Control lblDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescripcion;
 
         /// <summary>
         /// Control ScriptManager1.
@@ -42,67 +51,40 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
-        /// Control lblNumModelo.
+        /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumModelo;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
-        /// Control lnkAgregarModelo.
+        /// Control txtBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarModelo;
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
 
         /// <summary>
-        /// Control lnkModificarModelo.
+        /// Control lnkBtnActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkModificarModelo;
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnActualizar;
 
         /// <summary>
-        /// Control lnkAgregarRango.
+        /// Control gvModelos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarRango;
-
-        /// <summary>
-        /// Control lnkModificarRango.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkModificarRango;
-
-        /// <summary>
-        /// Control lnkAgregarUnidadMedida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAgregarUnidadMedida;
-
-        /// <summary>
-        /// Control lnkModificarUnidadMedida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkModificarUnidadMedida;
+        protected global::System.Web.UI.WebControls.GridView gvModelos;
 
         /// <summary>
         /// Control lblTituloModalModelo.
@@ -130,6 +112,15 @@ namespace Sistema_UTD.GestionInstrumentos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtModelo;
+
+        /// <summary>
+        /// Control chkModeloActivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkModeloActivo;
 
         /// <summary>
         /// Control btnCancelar.

@@ -26,5 +26,30 @@ namespace Sistema_UTD.GestionInstrumentos
                 }
             }
         }
+
+        protected void lnkModificarModelo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/FormularioModelo.aspx");
+        }
+
+        protected void lnkAgregarModelo_Click(object sender, EventArgs e)
+        {
+            lblTituloModalModelo.Text = "Crear Modelo";
+            lblDescripcionModalModelo.InnerText = "Cree un modelo de para clasificar instrumentos";
+
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalModelo();", true);
+        }
+
+        protected void BloquearNotificacion()
+        {
+            // Para eliminar la carga fantasma del modal y la ejecución del update panel
+            alertaSatisfactoria.Style["display"] = "none";
+        }
+
+        // + Realizar
+        // Logica evento botón Aceptar
+        // Función para cargar la tarjeta de cantidad de modelos
     }
 }
