@@ -41,7 +41,7 @@
                         <div class="col-lg-3 mb-5">
                             <div class="card border-light shadow-sm">
                                 <div class="card-body d-flex flex-column">
-                                    <h6 class="card-title"><i class="bi bi-pen me-2 fs-5"></i>Modelos</h6>
+                                    <h6 class="card-title"><i class="bi bi-view-list me-2 fs-5"></i>Modelos</h6>
                                     <asp:Label ID="lblNumModelo" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
                                     <small class="text-secondary mt-auto">Activo</small>
                                 </div>
@@ -170,8 +170,8 @@
                 </div>
             </div>
 
-            <!-- Formularios modales para componentes -->
-            <!-- Formulario Modal Crear Modelo -->
+            <!-- Formularios modales para componentes asociados a modelos -->
+            <!-- Formulario modal crear modelo -->
             <div class="modal fade" id="frmModalModelo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -196,15 +196,13 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModeloNuevo();" runat="server" />
-                             <%--OnClick="btnAceptar_Click"--%>
-                        </div>
+                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModeloNuevo();" OnClick="btnAceptar_Click" runat="server" />
                     </div>
                 </div>
             </div>
-            <!-- Fin Formulario Modal Crear Modelo -->
+            <!-- Fin formulario modal crear modelo -->
 
-            <!-- Final de los fomularios modales de Altas -->
+            <!-- Fin formularios modales para componentes asociados a modelos -->
         </ContentTemplate>
     </asp:UpdatePanel>
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>

@@ -316,5 +316,58 @@ namespace Sistema_UTD.Negocio
                 throw ex;
             }
         }
+
+        public Usuario ValidarLogin(string nombUsuario, string contraseniaTextoPlano)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Usuario usuarioLogueado = null;
+
+            try
+            {
+                string consulta = "SELECT U.UsuarioId, U.Usuario, U.Contrasenia, U.Apellido, U.Nombre, U.Activo, U.RolId, R.Descripcion " +
+                                  "FROM Usuarios U " +
+                                  "INNER JOIN Roles R ON U.RolId = R.RolId " +
+                                  "WHERE U.Usuario = @usuario AND U.Activo = 1";
+
+                datos.SetearConsulta(consulta);
+                datos.SetearParametro("@usuario", nombUsuario);
+                datos.EjecutarLectura();
+
+                // Si el usuario existe
+                if (datos.Lector.Read())
+                {
+                    string contraseniaHash = (string)datos.Lector["Contrasenia"];
+
+                    bool loginValido = BCrypt.Net.BCrypt.Verify(contraseniaTextoPlano, contraseniaHash);
+
+                    if (loginValido)
+                    {
+                        // Instancio y mapeo el objeto completo
+                        usuarioLogueado = new Usuario();
+                        usuarioLogueado.Id = (int)datos.Lector["UsuarioId"];
+                        usuarioLogueado.NombUsuario = (string)datos.Lector["Usuario"];
+                        usuarioLogueado.Apellido = (string)datos.Lector["Apellido"];
+                        usuarioLogueado.Nombre = (string)datos.Lector["Nombre"];
+                        usuarioLogueado.Activo = (bool)datos.Lector["Activo"];
+
+                        usuarioLogueado.Rol = new Rol();
+                        usuarioLogueado.Rol.Id = (int)datos.Lector["RolId"];
+                        usuarioLogueado.Rol.Descripcion = (string)datos.Lector["Descripcion"];
+                    }
+                }
+
+                // Retornará null si el usuario no existe o si la contraseña es incorrecta
+                return usuarioLogueado;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

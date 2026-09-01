@@ -35,6 +35,7 @@
                 </div>
             </div>
 
+            <!-- Opciones del panel de control -->
             <div class="row justify-content-center text-center">
                 <div class="col-xl-5 mb-2">
 

@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Sistema_UTD.Dominio;
+using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Negocio;
 
 namespace Sistema_UTD.GestionInstrumentos
 {
@@ -46,6 +49,20 @@ namespace Sistema_UTD.GestionInstrumentos
         {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Modelo nuevo = new Modelo();
+                // Crear logica de negocio en la capa negocio
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         // + Realizar

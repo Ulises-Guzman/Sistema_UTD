@@ -50,8 +50,7 @@ namespace Sistema_UTD.Admin
             lblTituloModalUsuario.Text = "Crear Usuario";
             lblDescripcionModalUsuario.InnerText = "Cree un usuario para dar acceso el sistema";
 
-            // Para eliminar la carga fantasma del servidor con la notificación
-            alertaSatisfactoria.Style["display"] = "none";
+            BloquearNotificacion();
             
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUsuario();", true);
         }
@@ -114,6 +113,12 @@ namespace Sistema_UTD.Admin
             lblNumAdministrador.Text = negocioUsuario.CargarTarjetaAdministradores();
             lblNumTecnico.Text = negocioUsuario.CargarTarjetaTecnicos();
             lblNumCliente.Text = negocioUsuario.CargarTrajetaClientes();
+        }
+
+        protected void BloquearNotificacion()
+        {
+            // Para eliminar la carga fantasma del modal y la ejecución del update panel
+            alertaSatisfactoria.Style["display"] = "none";
         }
     }
 }
