@@ -92,6 +92,7 @@
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\calibre.jpg" />
+    <Content Include="Scripts\alertLogin.js" />
     <Content Include="Scripts\alertUsuario.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\modalModelo.js" />

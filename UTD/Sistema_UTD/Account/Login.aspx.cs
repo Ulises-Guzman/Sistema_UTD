@@ -43,6 +43,7 @@ namespace Sistema_UTD.Account
             else
             {
                 // Notificación de usuario o contraseña incorrectos, o cuenta inactiva.
+                alertaNoSatisfactoria.Style["display"] = "block";
             }
         }
     }

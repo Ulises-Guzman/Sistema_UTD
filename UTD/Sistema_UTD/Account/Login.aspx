@@ -23,8 +23,19 @@
                 <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
             </div>
 
-            <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary w-100" OnClick="btnIngresar_Click" runat="server" />
-        
+            <!-- Alerta de notificación -->
+
+            <%--<div id="alertaSatisfactoria" class="alert alert-success fade show" style="display: none" role="alert" runat="server">
+                ¡El usuario ha sido creado!
+            </div>--%>
+
+            <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClick="btnIngresar_Click" runat="server" />
+
+            <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+                Usuario o contraseña incorrectos!
+            </div>
+
         </div>
     </div>
+    <script src="/Scripts/alertLogin.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>
