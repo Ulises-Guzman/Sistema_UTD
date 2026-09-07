@@ -15,12 +15,47 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <style>
+         /* Clase personalizada para manejar la imagen de fondo */ 
+        .bg-login-image {
+            /* Sugerencia: Usa una imagen local de tu proyecto, ej: url('../Images/laboratorio.jpg') */
+            background-image: url('../Images/calibre.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /*.bg-login-image {
+            background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+        }*/
+    </style>
 </head>
 <body class="bg-light">
     <form id="form1" runat="server">
-        <div class="d-flex align-items-center justify-content-center vh-100">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+
+        <!-- Contenedor fluido sin márgenes internos (g-0) -->
+        <div class="container-fluid g-0">
+            <div class="row g-0 vh-100">
+
+                <!-- MITAD IZQUIERDA: Imagen de Fondo -->
+                <!-- d-none d-lg-block oculta la imagen en celulares para que el login ocupe todo el ancho -->
+                <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                </div>
+
+                <!-- MITAD DERECHA: Contenedor del Formulario -->
+                <!-- bg-light da un fondo gris sutil que resalta los campos de texto -->
+                <div class="col-lg-6 d-flex align-items-center justify-content-center bg-light">
+
+                    <!-- Restringimos el ancho máximo del formulario para que no se estire demasiado -->
+                    <div class="w-100" style="max-width: 450px; padding: 2rem;">
+
+                        <!-- Aquí es donde se inyectará el contenido de tu Login.aspx -->
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
     <!-- JS Boostrap -->
