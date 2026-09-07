@@ -1,4 +1,4 @@
-﻿'use strict'
+﻿'use strict';
 
 document.addEventListener("DOMContentLoaded", function () {
     var alertas = document.querySelectorAll('.alert');

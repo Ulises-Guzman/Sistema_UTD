@@ -98,6 +98,7 @@
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
+    <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarNuevoModelo.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />

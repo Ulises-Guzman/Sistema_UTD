@@ -16,11 +16,15 @@
             <div class="mb-3 text-start">
                 <label for="txtUsuario" class="form-label">Usuario</label>
                 <asp:TextBox ID="txtUsuario" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                <div class="invalid-feedback">Por favor, ingrese un usuario.</div>
+                <div class="valid-feedback">Ok</div>
             </div>
 
             <div class="mb-4 text-start">
                 <label for="txtContrasenia" class="form-label">Contraseña</label>
                 <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                <div class="invalid-feedback">Por favor, ingrese su contraseña.</div>
+                <div class="valid-feedback">Ok</div>
             </div>
 
             <!-- Alerta de notificación -->
@@ -29,7 +33,7 @@
                 ¡El usuario ha sido creado!
             </div>--%>
 
-            <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClick="btnIngresar_Click" runat="server" />
+            <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClientClick="return validarLogin()" OnClick="btnIngresar_Click" runat="server" />
 
             <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
                 Usuario o contraseña incorrectos!
@@ -37,5 +41,6 @@
 
         </div>
     </div>
+    <script src="/Scripts/validarLogin.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertLogin.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>
