@@ -24,7 +24,7 @@ namespace Sistema_UTD.Account
 
             if (usuarioValidado != null)
             {
-                Session["UsuarioLoguedo"] = usuarioValidado;
+                Session["UsuarioLogueado"] = usuarioValidado;
 
                 if (usuarioValidado.Rol.Id == 1) // Administrador
                 {

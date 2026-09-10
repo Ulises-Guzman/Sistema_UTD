@@ -11,7 +11,7 @@
     <link href="/Content/bootstrap-icons.min.css" rel="stylesheet" />
     <!-- CSS Personalizado -->
     <link href="/Content/icon-colors.css" rel="stylesheet" />
-
+    <link href="/Content/select-options.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -23,13 +23,16 @@
                 <nav class="navbar navbar-expand-lg mb-1 bg-white border-bottom" data-bs-theme="ligth">
                     <div class="container-fluid">
                         <i class="bi bi-nut-fill me-2 fs-4" aria-hidden="true"></i>
-                        <a class="navbar-brand" href=<%= ResolveUrl("~/Default.aspx") %>>Sistema UTD</a>
+                        <a class="navbar-brand fs-4" href='<%= ResolveUrl("~/Default.aspx") %>'>Sistema UTD</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav me-auto">
-                                <li class="nav-item">
+                                <%--<li>
+                                    <asp:Label ID="lblBienvenidaUsuario" CssClass="ms-5 fw-semibold text-secondary" runat="server"></asp:Label>
+                                </li>--%>
+                                <%--<li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
@@ -37,16 +40,27 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Pricing</a>
-                                </li>
+                                </li>--%>
                             </ul>
                             <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link
-                                    </a>
+                                <li class="nav-item dropdown d-flex align-items-center">
+
+                                    <i class="bi bi-person-circle fs-4"></i>
+                                    <a class="nav-link dropdown-toggle fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" id="lnkLblAvatar" runat="server"></a>
+
                                     <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" href='<%= ResolveUrl("~/Default.aspx") %>'>Panel de control</a></li>
+                                        <li><a class="dropdown-item" href="#">Configuración</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <asp:Button ID="btnCerrarSesion"
+                                                CssClass="dropdown-item text-danger" 
+                                                Text="Cerrar sesión" 
+                                                OnClick="btnCerrarSesion_Click"
+                                                runat="server" />
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>

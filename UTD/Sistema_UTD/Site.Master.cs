@@ -13,9 +13,9 @@ namespace Sistema_UTD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UsuarioLoguedo"] == null)
+            if (Session["UsuarioLogueado"] == null)
             {
-                Response.Redirect("~/Login.aspx", false);
+                Response.Redirect("~/Account/Login.aspx", false);
 
                 // Detiene cualquier otro proceso que la página intentara hacer
                 Context.ApplicationInstance.CompleteRequest();
@@ -29,6 +29,9 @@ namespace Sistema_UTD
                     Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
 
                     // Cargar la Navbar con el usuario loguedo
+                    //lblBienvenidaUsuario.Text = $"Hola, {usuarioActual.Nombre}...";
+                    lnkLblAvatar.InnerText += $"{usuarioActual.Nombre} {usuarioActual.Apellido}";
+                    
                 }
             }
         }
@@ -37,6 +40,14 @@ namespace Sistema_UTD
         {
             rptBreadcrumbs.DataSource = item;
             rptBreadcrumbs.DataBind();
+        }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            System.Web.Security.FormsAuthentication.SignOut();
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("~/Account/Login.aspx", false);
         }
     }
 }

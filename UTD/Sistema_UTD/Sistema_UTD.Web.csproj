@@ -86,6 +86,7 @@
     <Content Include="Content\bootstrap-icons.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\icon-colors.css" />
+    <Content Include="Content\select-options.css" />
     <Content Include="Default.aspx" />
     <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
     <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
