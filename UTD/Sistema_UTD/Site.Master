@@ -15,7 +15,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="bg-light">
+<body class="bg-body-secondary">
     <form id="form1" runat="server">
         <!-- Navbar -->
         <div class="row">

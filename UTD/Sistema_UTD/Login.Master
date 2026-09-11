@@ -30,7 +30,7 @@
         }*/
     </style>
 </head>
-<body class="bg-light">
+<body class="bg-body-secondary">
     <form id="form1" runat="server">
 
         <!-- Contenedor fluido sin márgenes internos (g-0) -->

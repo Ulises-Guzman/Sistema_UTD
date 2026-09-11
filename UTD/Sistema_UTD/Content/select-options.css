@@ -2,10 +2,10 @@
 
 /* Sobrescribe las variables nativas de Bootstrap para este dropdown */
 .dropdown-menu {
-    --bs-dropdown-link-hover-bg: #e9ecef !important; /* Cambia aquí el fondo al pasar el mouse (ej: gris claro) */
-    --bs-dropdown-link-hover-color: #111111 !important; /*Color del texto al pasar el mouse*/
+    /*--bs-dropdown-link-hover-bg: #e9ecef !important;*/ /* Cambia el fondo al pasar el mouse (ej: gris claro) */
+    /*--bs-dropdown-link-hover-color: #111111 !important;*/ /*Color del texto al pasar el mouse*/
 
-    --bs-dropdown-link-active-bg: #e9ecef !important; /* Cambia aquí el fondo cuando está seleccionado/activo */
+    --bs-dropdown-link-active-bg: #e9ecef !important; /* Cambia el fondo cuando está seleccionado/activo */
     --bs-dropdown-link-active-color: #535352 !important;
     /* Forzar la anulación de estados clásicos para enlaces e inputs de ASP.NET */
     .dropdown-menu .dropdown-item,
@@ -13,8 +13,8 @@
     .dropdown-menu .dropdown-item:focus,
     .dropdown-menu .dropdown-item:active,
     .dropdown-menu .dropdown-item:focus-visible {
-        /*background-color: #e9ecef !important;*/ /* Pon aquí el color que desees (o 'transparent') */
-        /*color: # !important;*/ /* Pon aquí el color del texto */
+        /*background-color: #e9ecef !important;*/ /* Poner el color que quiero (o 'transparent') */
+        /*color: # !important;*/ /* Poner el color del texto */
         box-shadow: none !important; /* Elimina el resplandor azul de enfoque */
         outline: none !important;
     }
