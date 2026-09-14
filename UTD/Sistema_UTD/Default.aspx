@@ -64,7 +64,7 @@
                         <div class="col-xl">
                             <asp:LinkButton ID="lnkBtnCompAsocInstrumentos"
                                 ClientIDMode="Static"
-                                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 rounded-bottom"
+                                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
                                 OnClick="lnkBtnCompAsocInstrumentos_Click"
                                 runat="server">
                                 <i class="bi bi-wrench-adjustable-circle me-2 fs-4"></i>
