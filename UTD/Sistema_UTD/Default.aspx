@@ -39,8 +39,8 @@
             <div class="row justify-content-center text-center">
                 <div class="col-xl-5 mb-2">
 
-                    <div class="col-xl text-start mb-1">
-                        <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                    <div class="col-xl text-start border-bottom">
+                        <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
                             <h5>Gestión de componentes asociados
                             </h5>
                             <small class="mb-1 text-secondary">Agregue componentes para asociar a los modelos de instrumentos o instrumentos recibidos</small>
@@ -48,10 +48,10 @@
                     </div>
 
                     <div class="row justify-content-center text-center">
-                        <div class="col-xl- mb-1">
+                        <div class="col-xl border-bottom">
                             <asp:LinkButton ID="lnkBtnCompAsocModelos"
                                 ClientIDMode="Static"
-                                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0"
+                                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
                                 OnClick="lnkBtnCompAsocModelos_Click"
                                 runat="server">
                                 <i class="bi bi-wrench-adjustable me-2 fs-4"></i>
@@ -61,10 +61,10 @@
                     </div>
 
                     <div class="row justify-content-center text-center">
-                        <div class="col-xl mb-1">
+                        <div class="col-xl">
                             <asp:LinkButton ID="lnkBtnCompAsocInstrumentos"
                                 ClientIDMode="Static"
-                                CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 rounded-bottom"
                                 OnClick="lnkBtnCompAsocInstrumentos_Click"
                                 runat="server">
                                 <i class="bi bi-wrench-adjustable-circle me-2 fs-4"></i>
@@ -77,8 +77,8 @@
                 <%--<div class="row">--%>
                 <div class="col-xl-5 mb-2">
 
-                    <div class="col-xl text-start mb-1">
-                        <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                    <div class="col-xl text-start border-bottom">
+                        <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
                             <h5>Gestión de instrumentos recibidos
                             </h5>
                             <small class="mb-1 text-secondary">Registre instrumentos recibidos</small>
@@ -95,8 +95,8 @@
                         </asp:LinkButton>
                     </div>
 
-                    <div class="col-xl text-start mb-1">
-                        <div class="p-3 bg-white shadow-sm rounded-top" data-bs-theme="ligth">
+                    <div class="col-xl text-start border-bottom">
+                        <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
                             <h5>Gestión de usuarios
                             </h5>
                             <small class="mb-1 text-secondary">Administre usuarios y sus datos</small>
