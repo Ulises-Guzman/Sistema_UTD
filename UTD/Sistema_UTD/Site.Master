@@ -56,8 +56,8 @@
                                         </li>
                                         <li>
                                             <asp:Button ID="btnCerrarSesion"
-                                                CssClass="dropdown-item text-danger" 
-                                                Text="Cerrar sesión" 
+                                                CssClass="dropdown-item text-danger"
+                                                Text="Cerrar sesión"
                                                 OnClick="btnCerrarSesion_Click"
                                                 runat="server" />
                                         </li>
@@ -69,14 +69,15 @@
                 </nav>
             </div>
         </div>
+
         <!-- Sidebar -->
         <div class="container-xxl">
             <div class="row flex-nowrap">
                 <%--<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-body-tertiary--%>
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark rounded shadow-sm">
+                <div id="contenedorSidebar" class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark rounded shadow-sm">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
-                        <a href="#" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none text-white link-secondary">
-                            <i class="fs-5 bi bi-list"></i><span class="fs-5 ms-3 d-none d-sm-inline">Menú</span>
+                        <a href="#" id="btnToggleMenu" class="d-flex align-items-center pb-3 mb-sm-0 text-decoration-none text-white link-secondary">
+                            <i class="fs-4 bi bi-list"></i><span class="fs-5 ms-3 d-none d-sm-inline">Menú</span>
                         </a>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
@@ -136,11 +137,31 @@
                                     <i class="fs-4 bi bi-cone-striped"></i><span class="ms-3 d-none d-sm-inline">Auditoría</span> </a>
                             </li>
                         </ul>
-                        
-                        
                     </div>
                 </div>
 
+                <!-- SCRIPT ANTI-PARPADEO -->
+                <script>
+                    (function () {
+                        if (localStorage.getItem("sidebarMinimizada") === "true") {
+                            var sidebar = document.getElementById("contenedorSidebar");
+                            if (sidebar) {
+                                // Quitar las clases de expansión antes de que se dibuje en pantalla
+                                sidebar.classList.remove("col-md-3", "col-xl-2", "px-sm-2");
+
+                                var spans = sidebar.querySelectorAll("span");
+                                spans.forEach(function (s) { s.classList.remove("d-sm-inline"); });
+
+                                var divInt = sidebar.querySelector("div.d-flex.flex-column");
+                                if (divInt) divInt.classList.remove("align-items-sm-start");
+
+                                var ulMenu = document.getElementById("menu");
+                                if (ulMenu) ulMenu.classList.remove("align-items-sm-start");
+                            }
+                        }
+                    })();
+                </script>
+                <!-- Fin script anti-parpadeo -->
 
                 <div class="col">
                     <div class="row">
@@ -179,5 +200,6 @@
     </form>
     <!-- JS Boostrap -->
     <script src="/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="/Scripts/sidebar.js?v=<%= DateTime.Now.Ticks %>"></script>
 </body>
 </html>
