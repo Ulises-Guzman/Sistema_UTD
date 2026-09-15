@@ -53,17 +53,17 @@ La documentación técnica, de análisis y los manuales de usuario se encuentran
 
 ### 🛠️ Ingeniería y Diseño
 
-* [Casos de Uso y Especificaciones](docs/casos-uso.md)
-* [Modelo de Dominio Conceptual](docs/modelo-dominio.md)
-* [Arquitectura del Sistema](docs/arquitectura.md)
-* [Estructura de Base de Datos y Diccionario de Datos](docs/base-datos.md)
-* [Diseño de UI / UX](docs/interfaz.md)
+* [Casos de Uso y Especificaciones](UTD/docs/casos-uso.md)
+* [Modelo de Dominio Conceptual](UTD/docs/modelo-dominio.md)
+* [Arquitectura del Sistema](UTD/docs/arquitectura.md)
+* [Estructura de Base de Datos y Diccionario de Datos](UTD/docs/base-datos.md)
+* [Diseño de UI / UX](UTD/docs/interfaz.md)
 
 ### 📖 Manuales de Usuario
 
 Instructivos segmentados según el rol dentro del sistema:
 
-1. [Guía para Gerencia y Auditores de Calidad](docs/manuales/manual-gerencia.md)
-2. [Manual de Configuración para Administradores](docs/manuales/manual-administrador.md)
-3. [Manual Operativo para Técnicos de Metrología](docs/manuales/manual-tecnico.md)
-4. [Guía de Consulta Rápida para Clientes](docs/manuales/guia-cliente.md)
+1. [Guía para Gerencia y Auditores de Calidad](UTD/docs/manuales/manual-gerencia.md)
+2. [Manual de Configuración para Administradores](UTD/docs/manuales/manual-administrador.md)
+3. [Manual Operativo para Técnicos de Metrología](UTD/docs/manuales/manual-tecnico.md)
+4. [Guía de Consulta Rápida para Clientes](UTD/docs/manuales/guia-cliente.md)
