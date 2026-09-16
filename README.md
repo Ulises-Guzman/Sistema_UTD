@@ -17,7 +17,7 @@ El proyecto está desarrollado utilizando un entorno robusto y corporativo:
 * **Backend:** C# con .NET Framework.
 * **Base de Datos:** SQL Server.
 * **Acceso a Datos:** ADO.NET puro (con control manual de consultas `SqlConnection` y `SqlCommand`).
-* **Frontend / UI:** ASP.NET WebForms integrando **Bootstrap 5** para un diseño responsivo (implementando `Site.Master` para el dashboard y `Login.Master` para el acceso).
+* **Frontend / UI:** ASP.NET WebForms integrando **Bootstrap 5** para un diseño responsivo. Implementando secciones con seguridad particular y secciones de acceso público (ej. página de login).
 * **Seguridad:** Encriptación de contraseñas mediante.
 * **Generación de Reportes:** Creación de PDFs.
 
