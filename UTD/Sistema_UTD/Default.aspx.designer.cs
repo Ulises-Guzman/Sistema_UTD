@@ -42,6 +42,15 @@ namespace Sistema_UTD
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
+        /// Control lnkBtnModesIntrumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnModesIntrumento;
+
+        /// <summary>
         /// Control lnkBtnInstrumentosRecibidos.
         /// </summary>
         /// <remarks>

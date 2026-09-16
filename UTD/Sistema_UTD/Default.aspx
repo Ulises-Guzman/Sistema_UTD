@@ -44,10 +44,20 @@
 
                     <div class="col-xl text-start border-bottom">
                         <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
-                            <h5>Gestión de instrumentos recibidos
+                            <h5>Gestión de Instrumentos
                             </h5>
-                            <small class="mb-1 text-secondary">Registre instrumentos recibidos</small>
+                            <small class="mb-1 text-secondary">Registre modelos de instrumento o instrumentos recibidos</small>
                         </div>
+                    </div>
+
+                    <div class="col-xl">
+                        <asp:LinkButton ID="lnkBtnModesIntrumento"
+                            ClientIDMode="Static"
+                            CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
+                            runat="server">
+                            <i class="bi bi-wrench-adjustable-circle  me-2 fs-4"></i>
+                            Modelos de instrumento <span class="float-end">></span>
+                        </asp:LinkButton>
                     </div>
 
                     <div class="col-xl mb-4">
@@ -77,8 +87,9 @@
                             Usuarios <span class="float-end">></span>
                         </asp:LinkButton>
                     </div>
-                </div> <!-- Fin primera mitad -->
-               
+                </div>
+                <!-- Fin primera mitad -->
+
                 <!-- Segunda mitad -->
                 <div class="col-xl-5 mb-2">
 
@@ -86,7 +97,7 @@
                         <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
                             <h5>Gestión de componentes asociados
                             </h5>
-                            <small class="mb-1 text-secondary">Agregue componentes para asociar a los modelos de instrumentos o instrumentos recibidos</small>
+                            <small class="mb-1 text-secondary">Agregue componentes para asociar a los modelos de instrumento o instrumentos recibidos</small>
                         </div>
                     </div>
 
@@ -97,8 +108,8 @@
                                 CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
                                 OnClick="lnkBtnCompAsocModelos_Click"
                                 runat="server">
-                                <i class="bi bi-wrench-adjustable me-2 fs-4"></i>
-                                Modelos de instrumentos <span class="float-end">></span>
+                                <i class="bi bi-plus-circle me-2 fs-4"></i>
+                                Modelos de instrumento <span class="float-end">></span>
                             </asp:LinkButton>
                         </div>
                     </div>
@@ -110,13 +121,14 @@
                                 CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
                                 OnClick="lnkBtnCompAsocInstrumentos_Click"
                                 runat="server">
-                                <i class="bi bi-wrench-adjustable-circle me-2 fs-4"></i>
+                                <i class="bi bi-plus-circle me-2 fs-4"></i>
                                 Instrumentos <span class="float-end">></span>
                             </asp:LinkButton>
                         </div>
                     </div>
 
-                </div> <!-- Fin segunda mitad -->
+                </div>
+                <!-- Fin segunda mitad -->
 
             </div>
 
