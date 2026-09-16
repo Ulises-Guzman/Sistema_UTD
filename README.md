@@ -1,6 +1,6 @@
 # 
 
-# Sistema_UTD [ Unidad Técnica Dimensional ]
+# Sistema_UTD (Unidad Técnica Dimensional)
 
 ## 🔬 Sistema de Metrología y Trazabilidad
 
@@ -39,11 +39,11 @@ La Solución de Visual Studio se divide en los siguientes proyectos lógicos:
 
 ## ✨ Características Principales
 
-* **Dashboard Analítico:** Panel principal con indicadores visuales y semáforos (Verde, Amarillo, Rojo) para el control rápido de equipos vigentes y vencidos[cite: 1].
+* **Dashboard Analítico:** Panel principal con indicadores visuales y semáforos (Verde, Amarillo, Rojo) para el control rápido de equipos vigentes y vencidos.
 * **Gestión de Activos Dual:** Separación arquitectónica entre el *Catálogo de Modelos* (especificaciones de fábrica) y los *Instrumentos Físicos* (instancias con Número de Serie único).
 * **Motor de Calibraciones:** Registro estructurado Maestro-Detalle de mediciones (Valor Nominal vs. Valor Leído) con cálculo de error almacenado de forma persistente en SQL Server para máxima trazabilidad.
 * **Trazabilidad de Patrones:** Enlace estricto en la base de datos entre la calibración actual y el Patrón de Referencia primario utilizado durante el ensayo.
-* **Rastro de Auditoría (Audit Trail):** Tablas diseñadas con campos de `FechaCreacion`, `UsuarioCreacionId`.
+* **Rastro de Auditoría (Audit Trail):** Tablas diseñadas con campos de registro automático, cronológico e inmutable que detalla todas las acciones y eventos realizados sobre los datos.
 
 ---
 
