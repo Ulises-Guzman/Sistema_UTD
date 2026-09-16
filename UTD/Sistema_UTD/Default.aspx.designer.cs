@@ -42,24 +42,6 @@ namespace Sistema_UTD
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
-        /// Control lnkBtnCompAsocModelos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocModelos;
-
-        /// <summary>
-        /// Control lnkBtnCompAsocInstrumentos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocInstrumentos;
-
-        /// <summary>
         /// Control lnkBtnInstrumentosRecibidos.
         /// </summary>
         /// <remarks>
@@ -76,6 +58,24 @@ namespace Sistema_UTD
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkBtnUsuarios;
+
+        /// <summary>
+        /// Control lnkBtnCompAsocModelos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocModelos;
+
+        /// <summary>
+        /// Control lnkBtnCompAsocInstrumentos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCompAsocInstrumentos;
 
         /// <summary>
         /// Propiedad Master.
