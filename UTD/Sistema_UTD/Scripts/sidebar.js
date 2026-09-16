@@ -25,16 +25,16 @@
             e.preventDefault();
             btnMenu.blur();
 
-            // Leemos cómo está actualmente
+            // Lee cómo está actualmente
             let estadoMinimizado = localStorage.getItem("sidebarMinimizada") === "true";
 
-            // Lo invertimos
+            // Lo inverte
             estadoMinimizado = !estadoMinimizado;
 
-            // Guardamos el nuevo estado en la memoria
+            // Guarda el nuevo estado en la memoria
             localStorage.setItem("sidebarMinimizada", estadoMinimizado);
 
-            // Aplicamos los cambios visuales con animación
+            // Aplica los cambios visuales con animación
             aplicarEstadoSidebar(estadoMinimizado);
         });
     }
