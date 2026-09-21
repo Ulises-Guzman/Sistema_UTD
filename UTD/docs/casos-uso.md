@@ -433,6 +433,12 @@
 | **Flujos Alternativos/Excepciones** | -                                                                                                          |
 | **Postcondiciones**                 | Las consultas y actualiación de información quedan ejecutadas. Se ejecuta la actualización de información. |
 
+## 🛠️ Rol Técnico
+
+## 🧑‍🔧 Rol Cliente
+
+---
+
 ## 🎯Requisitos funcionales
 
 | #    | Descripción                                                                     | Caso de uso                      |
