@@ -22,6 +22,10 @@
 
 ## 🧑‍🔧 Rol cliente
 
+![](imagenes/Cli_Modulo_Seguridad_Auditoria.png)
+
+![](imagenes/Cli_Modulo_Operaciones_Calibraciones.png)
+
 ---
 
 # Planilla de especificación
@@ -764,7 +768,7 @@
 | **Breve descripción**               | El administrador ingresa sus credenciales para ingresar al sistema.                                                                                            |
 | **Precondiciones**                  | 1. El usuario debe estar dado de alta en el sistema. (*Por default*)                                                                                           |
 | **Flujo Principal**                 | 1. El actor ejecuta la funcionalidad de cerrar sesión.                                                                                                         |
-|                                     | 2. (*Inclusión*) El sistema invoca el caso de uso **"Registrar cierre de sesión".**                                                                            |
+|                                     | 2. (*Inclusión*) El sistema invoca el caso de uso *"Registrar cierre de sesión".*                                                                              |
 |                                     | 3. El actor es rediregido a la pantalla de login.                                                                                                              |
 | **Flujos Alternativos/Excepciones** | `include`: *El sistema registra el cierre de sesión:* el sistema ejecuta la funcionalidad de registrar los logs del cierre de sesión con los datos requeridos. |
 | **Postcondiciones**                 | La redirección a la pantalla loginse realiza y queda registrado el cierre de sesión.                                                                           |
@@ -783,6 +787,96 @@
 | **Flujos Alternativos/Excepciones** | -                                                                     |
 | **Postcondiciones**                 | El registro de cierre de sesión queda realizado.                      |
 
+---
+
 ## 🧑‍🔧 Rol Cliente
+
+## Especificación de caso de uso: CU-01
+
+| Campo                               | Descripción                                                                                                                                          |
+|:----------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Iniciar sesión                                                                                                                                       |
+| **Actor Principal**                 | Cliente                                                                                                                                              |
+| **Actores Secundarios**             | Sistema (*Incluye Registrar inicio de sesión*)                                                                                                       |
+| **Breve descripción**               | El Cliente ingresa sus credenciales para ingresar al sistema.                                                                                        |
+| **Precondiciones**                  | 1. El usuario debe estar dado de alta en el sistema. (*Por default*).                                                                                |
+| **Flujo Principal**                 | 1. El actor ingresa sus credenciales para entrar al sistema.                                                                                         |
+|                                     | 2. (*Inclusión*) El sistema invoca el CU-02: *"Registrar inicio de sesión"*.                                                                         |
+|                                     | 3. El actor es rediregido a la pantalla por defecto.                                                                                                 |
+| **Flujos Alternativos/Excepciones** | `include`: *El sistema registra el inicio de sesión:* el sistema ejecuta la funcionalidad de registrar el inicio de sesión con los datos requeridos. |
+| **Postcondiciones**                 | La redirección a la pantalla default se realiza y queda registrado el inicio de sesión.                                                              |
+
+## Especificación de caso de uso: CU-02 (*CU-Sistema*)
+
+| Campo                               | Descripción                                                           |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Registrar inicio de sesión                                            |
+| **Actor Principal**                 | Sistema                                                               |
+| **Actores Secundarios**             | -                                                                     |
+| **Breve descripción**               | El sistema realiza el registro de datos de inicio de sesión.          |
+| **Precondiciones**                  | 1. El usuario, para registrar logs, debe estar dado de alta y activo. |
+| **Flujo Principal**                 | 1. Es llamado desde el CU-01: *Iniciar sesión*.                       |
+|                                     | 2. Realiza la acción automatizada.                                    |
+| **Flujos Alternativos/Excepciones** | -                                                                     |
+| **Postcondiciones**                 | El registro de inicio de sesión queda realizado.                      |
+
+## Especificación de caso de uso: CU-03 (*CU-Sistema*)
+
+| Campo                               | Descripción                                                                              |
+| ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Ejecutar alarmas y notificaciones                                                        |
+| **Actor Principal**                 | Sistema                                                                                  |
+| **Actores Secundarios**             | -                                                                                        |
+| **Breve descripción**               | El sistema realiza el llamado a la ejecución de alarmas y notificaciones.                |
+| **Precondiciones**                  | 1. El usuario debe estar dado de alta.                                                   |
+|                                     | 2. Los insturmentos respectivos deben estar dados de alta.                               |
+| **Flujo Principal**                 | 1. Es llamado luego de la realización del CU-01: *iniciar sesión*.                       |
+|                                     | 2. Realiza la acción automatizada.                                                       |
+| **Flujos Alternativos/Excepciones** | -                                                                                        |
+| **Postcondiciones**                 | Las alarmas y notificaciones fueron ejecutadas. Se muestra actualización de información. |
+
+## Especificación de caso de uso: CU-04 (*CU-Sistema*)
+
+| Campo                               | Descripción                                                                                                |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Ejecutar consulta para dashboard                                                                           |
+| **Actor Principal**                 | Sistema                                                                                                    |
+| **Actores Secundarios**             | -                                                                                                          |
+| **Breve descripción**               | El sistema realiza las consultas necesarias para actualizar la información que se quiere mostrar.          |
+| **Precondiciones**                  | 1. El usuario debe estar dado de alta.                                                                     |
+|                                     | 2. Los insturmentos respectivos deben estar dados de alta.                                                 |
+| **Flujo Principal**                 | 1. Es llamado luego de la realización del CU-01: *iniciar sesión*.                                         |
+|                                     | 2. Realiza la acción automatizada.                                                                         |
+| **Flujos Alternativos/Excepciones** | -                                                                                                          |
+| **Postcondiciones**                 | Las consultas y actualiación de información quedan ejecutadas. Se ejecuta la actualización de información. |
+
+## Especificación de caso de uso: CU-27
+
+| Campo                               | Descripción                                                                                                                                                    |
+|:----------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Cerrar sesión                                                                                                                                                  |
+| **Actor Principal**                 | Cliente                                                                                                                                                        |
+| **Actores Secundarios**             | Sistema (*Incluye Registrar cierre de sesión*)                                                                                                                 |
+| **Breve descripción**               | El Cliente ingresa sus credenciales para ingresar al sistema.                                                                                                  |
+| **Precondiciones**                  | 1. El usuario debe estar dado de alta en el sistema. (*Por default*)                                                                                           |
+| **Flujo Principal**                 | 1. El actor ejecuta la funcionalidad de cerrar sesión.                                                                                                         |
+|                                     | 2. (*Inclusión*) El sistema invoca el caso de uso *"Registrar cierre de sesión".*                                                                              |
+|                                     | 3. El actor es rediregido a la pantalla de login.                                                                                                              |
+| **Flujos Alternativos/Excepciones** | `include`: *El sistema registra el cierre de sesión:* el sistema ejecuta la funcionalidad de registrar los logs del cierre de sesión con los datos requeridos. |
+| **Postcondiciones**                 | La redirección a la pantalla loginse realiza y queda registrado el cierre de sesión.                                                                           |
+
+## Especificación de caso de uso: CU-28 (*CU-Sistema*)
+
+| Campo                               | Descripción                                                           |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| **Nombre del Caso de Uso**          | Registrar cierre de sesión                                            |
+| **Actor Principal**                 | Sistema                                                               |
+| **Actores Secundarios**             | -                                                                     |
+| **Breve descripción**               | El sistema realiza el registro de datos de cierre de sesión.          |
+| **Precondiciones**                  | 1. El usuario, para registrar logs, debe estar dado de alta y activo. |
+| **Flujo Principal**                 | 1. Es llamado desde el CU-27: *Cerrar sesión*.                        |
+|                                     | 2. Realiza la acción automatizada.                                    |
+| **Flujos Alternativos/Excepciones** | -                                                                     |
+| **Postcondiciones**                 | El registro de cierre de sesión queda realizado.                      |
 
 ---
