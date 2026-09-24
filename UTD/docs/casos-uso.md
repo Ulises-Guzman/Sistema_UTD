@@ -2,15 +2,11 @@
 
 ## 🔑 Rol administrador
 
-<img title="" src="imagenes\Modulo_Catalogos.png" alt="" data-align="center">
+![](imagenes/Modulo_Seguridad_Auditoria.png)
 
+![](imagenes/Modulo_Catalogos.png)
 
-
-<img src="imagenes/Modulo_Seguridad_Auditoria.png" title="" alt="" data-align="center">
-
-
-
-<img src="imagenes/Modulo_Operaciones_Calibraciones.png" title="" alt="" data-align="center">
+![](imagenes/Modulo_Operaciones_Calibraciones.png)
 
 ---
 
