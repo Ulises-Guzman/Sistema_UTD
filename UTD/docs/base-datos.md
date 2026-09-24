@@ -8,7 +8,7 @@
 
 ## 📄Diagrama de clases
 
-![](imagenes/DC_DB.png)
+![](imagenes/Diagrama%20de%20Clase%20DB.png)
 
 ---
 
