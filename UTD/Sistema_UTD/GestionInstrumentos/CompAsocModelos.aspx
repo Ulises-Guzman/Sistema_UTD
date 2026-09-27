@@ -34,41 +34,6 @@
                 </div>
             </div>
 
-            <!-- Panel de tarjetas -->
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    <div class="row">
-                        <div class="col-lg-3 mb-5">
-                            <div class="card border-light shadow-sm">
-                                <div class="card-body d-flex flex-column">
-                                    <h6 class="card-title"><i class="bi bi-view-list me-2 fs-5"></i>Modelos</h6>
-                                    <asp:Label ID="lblNumModelo" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
-                                    <small class="text-secondary mt-auto">Activo</small>
-                                </div>
-                            </div>
-                        </div>
-                        <%--<div class="col-lg-3 mb-5">
-                    <div class="card border-light shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="card-title"><i class="bi bi-wrench me-2 fs-5"></i>Rangos</h6>
-                            <asp:Label ID="lblNumRango" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
-                            <small class="text-secondary mt-auto">Activo</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-5">
-                    <div class="card border-light shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="card-title"><i class="bi bi-person-standing me-2 fs-5"></i>Unidades de medida</h6>
-                            <asp:Label ID="lblNumUnidadesMedida" ClientIDMode="Static" CssClass="card-text ms-auto fs-1" Text="0" runat="server"></asp:Label>
-                            <small class="text-secondary mt-auto">Activo</small>
-                        </div>
-                    </div>
-                </div>--%>
-                    </div>
-                </div>
-            </div>
-
             <div class="row justify-content-center text-center">
                 <div class="col-xl-10 text-start border-bottom">
                     <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
@@ -118,6 +83,7 @@
                     <asp:LinkButton ID="lnkAgregarRango"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                        OnClick="lnkAgregarRango_Click"
                         runat="server">
                         <i class="bi bi-plus-circle me-2 icon-green"></i>
                         Agregar rango <span class="float-end">></span>
@@ -171,7 +137,7 @@
             </div>
 
             <!-- Formularios modales para componentes asociados a modelos -->
-            <!-- Formulario modal crear modelo -->
+            <!-- Formulario modal crear nuevo modelo -->
             <div class="modal fade" id="frmModalModelo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -179,9 +145,9 @@
                             <div class="d-flex flex-column flex-grow-1 me-2">
                                 <h1 class="modal-title fs-5">
                                     <i class="bi bi-ui-radios me-1"></i>
-                                    <asp:Label ID="lblTituloModalModelo" ClientIDMode="Static" runat="server"></asp:Label>
+                                    <asp:Label ID="lblTituloModalModelo" ClientIDMode="Static" Text="Crear modelo" runat="server"></asp:Label>
                                 </h1>
-                                <small class="mb-1 text-secondary" id="lblDescripcionModalModelo" clientidmode="Static" runat="server"></small>
+                                <small class="mb-1 text-secondary" id="lblDescripcionModalModelo">Cree un nuevo modelo para clasificar instrumentos</small>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -190,21 +156,56 @@
                             <div class="mb-3">
                                 <label for="txtModelo" class="col-form-label">Modelo</label>
                                 <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese el modelo.</div>
+                                <div class="invalid-feedback">Por favor, ingrese el nuevo modelo.</div>
                                 <div class="valid-feedback">Ok</div>
                             </div>
                         </div>
                         <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModeloNuevo();" OnClick="btnAceptar_Click" runat="server" />
+                            <asp:Button ID="btnCancelarNuevoModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                            <asp:Button ID="btnAceptarNuevoModelo" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarNuevoModelo_Click" runat="server" />
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Fin formulario modal crear modelo -->
+            <!-- Fin formulario modal crear nuevo modelo -->
+
+            <!-- Formulario modal crear nuevo rango -->
+            <div class="modal fade" id="frmModalRango" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-body-tertiary">
+                            <div class="d-flex flex-column flex-grow-1 me-2">
+                                <h1 class="modal-title fs-5">
+                                    <i class="bi bi-ui-radios me-1"></i>
+                                    <asp:Label ID="Label1" ClientIDMode="Static" Text="Crear rango" runat="server"></asp:Label>
+                                </h1>
+                                <small class="mb-1 text-secondary" id="lblDescripcionModalRango">Cree un nuevo rango para clasificar instrumentos</small>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form -->
+                            <div class="mb-3">
+                                <label for="txtRango" class="col-form-label">Rango</label>
+                                <asp:TextBox ID="txtRango" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                <div class="invalid-feedback">Por favor, ingrese el nuevo rango.</div>
+                                <div class="valid-feedback">Ok</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-body-tertiary">
+                            <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin formulario modal crear nuevo rango -->
 
             <!-- Fin formularios modales para componentes asociados a modelos -->
         </ContentTemplate>
     </asp:UpdatePanel>
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/validarNuevoModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/modalRango.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarCompAsocModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

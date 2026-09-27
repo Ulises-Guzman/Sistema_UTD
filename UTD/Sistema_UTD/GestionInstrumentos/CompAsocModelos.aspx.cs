@@ -37,9 +37,6 @@ namespace Sistema_UTD.GestionInstrumentos
 
         protected void lnkAgregarModelo_Click(object sender, EventArgs e)
         {
-            lblTituloModalModelo.Text = "Crear Modelo";
-            lblDescripcionModalModelo.InnerText = "Cree un modelo de para clasificar instrumentos";
-
             BloquearNotificacion();
 
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalModelo();", true);
@@ -51,7 +48,21 @@ namespace Sistema_UTD.GestionInstrumentos
             alertaSatisfactoria.Style["display"] = "none";
         }
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        //protected void btnAceptar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Modelo nuevo = new Modelo();
+        //        // Crear logica de negocio en la capa negocio
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
+
+        protected void btnAceptarNuevoModelo_Click(object sender, EventArgs e)
         {
             try
             {
@@ -65,8 +76,19 @@ namespace Sistema_UTD.GestionInstrumentos
             }
         }
 
+        protected void btnAceptarNuevoRango_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lnkAgregarRango_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalRango();", true);
+        }
+
         // + Realizar
         // Logica evento botón Aceptar
-        // Función para cargar la tarjeta de cantidad de modelos
     }
 }

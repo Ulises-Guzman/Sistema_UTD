@@ -42,15 +42,6 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
-        /// Control lblNumModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumModelo;
-
-        /// <summary>
         /// Control lnkAgregarModelo.
         /// </summary>
         /// <remarks>
@@ -114,15 +105,6 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Label lblTituloModalModelo;
 
         /// <summary>
-        /// Control lblDescripcionModalModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDescripcionModalModelo;
-
-        /// <summary>
         /// Control txtModelo.
         /// </summary>
         /// <remarks>
@@ -132,22 +114,58 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.TextBox txtModelo;
 
         /// <summary>
-        /// Control btnCancelar.
+        /// Control btnCancelarNuevoModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button btnCancelarNuevoModelo;
 
         /// <summary>
-        /// Control btnAceptar.
+        /// Control btnAceptarNuevoModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptar;
+        protected global::System.Web.UI.WebControls.Button btnAceptarNuevoModelo;
+
+        /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Control txtRango.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRango;
+
+        /// <summary>
+        /// Control btnCancelarNuevoRango.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarNuevoRango;
+
+        /// <summary>
+        /// Control btnAceptarNuevoRango.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceptarNuevoRango;
 
         /// <summary>
         /// Propiedad Master.

@@ -1,22 +1,22 @@
 ﻿'use strict';
 
 // 1. Declaramos las variables globales
-let txtModelo;
+let txtRango;
 
 // 2. Creamos una función que "engancha" los eventos.
 // Esta función se llamará al inicio y DESPUÉS de cada recarga del UpdatePanel.
 function enlazarEventos() {
     // Volvemos a buscar los controles en la pantalla (porque pudieron ser recreados por C#)
-    txtModelo = document.getElementById("txtModelo");
+    txtRango = document.getElementById("txtRango");
 
     // Valida si exite el campo
-    if (txtModelo) {
+    if (txtRango) {
         // Evento 'input': Valida mientras el usuario teclea
-        txtModelo.addEventListener('input', () => validarCampo(txtModelo));
+        txtRango.addEventListener('input', () => validarCampo(txtRango));
 
-            // Evento 'blur': Valida cuando el usuario presiona TAB o hace clic fuera del campo
-        txtModelo.addEventListener('blur', () => validarCampo(txtModelo));
-        }
+        // Evento 'blur': Valida cuando el usuario presiona TAB o hace clic fuera del campo
+        txtRango.addEventListener('blur', () => validarCampo(txtRango));
+    }
 }
 
 // 3. ¡LA MAGIA DE ASP.NET!
@@ -45,14 +45,14 @@ function validarCampo(campo) {
 }
 
 // 5. Función principal para el botón Guardar
-function validarModeloNuevo() {
+function validarRango() {
     // Forzamos la actualización de variables por seguridad antes de validar
     enlazarEventos();
 
-    const modeloValido = validarCampo(txtModelo);
+    const rangoValido = validarCampo(txtRango);
 
     // Si alguno es falso, retorna false (detiene el guardado)
-    if (!modeloValido) {
+    if (!rangoValido) {
         return false;
     }
 
