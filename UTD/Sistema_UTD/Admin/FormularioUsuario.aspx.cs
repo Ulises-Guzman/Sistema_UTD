@@ -22,7 +22,7 @@ namespace Sistema_UTD.Admin
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
                     new BreadcrumbItem { Titulo = "Usuarios", Url = "~/Admin/Usuarios.aspx",EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Modificar", Url = "", EsActivo = true}
+                    new BreadcrumbItem { Titulo = "Modificar Usuarios", Url = "", EsActivo = true}
                 };
 
                 if (Master != null)
@@ -205,8 +205,7 @@ namespace Sistema_UTD.Admin
             gvUsuarios.DataBind();
 
             // Para eliminar la carga fantasma del modal con la selección del checkbox
-            //chkCambioContrasenia.Checked = false;
-            alertaSatisfactoria.Style["display"] = "none";
+            BloquearNotificacion();
         }
 
         protected void EnlazarPaginaGridView(object sender, EventArgs e)
