@@ -98,10 +98,12 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalRango.js" />
+    <Content Include="Scripts\modalUnidad.js" />
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
     <Content Include="Scripts\validarCompAsocRango.js" />
+    <Content Include="Scripts\validarCompAsocUnidad.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarCompAsocModelo.js" />

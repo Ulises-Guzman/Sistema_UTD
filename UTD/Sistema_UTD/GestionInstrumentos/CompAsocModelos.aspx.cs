@@ -88,6 +88,18 @@ namespace Sistema_UTD.GestionInstrumentos
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalRango();", true);
         }
 
+        protected void btnAceptarNuevaUnidad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lnkAgregarUnidadMedida_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUnidad();", true);
+        }
+
         // + Realizar
         // Logica evento botón Aceptar
     }
