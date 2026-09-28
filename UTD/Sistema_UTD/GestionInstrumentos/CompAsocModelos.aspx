@@ -34,9 +34,9 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-10 text-start border-bottom">
-                    <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 text-start">
+                    <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                         <h5>Modelos
                         </h5>
                     </div>
@@ -44,10 +44,10 @@
             </div>
 
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 border-bottom">
+                <div class="col-xl-10">
                     <asp:LinkButton ID="lnkAgregarModelo"
                         ClientIDMode="Static"
-                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                         OnClick="lnkAgregarModelo_Click"
                         runat="server">
                         <i class="bi bi-plus-circle me-2 icon-green"></i>
@@ -69,9 +69,9 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-10 text-start border-bottom">
-                    <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 ">
+                    <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                         <h5>Rangos
                         </h5>
                     </div>
@@ -79,10 +79,10 @@
             </div>
 
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 border-bottom">
+                <div class="col-xl-10">
                     <asp:LinkButton ID="lnkAgregarRango"
                         ClientIDMode="Static"
-                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                         OnClick="lnkAgregarRango_Click"
                         runat="server">
                         <i class="bi bi-plus-circle me-2 icon-green"></i>
@@ -104,8 +104,8 @@
             </div>
 
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 text-start border-bottom">
-                    <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+                <div class="col-xl-10 text-start">
+                    <div class="p-3 bg-white rounded-top border-bottom" data-bs-theme="ligth">
                         <h5>Unidades de medida
                         </h5>
                     </div>
@@ -113,10 +113,10 @@
             </div>
 
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 border-bottom">
+                <div class="col-xl-10">
                     <asp:LinkButton ID="lnkAgregarUnidadMedida"
                         ClientIDMode="Static"
-                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                        CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                         OnClick="lnkAgregarUnidadMedida_Click"
                         runat="server">
                         <i class="bi bi-plus-circle me-2 icon-green"></i>

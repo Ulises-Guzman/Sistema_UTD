@@ -97,15 +97,15 @@
                         <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
                             <h5>Gestión de componentes asociados
                             </h5>
-                            <small class="mb-1 text-secondary">Agregue componentes para asociar a los modelos de instrumento o instrumentos recibidos</small>
+                            <small class="mb-1 text-secondary">Agregue componentes para asociar a los modelos de instrumento o instrumentos</small>
                         </div>
                     </div>
 
                     <div class="row justify-content-center text-center">
-                        <div class="col-xl border-bottom">
+                        <div class="col-xl">
                             <asp:LinkButton ID="lnkBtnCompAsocModelos"
                                 ClientIDMode="Static"
-                                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                                 OnClick="lnkBtnCompAsocModelos_Click"
                                 runat="server">
                                 <i class="bi bi-plus-circle me-2 fs-4"></i>

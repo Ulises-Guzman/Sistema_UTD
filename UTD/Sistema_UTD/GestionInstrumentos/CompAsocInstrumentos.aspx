@@ -19,9 +19,9 @@
     </div>
 
      <!-- Panel de botones -->
-    <div class="row justify-content-center text-center">
-        <div class="col-xl-10 text-start border-bottom">
-            <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                 <h5>
                     Destinos
                 </h5>
@@ -30,10 +30,10 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 border-bottom">
+        <div class="col-xl-10">
             <asp:LinkButton ID="lnkAgregarDestino"
                 ClientIDMode="Static"
-                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                 runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar destino <span class="float-end">></span>
@@ -52,9 +52,9 @@
         </div>
     </div>
 
-    <div class="row justify-content-center text-center">
-        <div class="col-xl-10 text-start border-bottom">
-            <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                 <h5>
                     Secciones
                 </h5>
@@ -63,10 +63,10 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 border-bottom">
+        <div class="col-xl-10">
             <asp:LinkButton ID="lnkAgregarSeccion"
                 ClientIDMode="Static"
-                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                 runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar sección <span class="float-end">></span>
@@ -86,9 +86,9 @@
         </div>
     </div>
 
-    <div class="row justify-content-center text-center">
-        <div class="col-xl-10 text-start border-bottom">
-            <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                 <h5>
                     Estados de instrumento
                 </h5>
@@ -97,10 +97,10 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 border-bottom">
+        <div class="col-xl-10">
             <asp:LinkButton ID="lnkAgregarEstadoInst"
                 ClientIDMode="Static"
-                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                 runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar estado de instrumento <span class="float-end">></span>
@@ -121,8 +121,8 @@
     </div>
 
     <div class="row justify-content-center text-center">
-        <div class="col-xl-10 text-start border-bottom">
-            <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+        <div class="col-xl-10">
+            <div class="p-3 bg-white text-start rounded-top border-bottom" data-bs-theme="ligth">
                 <h5>
                     Tiempos de habilitación
                 </h5>
@@ -130,11 +130,11 @@
         </div>
     </div>
 
-    <div class="row justify-content-center text-center">
-        <div class="col-xl-10 border-bottom">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
             <asp:LinkButton ID="lnkAgregarTiempoHab"
                 ClientIDMode="Static"
-                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0"
+                CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
                 runat="server">
                 <i class="bi bi-plus-circle me-2 icon-green"></i>
                 Agregar tiempo de habilitación <span class="float-end">></span>
