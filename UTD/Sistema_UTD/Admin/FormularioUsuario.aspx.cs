@@ -22,7 +22,7 @@ namespace Sistema_UTD.Admin
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
                     new BreadcrumbItem { Titulo = "Usuarios", Url = "~/Admin/Usuarios.aspx",EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Modificar Usuarios", Url = "", EsActivo = true}
+                    new BreadcrumbItem { Titulo = "Modificar Usuario", Url = "", EsActivo = true}
                 };
 
                 if (Master != null)
