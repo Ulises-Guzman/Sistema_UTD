@@ -24,6 +24,7 @@
 | Destinos             | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Destinos             | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Destinos             | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Destinos             | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Estados              | EstadoId                  | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Estados              | Descripcion               | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Estados              | Activo                    | bit          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -31,6 +32,7 @@
 | Estados              | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Estados              | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Estados              | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Estados              | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Historiales          | HistorialId               | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Historiales          | InstrumentoId             | int          | NULL               | NO           | NO             | SÍ            | Instrumentos            | InstrumentoId             | NULL        |
 | Historiales          | PlanillaCalibracionId     | int          | NULL               | NO           | NO             | SÍ            | PlanillasCalibracion    | PlanillaCalibracionId     | NULL        |
@@ -53,6 +55,7 @@
 | Instrumentos         | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Instrumentos         | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Instrumentos         | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Instrumentos         | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Logs                 | LogId                     | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Logs                 | Fecha                     | datetime2    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Logs                 | Tipo                      | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -64,6 +67,7 @@
 | Modelos              | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Modelos              | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Modelos              | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Modelos              | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | ModelosInstrumento   | ModeloInstrumentoId       | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | ModelosInstrumento   | NumParte                  | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | ModelosInstrumento   | Nomenclatura              | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -76,6 +80,7 @@
 | ModelosInstrumento   | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | ModelosInstrumento   | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | ModelosInstrumento   | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| ModelosInstrumento   | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | PlanillasCalibracion | PlanillaCalibracionId     | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | PlanillasCalibracion | NumPlanillla              | int          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | PlanillasCalibracion | InstrumentoId             | int          | NULL               | NO           | NO             | SÍ            | Instrumentos            | InstrumentoId             | NULL        |
@@ -91,6 +96,7 @@
 | PlanillasCalibracion | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | PlanillasCalibracion | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | PlanillasCalibracion | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| PlanillasCalibracion | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | PuntosCalibracion    | PuntoCalibracionId        | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | PuntosCalibracion    | PlanillaCalibracionId     | int          | NULL               | NO           | NO             | SÍ            | PlanillasCalibracion    | PlanillaCalibracionId     | NULL        |
 | PuntosCalibracion    | FechaCalibracion          | datetime2    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -102,6 +108,7 @@
 | PuntosCalibracion    | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | PuntosCalibracion    | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | PuntosCalibracion    | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| PuntosCalibracion    | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Rangos               | RangoId                   | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Rangos               | Descripcion               | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Rangos               | Activo                    | bit          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -109,6 +116,7 @@
 | Rangos               | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Rangos               | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Rangos               | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Rangos               | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Roles                | RolId                     | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Roles                | Descripcion               | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Roles                | Activo                    | bit          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -119,6 +127,7 @@
 | Secciones            | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | Secciones            | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Secciones            | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Secciones            | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | sysdiagrams          | name                      | sysname      | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | sysdiagrams          | principal_id              | int          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | sysdiagrams          | diagram_id                | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
@@ -131,6 +140,7 @@
 | TiemposHabilitacion  | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | TiemposHabilitacion  | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | TiemposHabilitacion  | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| TiemposHabilitacion  | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | UnidadesMedida       | UnidadMedidaId            | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | UnidadesMedida       | Descripcion               | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | UnidadesMedida       | Activo                    | bit          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
@@ -138,10 +148,16 @@
 | UnidadesMedida       | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
 | UnidadesMedida       | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | UnidadesMedida       | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| UnidadesMedida       | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | UsuarioId                 | int          | NULL               | NO           | SÍ             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | Usuario                   | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | Contrasenia               | varchar      | 255                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | Apellido                  | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | Nombre                    | nvarchar     | 100                | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
-| Usuarios             | RolId                     | int          | NULL               | NO           | NO             | SÍ            | Roles                   | RolId                     | NULL        |
+| Usuarios             | RolId                     | int          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
 | Usuarios             | Activo                    | bit          | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
+| Usuarios             | FechaCreacion             | datetime2    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
+| Usuarios             | CreacionUsuarioId         | int          | NULL               | NO           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Usuarios             | FechaModificacion         | datetime2    | NULL               | SÍ           | NO             | NO            | NULL                    | NULL                      | NULL        |
+| Usuarios             | ModificacionUsuarioId     | int          | NULL               | SÍ           | NO             | SÍ            | Usuarios                | UsuarioId                 | NULL        |
+| Usuarios             | VersionRow                | timestamp    | NULL               | NO           | NO             | NO            | NULL                    | NULL                      | NULL        |
