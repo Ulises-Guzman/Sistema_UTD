@@ -15,5 +15,7 @@ namespace Sistema_UTD.Dominio.Entidades
         public string Nombre{ get; set; }
         public Rol Rol { get; set; }
         public bool Activo { get; set; }
+
+        public byte[] VersionRow { get; set; }
     }
 }

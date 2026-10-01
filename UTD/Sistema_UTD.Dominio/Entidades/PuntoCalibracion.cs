@@ -17,5 +17,7 @@ namespace Sistema_UTD.Dominio.Entidades
         public int PlanillaCalibracionId { get; set; }
         public PlanillaCalibracion PlanillaCalibracion { get; set; }
 
+        public byte[] VersionRow { get; set; }
+
     }
 }

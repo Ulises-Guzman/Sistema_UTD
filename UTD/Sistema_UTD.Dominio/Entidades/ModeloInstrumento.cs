@@ -14,5 +14,7 @@ namespace Sistema_UTD.Dominio.Entidades
         public Rango Rango { get; set; }
         public UnidadMedida UnidadMedida { get; set; }
         public bool Activo { get; set; }
+
+        public byte[] VersionRow { get; set; }
     }
 }

@@ -23,6 +23,8 @@ namespace Sistema_UTD.Dominio.Entidades
         public Instrumento Patron { get; set; }
         public bool Activo { get; set; }
 
+        public byte[] VersionRow { get; set; }
+
 
         // Coleccion de "Detalle" PuntoCalibracion
         public List<PuntoCalibracion> PuntosCalibracion { get; set; } = new List<PuntoCalibracion>(); // Iniciaizacion para evitar "NullReferenceException" cuando se quirea cargar puntos en una planilla recien generada

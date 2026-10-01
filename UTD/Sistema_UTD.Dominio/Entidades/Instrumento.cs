@@ -20,6 +20,8 @@ namespace Sistema_UTD.Dominio.Entidades
         public TiempoHabilitacion TiempoHabilitacion { get; set; }
         public new bool Activo { get; set; }
 
+        public byte[] VersionRow { get; set; }
+
         // ProtoMetodo
         // CrearHistorial()
         // ListarHistorial()

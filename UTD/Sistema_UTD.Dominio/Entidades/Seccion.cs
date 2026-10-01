@@ -12,6 +12,8 @@ namespace Sistema_UTD.Dominio.Entidades
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
 
+        public byte[] VersionRow { get; set; }
+
         public override string ToString()
         {
             return Descripcion;
