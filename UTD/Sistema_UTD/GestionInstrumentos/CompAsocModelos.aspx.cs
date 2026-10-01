@@ -67,7 +67,16 @@ namespace Sistema_UTD.GestionInstrumentos
             try
             {
                 Modelo nuevo = new Modelo();
-                // Crear logica de negocio en la capa negocio
+                ModeloNegocio negocio = new ModeloNegocio();
+                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
+
+                nuevo.Descripcion = txtModelo.Text;
+
+                negocio.AgregarModelo(nuevo, usuarioActual);
+
+                BloquearNotificacion();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
             catch (Exception ex)
             {

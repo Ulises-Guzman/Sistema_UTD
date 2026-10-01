@@ -243,4 +243,5 @@
     <script src="/Scripts/validarCompAsocModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scrpts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>
