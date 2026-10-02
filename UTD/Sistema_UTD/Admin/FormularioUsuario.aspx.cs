@@ -8,6 +8,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sistema_UTD.Dominio;
 using Sistema_UTD.Dominio.Entidades;
+using BCrypt.Net;
+using System.Security.Cryptography;
 
 
 namespace Sistema_UTD.Admin
@@ -127,38 +129,39 @@ namespace Sistema_UTD.Admin
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            // Codear la lógica que envia los datos del usuario que hizo la modificacion
             try
             {
+                Usuario usuarioLogueado = (Usuario)Session["UsuarioLogueado"];
+
                 Usuario usuarioSeleccionado = (Usuario)Session["usuarioSeleccionado"];
                 UsuarioNegocio negocio = new UsuarioNegocio();
 
                 if (!chkUsuarioActivo.Checked)
                 {
-                    int usuarioId = usuarioSeleccionado.Id;
-                    negocio.DesactivarUsuario(usuarioId);
+                    negocio.DesactivarUsuario(usuarioSeleccionado.Id, usuarioLogueado.Id); //Crear el punto de control
 
-                    alertaSatisfactoria.Style["display"] = "block";
+                    MostrarNotificacion();
 
                     ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
                 }
                 else if (chkUsuarioActivo.Checked && chkCambioContrasenia.Checked)
                 {
                     int usuarioId = usuarioSeleccionado.Id;
-                    negocio.ActivarUsuario(usuarioId);
 
                     Usuario modificado = new Usuario();
 
                     modificado.NombUsuario = txtUsuario.Text;
-                    modificado.Contrasenia = txtContrasenia.Text;
+                    modificado.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
                     modificado.Rol = new Rol();
                     modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
                     modificado.Apellido = txtApellido.Text;
                     modificado.Nombre = txtNombre.Text;
                     modificado.Id = usuarioSeleccionado.Id;
 
-                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado);
+                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id);
 
-                    alertaSatisfactoria.Style["display"] = "block";
+                    MostrarNotificacion();
 
                     LimpiarCampos();
 
@@ -167,7 +170,6 @@ namespace Sistema_UTD.Admin
                 else if (chkUsuarioActivo.Checked && !chkCambioContrasenia.Checked)
                 {
                     int usuarioId = usuarioSeleccionado.Id;
-                    negocio.ActivarUsuario(usuarioId);
 
                     Usuario modificado = new Usuario();
 
@@ -178,9 +180,9 @@ namespace Sistema_UTD.Admin
                     modificado.Nombre = txtNombre.Text;
                     modificado.Id = usuarioSeleccionado.Id;
 
-                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado);
+                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id); 
 
-                    alertaSatisfactoria.Style["display"] = "block";
+                    MostrarNotificacion();
 
                     LimpiarCampos();
 
@@ -288,6 +290,11 @@ namespace Sistema_UTD.Admin
         protected void BloquearNotificacion() {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostrarNotificacion() 
+        {
+            alertaSatisfactoria.Style["display"] = "block";
         }
 
         protected void LimpiarCampos()

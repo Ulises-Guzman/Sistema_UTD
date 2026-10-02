@@ -8,6 +8,9 @@ using System.Web.UI.WebControls;
 using Sistema_UTD.Negocio;
 using Sistema_UTD.Dominio;
 using Sistema_UTD.Dominio.Entidades;
+using BCrypt.Net;
+using System.Security.Cryptography;
+
 
 namespace Sistema_UTD.Admin
 {
@@ -64,13 +67,17 @@ namespace Sistema_UTD.Admin
         {
             try
             {
+
                 // Ejecución de lógica para guardar datos
+                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
+
                 Usuario nuevo = new Usuario();
+
                 UsuarioNegocio negocio = new UsuarioNegocio();
 
                 // Cargar el objeto usuario nuevo
                 nuevo.NombUsuario = txtUsuario.Text;
-                nuevo.Contrasenia = txtContrasenia.Text;
+                nuevo.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
                 nuevo.Rol = new Rol();
                 nuevo.Rol.Id = int.Parse(ddlRol.SelectedValue);
                 nuevo.Apellido = txtApellido.Text;
@@ -78,7 +85,7 @@ namespace Sistema_UTD.Admin
                 nuevo.Activo = true;
 
                 // Agregar usuario nuevo
-                negocio.AgregarUsuario(nuevo);
+                negocio.AgregarUsuario(nuevo, usuarioActual.Id);
 
                 // Muestra la alerta (quita el display:none)
                 alertaSatisfactoria.Style["display"] = "block";

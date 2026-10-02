@@ -72,7 +72,7 @@ namespace Sistema_UTD.GestionInstrumentos
 
                 nuevo.Descripcion = txtModelo.Text;
 
-                negocio.AgregarModelo(nuevo, usuarioActual);
+                //negocio.AgregarModelo(nuevo, usuarioActual);
 
                 BloquearNotificacion();
 

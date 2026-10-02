@@ -12,7 +12,7 @@ namespace Sistema_UTD.Negocio
 {
     public class ModeloNegocio
     {
-        public void AgregarModelo(Modelo modelo, Usuario usuario)
+        public void AgregarModelo(Modelo modelo)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -22,7 +22,7 @@ namespace Sistema_UTD.Negocio
 									 "VALUES (@descripcion, @activo, @FechaCreacion, @CreacionUsuarioId)");
 				datos.SetearParametro("@descripcion", modelo.Descripcion);
 				datos.SetearParametro("@activo", true);
-				datos.SetearParametro("@FechaCreacion", );
+				//datos.SetearParametro("@FechaCreacion", );
 				// Primero debo modificar el tipo de dato datatime a datatime2(3)
 			}
 			catch (Exception ex)

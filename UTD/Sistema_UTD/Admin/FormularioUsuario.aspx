@@ -144,59 +144,61 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <!-- Form -->
-                            <div class="row mb-2">
-                                <label for="txtUsuario" class="col-form-label">Usuario</label>
-                                <div class="col">
-                                    <asp:TextBox ID="txtUsuario" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <div class="invalid-feedback">Por favor, ingrese un nombre de usuario.</div>
-                                    <div class="valid-feedback">Ok</div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="form-check form-switch ms-1">
-                                        <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkUsuarioActivo" onclick="cambiarCamposModificar(this)" runat="server">
-                                        <label class="form-check-label" for="chkUsuarioActivo" runat="server">Activo</label>
+                        <asp:Panel ID="pnlModalUsuario" DefaultButton="btnAceptar" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="row mb-2">
+                                    <label for="txtUsuario" class="col-form-label">Usuario</label>
+                                    <div class="col">
+                                        <asp:TextBox ID="txtUsuario" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <div class="invalid-feedback">Por favor, ingrese un nombre de usuario.</div>
+                                        <div class="valid-feedback">Ok</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-switch ms-1">
+                                            <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkUsuarioActivo" onclick="cambiarCamposModificar(this)" runat="server">
+                                            <label class="form-check-label" for="chkUsuarioActivo" runat="server">Activo</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="txtContrasenia" class="col-form-label">Contraseña</label>
-                                <div class="col">
-                                    <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
-                                    <div class="invalid-feedback">Por favor, ingrese una contraseña.</div>
-                                    <div class="valid-feedback">Ok</div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="form-check form-switch ms-1">
-                                        <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
-                                        <label class="form-check-label" for="chkCambioContrasenia" runat="server">Cambio</label>
+                                <div class="row mb-2">
+                                    <label for="txtContrasenia" class="col-form-label">Contraseña</label>
+                                    <div class="col">
+                                        <asp:TextBox ID="txtContrasenia" ClientIDMode="Static" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                                        <div class="invalid-feedback">Por favor, ingrese una contraseña.</div>
+                                        <div class="valid-feedback">Ok</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-switch ms-1">
+                                            <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
+                                            <label class="form-check-label" for="chkCambioContrasenia" runat="server">Cambio</label>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="ddlRol" class="col-form-label">Rol</label>
+                                    <asp:DropDownList ID="ddlRol" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
+                                    <div class="invalid-feedback">Por favor, seleccione un rol.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtApellido" class="col-form-label">Apellido</label>
+                                    <asp:TextBox ID="txtApellido" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese un apellido.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtNombre" class="col-form-label">Nombre</label>
+                                    <asp:TextBox ID="txtNombre" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese un nombre.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="ddlRol" class="col-form-label">Rol</label>
-                                <asp:DropDownList ID="ddlRol" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
-                                <div class="invalid-feedback">Por favor, seleccione un rol.</div>
-                                <div class="valid-feedback">Ok</div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUsuarioModificado(chkUsuarioActivo, txtContrasenia);" OnClick="btnAceptar_Click" runat="server" />
                             </div>
-                            <div class="mb-3">
-                                <label for="txtApellido" class="col-form-label">Apellido</label>
-                                <asp:TextBox ID="txtApellido" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese un apellido.</div>
-                                <div class="valid-feedback">Ok</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="txtNombre" class="col-form-label">Nombre</label>
-                                <asp:TextBox ID="txtNombre" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese un nombre.</div>
-                                <div class="valid-feedback">Ok</div>
-                            </div>
-                        </div>
-                        <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUsuarioModificado(chkUsuarioActivo, txtContrasenia);" OnClick="btnAceptar_Click" runat="server" />
-                        </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>

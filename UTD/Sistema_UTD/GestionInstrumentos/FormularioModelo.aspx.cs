@@ -29,11 +29,11 @@ namespace Sistema_UTD.GestionInstrumentos
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
 
-                // Cargar el gv con la lista de usuarios
-                ModeloNegocio modeloNegocio = new ModeloNegocio();
-                Session.Add("listaUsuario", modeloNegocio.ListarModelo());
-                gvModelos.DataSource = Session["listaUsuario"];
-                gvModelos.DataBind();
+                //// Cargar el gv con la lista de usuarios
+                //ModeloNegocio modeloNegocio = new ModeloNegocio();
+                //Session.Add("listaUsuario", modeloNegocio.ListarModelo());
+                //gvModelos.DataSource = Session["listaUsuario"];
+                //gvModelos.DataBind();
             }
 
         }

@@ -13,28 +13,29 @@ namespace Sistema_UTD.Negocio
 {
     public class UsuarioNegocio
     {
-        public void AgregarUsuario(Usuario nuevo)
+        public void AgregarUsuario(Usuario nuevo, int usuarioLogueadoId)
         {
-            string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(nuevo.Contrasenia);
+            
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.SetearConsulta("INSERT INTO Usuarios (Usuario, Contrasenia, Apellido, Nombre, RolId, Activo) " +
-                                     "VALUES (@usuario, @contrasenia, @apellido, @nombre, @rolId, @activo)");
+                datos.SetearConsulta("INSERT INTO Usuarios (Usuario, Contrasenia, Apellido, Nombre, RolId, Activo, FechaCreacion, CreacionUsuarioId) " +
+                                     "VALUES (@usuario, @contrasenia, @apellido, @nombre, @rolId, @activo, SYSDATETIME(), @creacionUsuarioId)");
                 datos.SetearParametro("@usuario", nuevo.NombUsuario);
-                datos.SetearParametro("@contrasenia", hashContrasenia);
+                datos.SetearParametro("@contrasenia", nuevo.Contrasenia);
                 datos.SetearParametro("@apellido", nuevo.Apellido);
                 datos.SetearParametro("@nombre", nuevo.Nombre);
                 datos.SetearParametro("@rolId", nuevo.Rol.Id);
                 datos.SetearParametro("@activo", nuevo.Activo);
+                datos.SetearParametro("@creacionUsuarioId", usuarioLogueadoId);
 
                 datos.EjecutarConsulta();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {
@@ -42,7 +43,7 @@ namespace Sistema_UTD.Negocio
             }
         }
 
-        public void ModificarUsuario(bool cambioContrasenia, Usuario modificado)
+        public void ModificarUsuario(bool cambioContrasenia, Usuario modificado, int usuarioLogueadoId) //Parametrizar los datos del usuario que modifica
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -51,15 +52,17 @@ namespace Sistema_UTD.Negocio
                 if (cambioContrasenia)
                 {
                     // lado por contraseña cambiada, llamar a logica de datos
-                    string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(modificado.Contrasenia);
                     datos.SetearConsulta("UPDATE Usuarios " +
-                                         "SET Usuario = @usuario, Contrasenia = @contrasenia, Apellido = @apellido, Nombre = @nombre, RolId = @rolId " +
+                                         "SET Usuario = @usuario, Contrasenia = @contrasenia, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
+                                             "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
                                          "WHERE UsuarioId = @id");
                     datos.SetearParametro("@usuario", modificado.NombUsuario);
-                    datos.SetearParametro("@contrasenia", hashContrasenia);
+                    datos.SetearParametro("@contrasenia", modificado.Contrasenia);
                     datos.SetearParametro("@apellido", modificado.Apellido);
                     datos.SetearParametro("@nombre", modificado.Nombre);
                     datos.SetearParametro("@rolId", modificado.Rol.Id);
+                    datos.SetearParametro("@activo", true);
+                    datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
                     datos.SetearParametro("@id", modificado.Id);
 
                     datos.EjecutarConsulta();
@@ -69,21 +72,24 @@ namespace Sistema_UTD.Negocio
                 {
                     // lado por solo datos modificados, llamar a logica de datos
                     datos.SetearConsulta("UPDATE Usuarios " +
-                                         "SET Usuario = @usuario, Apellido = @apellido, Nombre = @nombre, RolId = @rolId " +
+                                         "SET Usuario = @usuario, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
+                                             "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
                                          "WHERE UsuarioId = @id");
                     datos.SetearParametro("@usuario", modificado.NombUsuario);
                     datos.SetearParametro("@apellido", modificado.Apellido);
                     datos.SetearParametro("@nombre", modificado.Nombre);
                     datos.SetearParametro("@rolId", modificado.Rol.Id);
+                    datos.SetearParametro("@activo", true);
+                    datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
                     datos.SetearParametro("@id", modificado.Id);
 
                     datos.EjecutarConsulta();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {
@@ -92,15 +98,17 @@ namespace Sistema_UTD.Negocio
 
         }
 
-        public void DesactivarUsuario(int usuarioId)
+        public void DesactivarUsuario(int usuarioSeleccionadoId, int usuarioLogueadoId) //Parametrizar los datos del usuario que modifica 
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.SetearConsulta("UPDATE Usuarios SET Activo = @activo WHERE UsuarioId = @id");
+                datos.SetearConsulta("UPDATE Usuarios SET Activo = @activo, FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
+                                     "WHERE UsuarioId = @id");
                 datos.SetearParametro("@activo", 0);
-                datos.SetearParametro("@id", usuarioId);
+                datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
+                datos.SetearParametro("@id", usuarioSeleccionadoId);
 
                 datos.EjecutarConsulta();
             }
@@ -110,29 +118,6 @@ namespace Sistema_UTD.Negocio
                 throw ex;
             }
             finally
-            {
-                datos.CerrarConexion();
-            }
-        }
-
-        public void ActivarUsuario(int usuarioId)
-        {
-            AccesoDatos datos = new AccesoDatos();
-
-            try
-            {
-                datos.SetearConsulta("UPDATE Usuarios SET Activo = @activo WHERE UsuarioId = @id");
-                datos.SetearParametro("@activo", 1);
-                datos.SetearParametro("@id", usuarioId);
-
-                datos.EjecutarConsulta();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally 
             {
                 datos.CerrarConexion();
             }
@@ -359,10 +344,10 @@ namespace Sistema_UTD.Negocio
                 // Retornará null si el usuario no existe o si la contraseña es incorrecta
                 return usuarioLogueado;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {
