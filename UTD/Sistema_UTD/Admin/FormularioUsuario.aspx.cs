@@ -75,63 +75,64 @@ namespace Sistema_UTD.Admin
 
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Setear y abrir el modal
-            lblTituloModalUsuario.Text = "Modificar Usuario";
-            lblDescripcionModalUsuario.InnerText = "Modifique los datos del usuario seleccionado";
-
-            // Para eliminar la carga fantasma del modal con la selección del checkbox y la ejecución del update panel
-            chkCambioContrasenia.Checked = false;
-            BloquearNotificacion();
-
-            // Recupero datos
-            List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
-
-            // Obterner el id del usuario seleccionado
-            int id = int.Parse(gvUsuarios.SelectedDataKey.Value.ToString());
-
-            // búsqueda del usuario seleccionado
-            Usuario usuarioSeleccionado = lista.Find(x => x.Id == id);
-
-            if (usuarioSeleccionado != null)
+            try
             {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
+
+                BloquearNotificacion();
+
+                // Inicia el Check Contrasenia del modal desactivado por defecto
+                chkCambioContrasenia.Checked = false;
+
+                // Recupero datos
+                List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
+
+                // Obterner el id del usuario seleccionado
+                int id = int.Parse(gvUsuarios.SelectedDataKey.Value.ToString());
+
+                // Búsqueda del usuario seleccionado
+                Usuario usuarioSeleccionado = lista.Find(x => x.Id == id);
+
+                // Prevenir el NullReferenceException
+                if (usuarioSeleccionado == null)
+                {
+                    throw new Exception("El registro ya no se encuentra en la memoria o la sesión expiró.");
+                }
+
                 Session.Add("usuarioSeleccionado", usuarioSeleccionado);
 
+                // Cargar datos a los TextBox y DropDownList
                 txtUsuario.Text = usuarioSeleccionado.NombUsuario;
                 ddlRol.SelectedValue = usuarioSeleccionado.Rol.Id.ToString();
                 txtApellido.Text = usuarioSeleccionado.Apellido;
                 txtNombre.Text = usuarioSeleccionado.Nombre;
 
-                if (usuarioSeleccionado.Activo)
-                {
-                    chkUsuarioActivo.Checked = true;
-                    txtUsuario.Enabled = true;
-                    ddlRol.Enabled = true;
-                    txtApellido.Enabled = true;
-                    txtNombre.Enabled = true;
-                }
-                else
-                {
-                    chkUsuarioActivo.Checked = false;
-                    txtUsuario.Enabled = false;
-                    ddlRol.Enabled = false;
-                    txtApellido.Enabled = false;
-                    txtNombre.Enabled = false;
-                }
+                // Activar o Desactivar por asignación directa
+                chkUsuarioActivo.Checked = usuarioSeleccionado.Activo;
+                txtUsuario.Enabled = usuarioSeleccionado.Activo;
+                ddlRol.Enabled = usuarioSeleccionado.Activo;
+                txtApellido.Enabled = usuarioSeleccionado.Activo;
+                txtNombre.Enabled = usuarioSeleccionado.Activo;
 
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUsuario();", true);
             }
-            else
+            catch (Exception ex)
             {
-                // Ante error mensaje de alerta, o refactorizar a try catch
-            }
+                alertaNoSatisfactoria.InnerText = "El usuario no ha sido encontrado debido a un error: " + ex.Message;
+                MostraNotificacionRoja();
 
-            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUsuario();", true);
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            // Codear la lógica que envia los datos del usuario que hizo la modificacion
             try
             {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
+
                 Usuario usuarioLogueado = (Usuario)Session["UsuarioLogueado"];
 
                 Usuario usuarioSeleccionado = (Usuario)Session["usuarioSeleccionado"];
@@ -141,7 +142,7 @@ namespace Sistema_UTD.Admin
                 {
                     negocio.DesactivarUsuario(usuarioSeleccionado.Id, usuarioLogueado.Id); //Crear el punto de control
 
-                    MostrarNotificacion();
+                    MostrarNotificacionVerde();
 
                     ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
                 }
@@ -161,7 +162,7 @@ namespace Sistema_UTD.Admin
 
                     negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id);
 
-                    MostrarNotificacion();
+                    MostrarNotificacionVerde();
 
                     LimpiarCampos();
 
@@ -182,7 +183,7 @@ namespace Sistema_UTD.Admin
 
                     negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id); 
 
-                    MostrarNotificacion();
+                    MostrarNotificacionVerde();
 
                     LimpiarCampos();
 
@@ -194,19 +195,20 @@ namespace Sistema_UTD.Admin
             }
             catch (Exception ex)
             {
+                alertaNoSatisfactoria.InnerText = "El usuario no ha sido modificado debido a un error: " + ex.Message;
+                MostraNotificacionRoja();
 
-                throw ex;
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
         }
 
         protected void gvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //Capturo el PageIndex que viene por valor del parametro GrigViewPageEventArgs
+            //Capturo el PageIndex que viene por valor del parámetro GrigViewPageEventArgs
             gvUsuarios.PageIndex = e.NewPageIndex;
             EnlazarPaginaGridView(sender, e);
             gvUsuarios.DataBind();
 
-            // Para eliminar la carga fantasma del modal con la selección del checkbox
             BloquearNotificacion();
         }
 
@@ -241,6 +243,9 @@ namespace Sistema_UTD.Admin
 
             try
             {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
+
                 List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
                 List<Usuario> listaBusqueda = new List<Usuario>();
                 listaBusqueda = lista.FindAll(x => x.NombUsuario.ToLower().Contains(txtBuscar.Text.ToLower()));
@@ -249,8 +254,8 @@ namespace Sistema_UTD.Admin
             }
             catch (Exception ex)
             {
-                // Redirigir a página de error o notificación
-                throw ex;
+                alertaNoSatisfactoria.InnerText = "El usuario no ha sido encontrado debido a un error: " + ex.Message;
+                MostraNotificacionRoja();
             }
         }
 
@@ -258,6 +263,9 @@ namespace Sistema_UTD.Admin
         {
             try
             {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
+
                 BloquearNotificacion();
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
@@ -276,8 +284,8 @@ namespace Sistema_UTD.Admin
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                alertaNoSatisfactoria.InnerText = "El usuario no ha sido encontrado debido a un error: " + ex.Message;
+                MostraNotificacionRoja();
             }
         }
 
@@ -287,14 +295,23 @@ namespace Sistema_UTD.Admin
             ActualizarGrilla();
         }
 
-        protected void BloquearNotificacion() {
+        protected void BloquearNotificacion()
+        {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "none";
         }
 
-        protected void MostrarNotificacion() 
+        protected void MostrarNotificacionVerde() 
         {
             alertaSatisfactoria.Style["display"] = "block";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostraNotificacionRoja()
+        {
+            alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "block";
         }
 
         protected void LimpiarCampos()

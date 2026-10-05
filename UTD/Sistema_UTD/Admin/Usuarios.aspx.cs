@@ -67,8 +67,9 @@ namespace Sistema_UTD.Admin
         {
             try
             {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
-                // Ejecución de lógica para guardar datos
                 Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
 
                 Usuario nuevo = new Usuario();
@@ -84,34 +85,23 @@ namespace Sistema_UTD.Admin
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Activo = true;
 
-                // Agregar usuario nuevo
                 negocio.AgregarUsuario(nuevo, usuarioActual.Id);
 
-                // Muestra la alerta (quita el display:none)
-                alertaSatisfactoria.Style["display"] = "block";
+                MostrarNotificacionVerde();
 
-                // Limpiar campos
-                txtUsuario.Text = string.Empty;
-                txtContrasenia.Text = string.Empty;
-                ddlRol.SelectedIndex = 0;
-                txtApellido.Text = string.Empty;
-                txtNombre.Text = string.Empty;
+                LimpiarCampos();
 
-                // Actualiza tarjetas
                 CargarTarjetasUsuarios();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
             catch (Exception ex)
             {
+                alertaNoSatisfactoria.InnerText = "El usuario no ha sido creado debido a un error: " + ex.Message;
+                MostraNotificacionRoja();
 
-                throw ex;
-                // Manejo de errores por si falla la ejecución
-                // 1. lblError.Text = "Ocurrió un error: " + ex.Message;
-                // 2. Utilizando las notificaciones
-                // 3. Pagina de error
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-
         }
 
         protected void CargarTarjetasUsuarios()
@@ -126,6 +116,28 @@ namespace Sistema_UTD.Admin
         {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostrarNotificacionVerde()
+        {
+            alertaSatisfactoria.Style["display"] = "block";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostraNotificacionRoja()
+        {
+            alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "block";
+        }
+
+        protected void LimpiarCampos()
+        {
+            txtUsuario.Text = string.Empty;
+            txtContrasenia.Text = string.Empty;
+            ddlRol.SelectedIndex = 0;
+            txtApellido.Text = string.Empty;
+            txtNombre.Text = string.Empty;
         }
     }
 }

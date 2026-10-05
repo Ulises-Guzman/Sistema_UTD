@@ -51,7 +51,7 @@ namespace Sistema_UTD.Negocio
             {
                 if (cambioContrasenia)
                 {
-                    // lado por contraseña cambiada, llamar a logica de datos
+                    // Lado por contraseña cambiada, llamar a logica de datos
                     datos.SetearConsulta("UPDATE Usuarios " +
                                          "SET Usuario = @usuario, Contrasenia = @contrasenia, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
                                              "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
@@ -70,7 +70,7 @@ namespace Sistema_UTD.Negocio
                 }
                 else
                 {
-                    // lado por solo datos modificados, llamar a logica de datos
+                    // Lado por solo datos modificados, llamar a logica de datos
                     datos.SetearConsulta("UPDATE Usuarios " +
                                          "SET Usuario = @usuario, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
                                              "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
@@ -112,10 +112,10 @@ namespace Sistema_UTD.Negocio
 
                 datos.EjecutarConsulta();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {

@@ -28,9 +28,8 @@
                         ¡Los datos de usuario han sido modificados!
                     </div>
 
-                    <%--<div id="alertaNoSatisfactoria" class="alert alert-danger alert-dismissible fade show" role="alert" visible="false" runat="server">
-                        El usuario No ha sido creado!
-                    </div>--%>
+                    <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+                    </div>
                 </div>
             </div>
 
@@ -138,7 +137,7 @@
                             <div class="d-flex flex-column flex-grow-1 me-2">
                                 <h1 class="modal-title fs-5">
                                     <i class="bi bi-ui-radios me-1"></i>
-                                    <asp:Label ID="lblTituloModalUsuario" ClientIDMode="Static" Text="Modificar Usuario" runat="server"></asp:Label>
+                                    <asp:Label ID="lblTituloModalUsuario" ClientIDMode="Static" Text="Modificar Usuario" runat="server">Modificar Usuario</asp:Label>
                                 </h1>
                                 <small class="mb-1 text-secondary" id="lblDescripcionModalUsuario" clientidmode="Static" runat="server">Modifique datos del usuario, activaciones y reestablesca contraseñas</small>
                             </div>
@@ -156,7 +155,7 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="form-check form-switch ms-1">
-                                            <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkUsuarioActivo" onclick="cambiarCamposModificar(this)" runat="server">
+                                            <input class="form-check-input" type="checkbox" clientidmode="Static" id="chkUsuarioActivo" onclick="cambiarCamposModificar(this)" runat="server">
                                             <label class="form-check-label" for="chkUsuarioActivo" runat="server">Activo</label>
                                         </div>
                                     </div>
@@ -170,7 +169,7 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="form-check form-switch ms-1">
-                                            <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
+                                            <input class="form-check-input" type="checkbox" clientidmode="Static" id="chkCambioContrasenia" onclick="cambiarCampoContrasenia(this)" runat="server">
                                             <label class="form-check-label" for="chkCambioContrasenia" runat="server">Cambio</label>
                                         </div>
                                     </div>

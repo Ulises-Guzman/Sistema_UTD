@@ -29,9 +29,8 @@
                         ¡El usuario ha sido creado!
                     </div>
 
-                    <%--<div id="alertaNoSatisfactoria" class="alert alert-danger alert-dismissible fade show" role="alert" visible="false" runat="server">
-                        El usuario No ha sido creado!
-                    </div>--%>
+                    <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+                    </div>
                 </div>
             </div>
 

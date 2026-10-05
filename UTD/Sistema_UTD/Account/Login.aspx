@@ -27,15 +27,10 @@
                 <div class="valid-feedback">Ok</div>
             </div>
 
-            <!-- Alerta de notificación -->
-
-            <%--<div id="alertaSatisfactoria" class="alert alert-success fade show" style="display: none" role="alert" runat="server">
-                ¡El usuario ha sido creado!
-            </div>--%>
-
             <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClientClick="return validarLogin()" OnClick="btnIngresar_Click" runat="server" />
 
-            <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+            <!-- Alerta de notificación -->
+            <div id="alertaNoSatisfactoria" class="alert alert-danger fade show text-start" style="display: none" role="alert" runat="server">
                 Usuario o contraseña incorrectos!
             </div>
 
