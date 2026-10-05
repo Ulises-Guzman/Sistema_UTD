@@ -227,10 +227,10 @@ namespace Sistema_UTD.Negocio
 
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {
@@ -252,10 +252,10 @@ namespace Sistema_UTD.Negocio
                 object resultado = datos.EjecutarScalar();
                 return resultado != null ? resultado.ToString() : "0";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {
@@ -276,10 +276,10 @@ namespace Sistema_UTD.Negocio
                 object resultado = datos.EjecutarScalar();
                 return resultado != null ? resultado.ToString() : "0";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
@@ -295,10 +295,10 @@ namespace Sistema_UTD.Negocio
                 object resultado = datos.EjecutarScalar();
                 return resultado != null ? resultado.ToString() : "0";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
