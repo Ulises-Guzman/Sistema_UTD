@@ -4,10 +4,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    // TODO: Front BM de modelos de componentes asociados
     <!-- Cabecera -->
     <div class="row justify-content-center">
         <div class="col-xl-10 mt-3 mb-1">
-            <div class="p-3 bg-white shadow-sm rounded" data-bs-theme="ligth">
+            <div class="p-4 bg-white shadow-sm rounded" data-bs-theme="ligth">
                 <h4>
                     <i class="bi bi-ui-radios me-1"></i>
                     Modificar Modelo

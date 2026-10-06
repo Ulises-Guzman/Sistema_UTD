@@ -9,7 +9,7 @@
     <!-- Cabecera -->
     <div class="row justify-content-center">
         <div class="col-xl-10 mt-3 mb-1">
-            <div class="p-3 bg-white shadow-sm rounded" data-bs-theme="ligth">
+            <div class="p-4 bg-white shadow-sm rounded" data-bs-theme="ligth">
                 <h4>
                     <i class="bi bi-sliders2 me-1"></i>
                     Panel de control

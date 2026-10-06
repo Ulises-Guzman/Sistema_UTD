@@ -13,6 +13,7 @@ namespace Sistema_UTD.GestionInstrumentos
 {
     public partial class FormularioModelo : System.Web.UI.Page
     {
+        // TODO: CodeBehind BM de modelos de componentes asociados
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
