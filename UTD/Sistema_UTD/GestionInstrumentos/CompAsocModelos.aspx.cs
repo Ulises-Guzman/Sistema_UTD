@@ -30,11 +30,6 @@ namespace Sistema_UTD.GestionInstrumentos
             }
         }
 
-        protected void lnkModificarModelo_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/GestionInstrumentos/FormularioModelo.aspx");
-        }
-
         protected void lnkAgregarModelo_Click(object sender, EventArgs e)
         {
             BloquearNotificacion();
@@ -42,37 +37,36 @@ namespace Sistema_UTD.GestionInstrumentos
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalModelo();", true);
         }
 
+        protected void lnkModificarModelo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/FormularioModelo.aspx");
+        }
+
         protected void BloquearNotificacion()
         {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
             alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "none";
         }
-
-        //protected void btnAceptar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Modelo nuevo = new Modelo();
-        //        // Crear logica de negocio en la capa negocio
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //}
 
         protected void btnAceptarNuevoModelo_Click(object sender, EventArgs e)
         {
             try
             {
+                //// 1. inyección de prueba: fuerza el error inmediatamente
+                //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
+
+                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
                 Modelo nuevo = new Modelo();
                 ModeloNegocio negocio = new ModeloNegocio();
-                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
 
                 nuevo.Descripcion = txtModelo.Text;
 
-                //negocio.AgregarModelo(nuevo, usuarioActual);
+                negocio.AgregarModelo(nuevo, usuarioActual.Id);
+
+                MostrarNotificacionVerde();
+
+                LimpiarCampos();
 
                 BloquearNotificacion();
 
@@ -80,8 +74,10 @@ namespace Sistema_UTD.GestionInstrumentos
             }
             catch (Exception ex)
             {
+                alertaNoSatisfactoria.InnerText = "El modelo no ha sido creado debido a un error: " + ex.Message;
+                MostrarNotificacionRoja();
 
-                throw ex;
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
         }
 
@@ -109,7 +105,22 @@ namespace Sistema_UTD.GestionInstrumentos
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUnidad();", true);
         }
 
-        // + Realizar
-        // Logica evento botón Aceptar
+        protected void MostrarNotificacionVerde()
+        {
+            alertaSatisfactoria.Style["display"] = "block";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostrarNotificacionRoja()
+        {
+            alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "block";
+        }
+
+        protected void LimpiarCampos()
+        {
+            txtModelo.Text = string.Empty;
+        }
+
     }
 }

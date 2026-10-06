@@ -12,23 +12,28 @@ namespace Sistema_UTD.Negocio
 {
     public class ModeloNegocio
     {
-        public void AgregarModelo(Modelo modelo)
+        public void AgregarModelo(Modelo modelo, int usuarioLogueadoId)
         {
             AccesoDatos datos = new AccesoDatos();
 
 			try
 			{
 				datos.SetearConsulta("INSERT INTO Modelos (Descripcion, Activo, FechaCreacion, CreacionUsuarioId) " +
-									 "VALUES (@descripcion, @activo, @FechaCreacion, @CreacionUsuarioId)");
+									 "VALUES (@descripcion, @activo, SYSDATETIME(), @creacionUsuarioId)");
 				datos.SetearParametro("@descripcion", modelo.Descripcion);
 				datos.SetearParametro("@activo", true);
-				//datos.SetearParametro("@FechaCreacion", );
-				// Primero debo modificar el tipo de dato datatime a datatime2(3)
+				datos.SetearParametro("@creacionUsuarioId", usuarioLogueadoId);
+
+				datos.EjecutarConsulta();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 
-				throw ex;
+				throw;
+			}
+			finally
+			{
+				datos.CerrarConexion();
 			}
         }
     }

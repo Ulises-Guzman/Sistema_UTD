@@ -28,9 +28,8 @@
                         ¡El componente ha sido creado!
                     </div>
 
-                    <%--<div id="alertaNoSatisfactoria" class="alert alert-danger alert-dismissible fade show" role="alert" visible="false" runat="server">
-                            El usuario No ha sido creado!
-                        </div>--%>
+                    <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+                    </div>
                 </div>
             </div>
 
@@ -243,5 +242,5 @@
     <script src="/Scripts/validarCompAsocModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scrpts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>
