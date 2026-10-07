@@ -1,5 +1,3 @@
-
-
 ## 🔑 Rol administrador
 
 ![](imagenes/Admin_Modulo_Seguridad_Auditoria.png)
@@ -12,19 +10,15 @@
 
 ## 🛠️ Rol Técnico
 
-![](imagenes/Modulo_Seguridad_Tecnico.png)
+![](imagenes/Tec_Modulo_Seguridad.png)
 
-![](imagenes/Modulo_Catalogos_Tecnico.png)
+![](imagenes/Tec_Modulo_Catalogos.png)
 
-![](imagenes/Modulo_Operaciones_Tecnico.png)
-
-
+![](imagenes/Tec_Modulo_Operaciones_Calibraciones.png)
 
 ---
 
 ## 🧑‍🔧 Rol cliente
-
-
 
 ---
 
