@@ -78,7 +78,7 @@ namespace Sistema_UTD.Admin
 
                 // Cargar el objeto usuario nuevo
                 nuevo.NombUsuario = txtUsuario.Text;
-                nuevo.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
+                nuevo.Contrasenia = txtContrasenia.Text;
                 nuevo.Rol = new Rol();
                 nuevo.Rol.Id = int.Parse(ddlRol.SelectedValue);
                 nuevo.Apellido = txtApellido.Text;
@@ -102,7 +102,7 @@ namespace Sistema_UTD.Admin
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        }
+        } // TODO: Utilizar DTO
 
         protected void CargarTarjetasUsuarios()
         {

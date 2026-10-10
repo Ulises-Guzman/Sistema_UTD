@@ -17,13 +17,14 @@ namespace Sistema_UTD.Negocio
         {
             
             AccesoDatos datos = new AccesoDatos();
+            string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(nuevo.Contrasenia);
 
             try
             {
                 datos.SetearConsulta("INSERT INTO Usuarios (Usuario, Contrasenia, Apellido, Nombre, RolId, Activo, FechaCreacion, CreacionUsuarioId) " +
                                      "VALUES (@usuario, @contrasenia, @apellido, @nombre, @rolId, @activo, SYSDATETIME(), @creacionUsuarioId)");
                 datos.SetearParametro("@usuario", nuevo.NombUsuario);
-                datos.SetearParametro("@contrasenia", nuevo.Contrasenia);
+                datos.SetearParametro("@contrasenia", hashContrasenia);
                 datos.SetearParametro("@apellido", nuevo.Apellido);
                 datos.SetearParametro("@nombre", nuevo.Nombre);
                 datos.SetearParametro("@rolId", nuevo.Rol.Id);
@@ -41,11 +42,12 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        }
+        } // TODO: Utilizar DTO
 
         public void ModificarUsuario(bool cambioContrasenia, Usuario modificado, int usuarioLogueadoId) //Parametrizar los datos del usuario que modifica
         {
             AccesoDatos datos = new AccesoDatos();
+            string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(modificado.Contrasenia);
 
             try
             {
@@ -57,7 +59,7 @@ namespace Sistema_UTD.Negocio
                                              "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
                                          "WHERE UsuarioId = @id");
                     datos.SetearParametro("@usuario", modificado.NombUsuario);
-                    datos.SetearParametro("@contrasenia", modificado.Contrasenia);
+                    datos.SetearParametro("@contrasenia", hashContrasenia);
                     datos.SetearParametro("@apellido", modificado.Apellido);
                     datos.SetearParametro("@nombre", modificado.Nombre);
                     datos.SetearParametro("@rolId", modificado.Rol.Id);
@@ -96,9 +98,9 @@ namespace Sistema_UTD.Negocio
                 datos.CerrarConexion();
             }
 
-        }
+        } // TODO: Ultilizar DTO
 
-        public void DesactivarUsuario(int usuarioSeleccionadoId, int usuarioLogueadoId) //Parametrizar los datos del usuario que modifica 
+        public void DesactivarUsuario(int usuarioSeleccionadoId, int usuarioLogueadoId)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -162,7 +164,7 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        }
+        } // TODO: Utilizar DTO
 
         public List<Usuario> BuscarAvanzado(string campo, string palabraClave, string rol = "", string estado = "")
         {
@@ -236,7 +238,7 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        }
+        } // TODO: Utilizar DTO
 
         public string CargarTarjetaAdministradores()
         {
@@ -353,6 +355,6 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        }
+        } // TODO: Utilizar DTO
     }
 }
