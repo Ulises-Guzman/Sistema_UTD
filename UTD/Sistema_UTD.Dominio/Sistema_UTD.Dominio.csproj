@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\InstrumentoCreacionDTO.cs" />
-    <Compile Include="DTOs\InstrumentoEdicionDTO.cs" />
-    <Compile Include="DTOs\InstrumentoResumenDTO.cs" />
+    <Compile Include="DTOs\RolResumenDTO.cs" />
+    <Compile Include="DTOs\UsuarioCreacionDTO.cs" />
+    <Compile Include="DTOs\UsuarioEdicionDTO.cs" />
+    <Compile Include="DTOs\UsuarioResumenDTO.cs" />
     <Compile Include="Entidades\Destino.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\Instrumento.cs" />

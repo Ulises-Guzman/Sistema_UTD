@@ -71,8 +71,8 @@
 
             <!-- Panel de botones -->
             <div class="row justify-content-center text-center">
-                <div class="col-xl-10 text-start border-bottom">
-                    <div class="p-3 bg-white rounded-top" data-bs-theme="ligth">
+                <div class="col-xl-10 ">
+                    <div class="p-3 bg-white rounded-top text-start border-bottom" data-bs-theme="ligth">
                         <h5>
                             Usuarios
                         </h5>

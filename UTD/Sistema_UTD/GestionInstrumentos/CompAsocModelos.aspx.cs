@@ -1,13 +1,14 @@
-﻿using Sistema_UTD.Helpers;
+﻿using Sistema_UTD.Dominio;
+using Sistema_UTD.Dominio.DTOs;
+using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Helpers;
+using Sistema_UTD.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Sistema_UTD.Dominio;
-using Sistema_UTD.Dominio.Entidades;
-using Sistema_UTD.Negocio;
 
 namespace Sistema_UTD.GestionInstrumentos
 {
@@ -56,7 +57,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 //// 1. inyección de prueba: fuerza el error inmediatamente
                 //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
 
-                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
+                UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
                 Modelo nuevo = new Modelo();
                 ModeloNegocio negocio = new ModeloNegocio();
 
@@ -79,7 +80,7 @@ namespace Sistema_UTD.GestionInstrumentos
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        } // TODO: Utilizar DTO
+        } // TODO: Utilizar DTO crear ModeloResumenDTO
 
         protected void btnAceptarNuevoRango_Click(object sender, EventArgs e)
         {

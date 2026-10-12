@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Sistema_UTD.Dominio.DTOs;
+using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Sistema_UTD.Dominio.Entidades;
-using Sistema_UTD.Negocio;
 
 namespace Sistema_UTD.Account
 {
@@ -20,21 +21,21 @@ namespace Sistema_UTD.Account
         {
             UsuarioNegocio negocio = new UsuarioNegocio();
 
-            Usuario usuarioValidado = negocio.ValidarLogin(txtUsuario.Text, txtContrasenia.Text);
+            UsuarioResumenDTO usuarioValidado = negocio.ValidarLogin(txtUsuario.Text.Trim(), txtContrasenia.Text.Trim());
 
             if (usuarioValidado != null)
             {
                 Session["UsuarioLogueado"] = usuarioValidado;
 
-                if (usuarioValidado.Rol.Id == 1) // Administrador
+                if (usuarioValidado.RolId == 1) // Administrador
                 {
                     Response.Redirect("~/Default.aspx", false);
                 }
-                else if (usuarioValidado.Rol.Id == 2) // Técnico
+                else if (usuarioValidado.RolId == 2) // Técnico
                 {
                     Response.Redirect("~/Default.aspx", false);
                 }
-                else if (usuarioValidado.Rol.Id == 3) // Cliente
+                else if (usuarioValidado.RolId == 3) // Cliente
                 {
                     Response.Redirect("~/Default.aspx", false);
                 }
@@ -45,6 +46,6 @@ namespace Sistema_UTD.Account
                 // Notificación de usuario o contraseña incorrectos, o cuenta inactiva.
                 alertaNoSatisfactoria.Style["display"] = "block";
             }
-        }
+        } // DONE: Pasar a DTO
     }
 }

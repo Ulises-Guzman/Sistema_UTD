@@ -1,15 +1,16 @@
-﻿using Sistema_UTD.Helpers;
+﻿using BCrypt.Net;
+using Sistema_UTD.Dominio;
+using Sistema_UTD.Dominio.DTOs;
+using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Helpers;
 using Sistema_UTD.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Sistema_UTD.Dominio;
-using Sistema_UTD.Dominio.Entidades;
-using BCrypt.Net;
-using System.Security.Cryptography;
 
 
 namespace Sistema_UTD.Admin
@@ -40,7 +41,7 @@ namespace Sistema_UTD.Admin
 
                 // --- ddlCriterioRol ---
                 RolNegocio rolNegocio = new RolNegocio();
-                List<Rol> lista = rolNegocio.Listar();
+                List<RolResumenDTO> lista = rolNegocio.Listar();
                 ddlCriterioRol.DataSource = lista;
                 ddlCriterioRol.DataValueField = "Id";
                 ddlCriterioRol.DataTextField = "Descripcion";
@@ -71,7 +72,7 @@ namespace Sistema_UTD.Admin
 
                 txtContrasenia.Enabled = false;
             }
-        }
+        } // DONE: Pasar a DTO los datos para ddl Rol
 
         protected void gvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -86,13 +87,13 @@ namespace Sistema_UTD.Admin
                 chkCambioContrasenia.Checked = false;
 
                 // Recupero datos
-                List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
+                List<UsuarioResumenDTO> lista = (List<UsuarioResumenDTO>)Session["listaUsuario"];
 
                 // Obterner el id del usuario seleccionado
                 int id = int.Parse(gvUsuarios.SelectedDataKey.Value.ToString());
 
                 // Búsqueda del usuario seleccionado
-                Usuario usuarioSeleccionado = lista.Find(x => x.Id == id);
+                UsuarioResumenDTO usuarioSeleccionado = lista.Find(x => x.Id == id);
 
                 // Prevenir el NullReferenceException
                 if (usuarioSeleccionado == null)
@@ -104,7 +105,7 @@ namespace Sistema_UTD.Admin
 
                 // Cargar datos a los TextBox y DropDownList
                 txtUsuario.Text = usuarioSeleccionado.NombUsuario;
-                ddlRol.SelectedValue = usuarioSeleccionado.Rol.Id.ToString();
+                ddlRol.SelectedValue = usuarioSeleccionado.RolId.ToString();
                 txtApellido.Text = usuarioSeleccionado.Apellido;
                 txtNombre.Text = usuarioSeleccionado.Nombre;
 
@@ -124,7 +125,7 @@ namespace Sistema_UTD.Admin
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        }
+        } // DONE: Pasar a DTO
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -133,14 +134,15 @@ namespace Sistema_UTD.Admin
                 //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
                 //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
-                Usuario usuarioLogueado = (Usuario)Session["UsuarioLogueado"];
+                UsuarioResumenDTO usuarioLogueado = (UsuarioResumenDTO)Session["UsuarioLogueado"];
 
-                Usuario usuarioSeleccionado = (Usuario)Session["usuarioSeleccionado"];
+                UsuarioResumenDTO usuarioSeleccionado = (UsuarioResumenDTO)Session["usuarioSeleccionado"];
+
                 UsuarioNegocio negocio = new UsuarioNegocio();
 
                 if (!chkUsuarioActivo.Checked)
                 {
-                    negocio.DesactivarUsuario(usuarioSeleccionado.Id, usuarioLogueado.Id); //Crear el punto de control
+                    negocio.DesactivarUsuario(usuarioSeleccionado.Id, usuarioLogueado.Id);
 
                     MostrarNotificacionVerde();
 
@@ -148,19 +150,26 @@ namespace Sistema_UTD.Admin
                 }
                 else if (chkUsuarioActivo.Checked && chkCambioContrasenia.Checked)
                 {
-                    int usuarioId = usuarioSeleccionado.Id;
+                    //int usuarioId = usuarioSeleccionado.Id;
 
-                    Usuario modificado = new Usuario();
+                    //Usuario modificado = new Usuario();
+                    //modificado.NombUsuario = txtUsuario.Text;
+                    //modificado.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
+                    //modificado.Rol = new Rol();
+                    //modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
+                    //modificado.Apellido = txtApellido.Text;
+                    //modificado.Nombre = txtNombre.Text;
+                    //modificado.Id = usuarioSeleccionado.Id;
 
-                    modificado.NombUsuario = txtUsuario.Text;
-                    modificado.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
-                    modificado.Rol = new Rol();
-                    modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
-                    modificado.Apellido = txtApellido.Text;
-                    modificado.Nombre = txtNombre.Text;
-                    modificado.Id = usuarioSeleccionado.Id;
+                    UsuarioEdicionDTO modificadoUsuarioDTO = new UsuarioEdicionDTO();
+                    modificadoUsuarioDTO.Id = usuarioSeleccionado.Id;
+                    modificadoUsuarioDTO.NombUsuario = txtUsuario.Text.Trim();
+                    modificadoUsuarioDTO.Contrasenia = txtContrasenia.Text.Trim();
+                    modificadoUsuarioDTO.RolId = int.Parse(ddlRol.SelectedValue);
+                    modificadoUsuarioDTO.Apellido = txtApellido.Text.Trim();
+                    modificadoUsuarioDTO.Nombre = txtNombre.Text.Trim();
 
-                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id);
+                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificadoUsuarioDTO, usuarioLogueado.Id);
 
                     MostrarNotificacionVerde();
 
@@ -170,18 +179,25 @@ namespace Sistema_UTD.Admin
                 }
                 else if (chkUsuarioActivo.Checked && !chkCambioContrasenia.Checked)
                 {
-                    int usuarioId = usuarioSeleccionado.Id;
+                    //int usuarioId = usuarioSeleccionado.Id;
 
-                    Usuario modificado = new Usuario();
+                    //Usuario modificado = new Usuario();
+                    //modificado.NombUsuario = txtUsuario.Text;
+                    //modificado.Rol = new Rol();
+                    //modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
+                    //modificado.Apellido = txtApellido.Text;
+                    //modificado.Nombre = txtNombre.Text;
+                    //modificado.Id = usuarioSeleccionado.Id;
 
-                    modificado.NombUsuario = txtUsuario.Text;
-                    modificado.Rol = new Rol();
-                    modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
-                    modificado.Apellido = txtApellido.Text;
-                    modificado.Nombre = txtNombre.Text;
-                    modificado.Id = usuarioSeleccionado.Id;
+                    UsuarioEdicionDTO modificadoUsuarioDTO = new UsuarioEdicionDTO();
+                    modificadoUsuarioDTO.Id = usuarioSeleccionado.Id;
+                    modificadoUsuarioDTO.NombUsuario = txtUsuario.Text.Trim();
+                    modificadoUsuarioDTO.Contrasenia = txtContrasenia.Text.Trim();
+                    modificadoUsuarioDTO.RolId = int.Parse(ddlRol.SelectedValue);
+                    modificadoUsuarioDTO.Apellido = txtApellido.Text.Trim();
+                    modificadoUsuarioDTO.Nombre = txtNombre.Text.Trim();
 
-                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificado, usuarioLogueado.Id); 
+                    negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificadoUsuarioDTO, usuarioLogueado.Id); 
 
                     MostrarNotificacionVerde();
 
@@ -200,7 +216,7 @@ namespace Sistema_UTD.Admin
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        }
+        } // DONE: Pasar a DTO
 
         protected void gvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -226,6 +242,7 @@ namespace Sistema_UTD.Admin
             Session.Add("listaUsuario", usuarioNegocio.ListarUsuario());
             gvUsuarios.DataSource = Session["listaUsuario"];
             gvUsuarios.DataBind();
+            txtBuscar.Text = string.Empty;
         }
 
         protected void chkFiltro_CheckedChanged(object sender, EventArgs e)
@@ -246,8 +263,8 @@ namespace Sistema_UTD.Admin
                 //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
                 //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
-                List<Usuario> lista = (List<Usuario>)Session["listaUsuario"];
-                List<Usuario> listaBusqueda = new List<Usuario>();
+                List<UsuarioResumenDTO> lista = (List<UsuarioResumenDTO>)Session["listaUsuario"];
+                List<UsuarioResumenDTO> listaBusqueda = new List<UsuarioResumenDTO>();
                 listaBusqueda = lista.FindAll(x => x.NombUsuario.ToLower().Contains(txtBuscar.Text.ToLower()));
                 gvUsuarios.DataSource = listaBusqueda;
                 gvUsuarios.DataBind();
@@ -257,7 +274,7 @@ namespace Sistema_UTD.Admin
                 alertaNoSatisfactoria.InnerText = "El usuario no ha sido encontrado debido a un error: " + ex.Message;
                 MostraNotificacionRoja();
             }
-        }
+        } // DONE: Pasar a DTO
 
         protected void btnBuscarAvanzado_Click(object sender, EventArgs e)
         {
@@ -269,7 +286,7 @@ namespace Sistema_UTD.Admin
                 BloquearNotificacion();
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
-                List<Usuario> listaBuscarAvanzado = new List<Usuario>();
+                List<UsuarioResumenDTO> listaBuscarAvanzado = new List<UsuarioResumenDTO>();
                 listaBuscarAvanzado = negocio.BuscarAvanzado(
                                                              ddlCriterioCampo.SelectedItem.ToString(),
                                                              txtBuscarAvanzado.Text,
@@ -287,7 +304,7 @@ namespace Sistema_UTD.Admin
                 alertaNoSatisfactoria.InnerText = "El usuario no ha sido encontrado debido a un error: " + ex.Message;
                 MostraNotificacionRoja();
             }
-        }
+        } // DONE: Pasar a DTO
 
         protected void lnkBtnActualizar_Click(object sender, EventArgs e)
         {

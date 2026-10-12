@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Sistema_UTD.Negocio;
 using Sistema_UTD.Dominio;
 using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Dominio.DTOs;
 using BCrypt.Net;
 using System.Security.Cryptography;
 
@@ -32,7 +33,7 @@ namespace Sistema_UTD.Admin
                 }
 
                 RolNegocio negocioRol = new RolNegocio();
-                List<Rol> lista = negocioRol.Listar();
+                List<RolResumenDTO> lista = negocioRol.Listar();
 
                 ddlRol.DataSource = lista;
                 ddlRol.DataValueField = "Id";
@@ -70,22 +71,31 @@ namespace Sistema_UTD.Admin
                 //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
                 //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
-                Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
-
-                Usuario nuevo = new Usuario();
+                UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
 
                 UsuarioNegocio negocio = new UsuarioNegocio();
 
                 // Cargar el objeto usuario nuevo
-                nuevo.NombUsuario = txtUsuario.Text;
-                nuevo.Contrasenia = txtContrasenia.Text;
-                nuevo.Rol = new Rol();
-                nuevo.Rol.Id = int.Parse(ddlRol.SelectedValue);
-                nuevo.Apellido = txtApellido.Text;
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Activo = true;
+                //Usuario nuevo = new Usuario();
+                //nuevo.NombUsuario = txtUsuario.Text;
+                //nuevo.Contrasenia = txtContrasenia.Text;
+                //nuevo.Rol = new Rol();
+                //nuevo.Rol.Id = int.Parse(ddlRol.SelectedValue);
+                //nuevo.Apellido = txtApellido.Text;
+                //nuevo.Nombre = txtNombre.Text;
+                //nuevo.Activo = true;
 
-                negocio.AgregarUsuario(nuevo, usuarioActual.Id);
+                // Cargar el DTO
+                UsuarioCreacionDTO nuevoUsuarioDTO = new UsuarioCreacionDTO();
+                nuevoUsuarioDTO.NombUsuario = txtUsuario.Text.Trim();
+                nuevoUsuarioDTO.Contrasenia = txtContrasenia.Text.Trim();
+                nuevoUsuarioDTO.RolId = int.Parse(ddlRol.SelectedValue);
+                nuevoUsuarioDTO.Apellido = txtApellido.Text.Trim();
+                nuevoUsuarioDTO.Nombre = txtNombre.Text.Trim();
+                nuevoUsuarioDTO.Activo = true;
+               
+
+                negocio.AgregarUsuario(nuevoUsuarioDTO, usuarioActual.Id);
 
                 MostrarNotificacionVerde();
 
@@ -102,7 +112,8 @@ namespace Sistema_UTD.Admin
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        } // TODO: Utilizar DTO
+        } // DONE: Pasar a DTO
+          // TODO: Validar que no funcione el doble click al aceptar
 
         protected void CargarTarjetasUsuarios()
         {

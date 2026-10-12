@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sistema_UTD.Helpers;
 using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Dominio.DTOs;
 
 namespace Sistema_UTD
 {
@@ -26,7 +27,7 @@ namespace Sistema_UTD
                 // Si es legítimo...
                 if (!IsPostBack)
                 {
-                    Usuario usuarioActual = (Usuario)Session["UsuarioLogueado"];
+                    UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
 
                     // Cargar la Navbar con el usuario loguedo
                     //lblBienvenidaUsuario.Text = $"Hola, {usuarioActual.Nombre}...";

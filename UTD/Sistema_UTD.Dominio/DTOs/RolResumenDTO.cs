@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sistema_UTD.Dominio.DTOs
 {
-    internal class InstrumentoCreacionDTO
+    public class RolResumenDTO
     {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public bool Activo { get; set; }
     }
 }

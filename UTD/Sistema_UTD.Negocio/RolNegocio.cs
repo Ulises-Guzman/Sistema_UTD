@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Sistema_UTD.Dominio;
 using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Dominio.DTOs;
 using Sistema_UTD.Datos;
 
 namespace Sistema_UTD.Negocio
 {
     public class RolNegocio
     {
-        public List<Rol> Listar()
+        public List<RolResumenDTO> Listar()
         {
-            List<Rol> lista = new List<Rol>();
+            List<RolResumenDTO> lista = new List<RolResumenDTO>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -23,11 +24,11 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Rol aux = new Rol();
-                    aux.Id = (int)datos.Lector["RolId"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    RolResumenDTO roleDTO = new RolResumenDTO();
+                    roleDTO.Id = (int)datos.Lector["RolId"];
+                    roleDTO.Descripcion = (string)datos.Lector["Descripcion"];
 
-                    lista.Add(aux);
+                    lista.Add(roleDTO);
                 }
 
                 return lista;
@@ -42,6 +43,6 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        }
+        } // DONE: Pasar a DTO
     }
 }

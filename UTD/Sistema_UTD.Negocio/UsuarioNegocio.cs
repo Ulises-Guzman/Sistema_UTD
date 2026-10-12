@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sistema_UTD.Datos;
 using Sistema_UTD.Dominio.Entidades;
+using Sistema_UTD.Dominio.DTOs;
 using BCrypt.Net;
 using System.Security.Cryptography;
 
@@ -13,22 +14,32 @@ namespace Sistema_UTD.Negocio
 {
     public class UsuarioNegocio
     {
-        public void AgregarUsuario(Usuario nuevo, int usuarioLogueadoId)
+        public void AgregarUsuario(UsuarioCreacionDTO UsuarioDTO, int usuarioLogueadoId)
         {
             
             AccesoDatos datos = new AccesoDatos();
-            string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(nuevo.Contrasenia);
+            //string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(nuevoUsuarioDTO.Contrasenia);
+
+            // 1. Mapeo de DTO a Entidad de Dominio (POCO)
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.NombUsuario = UsuarioDTO.NombUsuario;
+            nuevoUsuario.Contrasenia = BCrypt.Net.BCrypt.HashPassword(UsuarioDTO.Contrasenia);
+            nuevoUsuario.Rol = new Rol();
+            nuevoUsuario.Rol.Id = UsuarioDTO.RolId;
+            nuevoUsuario.Apellido = UsuarioDTO.Apellido;
+            nuevoUsuario.Nombre = UsuarioDTO.Nombre;
+            nuevoUsuario.Activo = UsuarioDTO.Activo;
 
             try
             {
                 datos.SetearConsulta("INSERT INTO Usuarios (Usuario, Contrasenia, Apellido, Nombre, RolId, Activo, FechaCreacion, CreacionUsuarioId) " +
                                      "VALUES (@usuario, @contrasenia, @apellido, @nombre, @rolId, @activo, SYSDATETIME(), @creacionUsuarioId)");
-                datos.SetearParametro("@usuario", nuevo.NombUsuario);
-                datos.SetearParametro("@contrasenia", hashContrasenia);
-                datos.SetearParametro("@apellido", nuevo.Apellido);
-                datos.SetearParametro("@nombre", nuevo.Nombre);
-                datos.SetearParametro("@rolId", nuevo.Rol.Id);
-                datos.SetearParametro("@activo", nuevo.Activo);
+                datos.SetearParametro("@usuario", nuevoUsuario.NombUsuario);
+                datos.SetearParametro("@contrasenia", nuevoUsuario.Contrasenia);
+                datos.SetearParametro("@apellido", nuevoUsuario.Apellido);
+                datos.SetearParametro("@nombre", nuevoUsuario.Nombre);
+                datos.SetearParametro("@rolId", nuevoUsuario.Rol.Id);
+                datos.SetearParametro("@activo", nuevoUsuario.Activo);
                 datos.SetearParametro("@creacionUsuarioId", usuarioLogueadoId);
 
                 datos.EjecutarConsulta();
@@ -42,12 +53,23 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // TODO: Utilizar DTO
+        } // DONE: Utilizar DTO
 
-        public void ModificarUsuario(bool cambioContrasenia, Usuario modificado, int usuarioLogueadoId) //Parametrizar los datos del usuario que modifica
+        public void ModificarUsuario(bool cambioContrasenia, UsuarioEdicionDTO usuarioDTO, int usuarioLogueadoId)
         {
             AccesoDatos datos = new AccesoDatos();
-            string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(modificado.Contrasenia);
+            //string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(modificado.Contrasenia);
+
+            // 1. Mapeo de DTO a Entidad de Dominio (POCO)
+            Usuario modificadoUsuario = new Usuario();
+            modificadoUsuario.Id = usuarioDTO.Id;
+            modificadoUsuario.NombUsuario = usuarioDTO.NombUsuario;
+            modificadoUsuario.Contrasenia = BCrypt.Net.BCrypt.HashPassword(usuarioDTO.Contrasenia);
+            modificadoUsuario.Rol = new Rol();
+            modificadoUsuario.Rol.Id = usuarioDTO.RolId;
+            modificadoUsuario.Apellido = usuarioDTO.Apellido;
+            modificadoUsuario.Nombre = usuarioDTO.Nombre;
+            modificadoUsuario.Activo = usuarioDTO.Activo;
 
             try
             {
@@ -58,14 +80,14 @@ namespace Sistema_UTD.Negocio
                                          "SET Usuario = @usuario, Contrasenia = @contrasenia, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
                                              "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
                                          "WHERE UsuarioId = @id");
-                    datos.SetearParametro("@usuario", modificado.NombUsuario);
-                    datos.SetearParametro("@contrasenia", hashContrasenia);
-                    datos.SetearParametro("@apellido", modificado.Apellido);
-                    datos.SetearParametro("@nombre", modificado.Nombre);
-                    datos.SetearParametro("@rolId", modificado.Rol.Id);
+                    datos.SetearParametro("@usuario", modificadoUsuario.NombUsuario);
+                    datos.SetearParametro("@contrasenia", modificadoUsuario.Contrasenia);
+                    datos.SetearParametro("@apellido", modificadoUsuario.Apellido);
+                    datos.SetearParametro("@nombre", modificadoUsuario.Nombre);
+                    datos.SetearParametro("@rolId", modificadoUsuario.Rol.Id);
                     datos.SetearParametro("@activo", true);
                     datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
-                    datos.SetearParametro("@id", modificado.Id);
+                    datos.SetearParametro("@id", modificadoUsuario.Id);
 
                     datos.EjecutarConsulta();
 
@@ -77,13 +99,13 @@ namespace Sistema_UTD.Negocio
                                          "SET Usuario = @usuario, Apellido = @apellido, Nombre = @nombre, RolId = @rolId, Activo = @activo, " +
                                              "FechaModificacion = SYSDATETIME(), ModificacionUsuarioId = @modificacionUsuarioId " +
                                          "WHERE UsuarioId = @id");
-                    datos.SetearParametro("@usuario", modificado.NombUsuario);
-                    datos.SetearParametro("@apellido", modificado.Apellido);
-                    datos.SetearParametro("@nombre", modificado.Nombre);
-                    datos.SetearParametro("@rolId", modificado.Rol.Id);
+                    datos.SetearParametro("@usuario", modificadoUsuario.NombUsuario);
+                    datos.SetearParametro("@apellido", modificadoUsuario.Apellido);
+                    datos.SetearParametro("@nombre", modificadoUsuario.Nombre);
+                    datos.SetearParametro("@rolId", modificadoUsuario.Rol.Id);
                     datos.SetearParametro("@activo", true);
                     datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
-                    datos.SetearParametro("@id", modificado.Id);
+                    datos.SetearParametro("@id", modificadoUsuario.Id);
 
                     datos.EjecutarConsulta();
                 }
@@ -98,7 +120,7 @@ namespace Sistema_UTD.Negocio
                 datos.CerrarConexion();
             }
 
-        } // TODO: Ultilizar DTO
+        } // DONE: Ultilizar DTO
 
         public void DesactivarUsuario(int usuarioSeleccionadoId, int usuarioLogueadoId)
         {
@@ -125,9 +147,10 @@ namespace Sistema_UTD.Negocio
             }
         }
 
-        public List<Usuario> ListarUsuario()
+        public List<UsuarioResumenDTO> ListarUsuario()
         {
-            List<Usuario> lista = new List<Usuario>();
+            // List<Usuario> lista = new List<Usuario>();
+            List<UsuarioResumenDTO> lista = new List<UsuarioResumenDTO>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -139,18 +162,27 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Usuario aux = new Usuario();
-                    aux.Id = (int)datos.Lector["UsuarioId"];
-                    aux.NombUsuario = (string)datos.Lector["Usuario"];
-                    aux.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    //Usuario aux = new Usuario();
+                    //aux.Id = (int)datos.Lector["UsuarioId"];
+                    //aux.NombUsuario = (string)datos.Lector["Usuario"];
+                    //aux.Apellido = (string)datos.Lector["Apellido"];
+                    //aux.Nombre = (string)datos.Lector["Nombre"];
 
-                    aux.Rol = new Rol();
-                    aux.Rol.Id = (int)datos.Lector["RolId"];
-                    aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Activo = (bool)datos.Lector["Activo"];
+                    //aux.Rol = new Rol();
+                    //aux.Rol.Id = (int)datos.Lector["RolId"];
+                    //aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
+                    //aux.Activo = (bool)datos.Lector["Activo"];
 
-                    lista.Add(aux);
+                    UsuarioResumenDTO usuarioDTO = new UsuarioResumenDTO();
+                    usuarioDTO.Id = (int)datos.Lector["UsuarioId"];
+                    usuarioDTO.NombUsuario = (string)datos.Lector["Usuario"];
+                    usuarioDTO.Apellido = (string)datos.Lector["Apellido"];
+                    usuarioDTO.Nombre = (string)datos.Lector["Nombre"];
+                    usuarioDTO.RolId = (int)datos.Lector["RolId"];
+                    usuarioDTO.RolDescripcion = (string)datos.Lector["Descripcion"];
+                    usuarioDTO.Activo = (bool)datos.Lector["Activo"];
+
+                    lista.Add(usuarioDTO);
                 }
 
                 return lista;
@@ -164,11 +196,12 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // TODO: Utilizar DTO
+        } // DONE: Utilizar DTO
 
-        public List<Usuario> BuscarAvanzado(string campo, string palabraClave, string rol = "", string estado = "")
+        public List<UsuarioResumenDTO> BuscarAvanzado(string campo, string palabraClave, string rol = "", string estado = "")
         {
-            List<Usuario> lista = new List<Usuario>();
+            //List<Usuario> lista = new List<Usuario>();
+            List<UsuarioResumenDTO> lista = new List<UsuarioResumenDTO>();
             AccesoDatos datos = new AccesoDatos();
 
             try
@@ -213,18 +246,27 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Usuario aux = new Usuario();
-                    aux.Id = (int)datos.Lector["UsuarioId"];
-                    aux.NombUsuario = (string)datos.Lector["Usuario"];
-                    aux.Apellido = (string)datos.Lector["Apellido"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    //Usuario aux = new Usuario();
+                    //aux.Id = (int)datos.Lector["UsuarioId"];
+                    //aux.NombUsuario = (string)datos.Lector["Usuario"];
+                    //aux.Apellido = (string)datos.Lector["Apellido"];
+                    //aux.Nombre = (string)datos.Lector["Nombre"];
 
-                    aux.Rol = new Rol();
-                    aux.Rol.Id = (int)datos.Lector["RolId"];
-                    aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Activo = (bool)datos.Lector["Activo"];
+                    //aux.Rol = new Rol();
+                    //aux.Rol.Id = (int)datos.Lector["RolId"];
+                    //aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
+                    //aux.Activo = (bool)datos.Lector["Activo"];
 
-                    lista.Add(aux);
+                    UsuarioResumenDTO usuarioDTO = new UsuarioResumenDTO();
+                    usuarioDTO.Id = (int)datos.Lector["UsuarioId"];
+                    usuarioDTO.NombUsuario = (string)datos.Lector["Usuario"];
+                    usuarioDTO.Apellido = (string)datos.Lector["Apellido"];
+                    usuarioDTO.Nombre = (string)datos.Lector["Nombre"];
+                    usuarioDTO.RolId = (int)datos.Lector["RolId"];
+                    usuarioDTO.RolDescripcion = (string)datos.Lector["Descripcion"];
+                    usuarioDTO.Activo = (bool)datos.Lector["Activo"];
+
+                    lista.Add(usuarioDTO);
                 }
 
                 return lista;
@@ -238,7 +280,7 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // TODO: Utilizar DTO
+        } // DONE: Utilizar DTO
 
         public string CargarTarjetaAdministradores()
         {
@@ -304,10 +346,10 @@ namespace Sistema_UTD.Negocio
             }
         }
 
-        public Usuario ValidarLogin(string nombUsuario, string contraseniaTextoPlano)
+        public UsuarioResumenDTO ValidarLogin(string nombUsuario, string contraseniaTextoPlano)
         {
             AccesoDatos datos = new AccesoDatos();
-            Usuario usuarioLogueado = null;
+            UsuarioResumenDTO usuarioLogueado = null;
 
             try
             {
@@ -330,16 +372,24 @@ namespace Sistema_UTD.Negocio
                     if (loginValido)
                     {
                         // Instancio y mapeo el objeto completo
-                        usuarioLogueado = new Usuario();
+                        //usuarioLogueado = new Usuario();
+                        //usuarioLogueado.Id = (int)datos.Lector["UsuarioId"];
+                        //usuarioLogueado.NombUsuario = (string)datos.Lector["Usuario"];
+                        //usuarioLogueado.Apellido = (string)datos.Lector["Apellido"];
+                        //usuarioLogueado.Nombre = (string)datos.Lector["Nombre"];
+                        //usuarioLogueado.Activo = (bool)datos.Lector["Activo"];
+
+                        //usuarioLogueado.Rol = new Rol();
+                        //usuarioLogueado.Rol.Id = (int)datos.Lector["RolId"];
+                        //usuarioLogueado.Rol.Descripcion = (string)datos.Lector["Descripcion"];
+                        usuarioLogueado = new UsuarioResumenDTO();
                         usuarioLogueado.Id = (int)datos.Lector["UsuarioId"];
                         usuarioLogueado.NombUsuario = (string)datos.Lector["Usuario"];
                         usuarioLogueado.Apellido = (string)datos.Lector["Apellido"];
                         usuarioLogueado.Nombre = (string)datos.Lector["Nombre"];
+                        usuarioLogueado.RolId = (int)datos.Lector["RolId"];
+                        usuarioLogueado.RolDescripcion = (string)datos.Lector["Descripcion"];
                         usuarioLogueado.Activo = (bool)datos.Lector["Activo"];
-
-                        usuarioLogueado.Rol = new Rol();
-                        usuarioLogueado.Rol.Id = (int)datos.Lector["RolId"];
-                        usuarioLogueado.Rol.Descripcion = (string)datos.Lector["Descripcion"];
                     }
                 }
 
@@ -355,6 +405,6 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // TODO: Utilizar DTO
+        } // DONE: Utilizar DTO
     }
 }

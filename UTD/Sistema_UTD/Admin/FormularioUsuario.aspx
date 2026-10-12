@@ -121,7 +121,7 @@
                             <asp:BoundField HeaderText="Usuario" DataField="NombUsuario" />
                             <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
                             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                            <asp:BoundField HeaderText="Rol" DataField="Rol" />
+                            <asp:BoundField HeaderText="Rol" DataField="RolDescripcion" />
                             <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
                             <asp:CommandField HeaderText="Acción" ShowSelectButton="true" SelectText="✍️" />
                         </Columns>
