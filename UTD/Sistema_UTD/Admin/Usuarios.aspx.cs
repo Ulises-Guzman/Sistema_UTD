@@ -68,6 +68,9 @@ namespace Sistema_UTD.Admin
         {
             try
             {
+                //// INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
+
                 //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
                 //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
@@ -113,7 +116,8 @@ namespace Sistema_UTD.Admin
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
         } // DONE: Pasar a DTO
-          // TODO: Validar que no funcione el doble click al aceptar
+          // DONE: Validar que no funcione el doble click al aceptar
+          // DONE: Verificar el feedback del botón Aceptar
 
         protected void CargarTarjetasUsuarios()
         {

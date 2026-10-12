@@ -51,6 +51,11 @@ namespace Sistema_UTD.Datos
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
+        public void LimpiarParametros()
+        {
+            comando.Parameters.Clear();
+        }
+
         public void EjecutarConsulta()
         {
             comando.Connection = conexion;

@@ -17,7 +17,7 @@ prm.add_endRequest(function () {
                     alerta.style.display = 'none';
                     alerta.classList.add('show');
                 }, 200);
-            }, 4000);
+            }, 6000);
         }
     });
 });

@@ -168,7 +168,7 @@
                             </div>
                             <div class="modal-footer bg-body-tertiary">
                                 <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                                <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUsuarioNuevo();" OnClick="btnAceptar_Click" runat="server" />
+                                <asp:Button ID="btnAceptar" CssClass="btn btn-primary" Text="Aceptar" ClientIDMode="Static" OnClientClick="return validarUsuarioNuevo();" OnClick="btnAceptar_Click" runat="server" />
                             </div>
                         </asp:Panel>
                     </div>

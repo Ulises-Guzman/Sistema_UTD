@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     alerta.classList.add('show');
                 }, 200);
 
-            }, 4000); // Ajustar este número para dar más o menos tiempo
+            }, 6000); // Ajustar este número para dar más o menos tiempo
         }
     });
 });

@@ -32,6 +32,22 @@ namespace Sistema_UTD.Negocio
 
             try
             {
+                // Validación si ya existe el usuario
+                // 1. Verificación de existencia
+                datos.SetearConsulta("SELECT COUNT(1) FROM Usuarios WHERE Usuario = @usuarioCheck");
+                datos.SetearParametro("@usuarioCheck", nuevoUsuario.NombUsuario);
+
+                int existe = (int)datos.EjecutarScalar();
+                if (existe > 0)
+                {
+                    // Corta la ejecución y lanza el error hacia el CodeBehind
+                    throw new Exception("El nombre de usuario ya se encuentra registrado y/o se bloqueó multiples intentos.");
+                }
+
+                // 2. Si no existe, limpieza de parámetros y se procede con el INSERT
+                datos.LimpiarParametros();
+                datos.CerrarConexion();
+
                 datos.SetearConsulta("INSERT INTO Usuarios (Usuario, Contrasenia, Apellido, Nombre, RolId, Activo, FechaCreacion, CreacionUsuarioId) " +
                                      "VALUES (@usuario, @contrasenia, @apellido, @nombre, @rolId, @activo, SYSDATETIME(), @creacionUsuarioId)");
                 datos.SetearParametro("@usuario", nuevoUsuario.NombUsuario);
