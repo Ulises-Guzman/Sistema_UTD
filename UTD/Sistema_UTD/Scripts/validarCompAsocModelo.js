@@ -3,6 +3,32 @@
 // 1. Declaramos las variables globales
 let txtModelo;
 
+// Lógica para cambiar el texto del botón Aceptar (feedback)
+document.addEventListener("DOMContentLoaded", function () {
+    // Verificamos que el ScriptManager de ASP.NET esté cargado
+    if (typeof Sys !== 'undefined' && Sys.WebForms && Sys.WebForms.PageRequestManager) {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+        // Se ejecuta apenas el usuario hace clic y la petición viaja al servidor
+        prm.add_beginRequest(function (sender, args) {
+            var btnAceptar = document.getElementById('btnAceptarNuevoModelo'); // Asegúrate de tener ClientIDMode="Static"
+            if (btnAceptar) {
+                btnAceptar.disabled = true;
+                btnAceptar.value = "Guardando..."; // Feedback visual de espera
+            }
+        });
+
+        // Se ejecuta cuando el servidor devuelve la respuesta (éxito o error)
+        prm.add_endRequest(function (sender, args) {
+            var btnAceptar = document.getElementById('btnAceptarNuevoModelo');
+            if (btnAceptar) {
+                btnAceptar.disabled = false;
+                btnAceptar.value = "Aceptar";
+            }
+        });
+    }
+});
+
 // 2. Creamos una función que "engancha" los eventos.
 // Esta función se llamará al inicio y DESPUÉS de cada recarga del UpdatePanel.
 function enlazarEventos() {

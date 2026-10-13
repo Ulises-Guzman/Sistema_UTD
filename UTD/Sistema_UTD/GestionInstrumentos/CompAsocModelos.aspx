@@ -151,19 +151,21 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <!-- Form -->
-                            <div class="mb-3">
-                                <label for="txtModelo" class="col-form-label">Modelo</label>
-                                <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese el nuevo modelo.</div>
-                                <div class="valid-feedback">Ok</div>
+                        <asp:Panel ID="pnlModalModelo" DefaultButton="btnAceptarNuevoModelo" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="mb-3">
+                                    <label for="txtModelo" class="col-form-label">Modelo</label>
+                                    <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese el nuevo modelo.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelarNuevoModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevoModelo" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarNuevoModelo_Click" runat="server" />
-                        </div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelarNuevoModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptarNuevoModelo" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarNuevoModelo_Click" runat="server" />
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>

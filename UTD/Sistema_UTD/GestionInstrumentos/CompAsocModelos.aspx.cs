@@ -53,23 +53,26 @@ namespace Sistema_UTD.GestionInstrumentos
         protected void btnAceptarNuevoModelo_Click(object sender, EventArgs e)
         {
             try
-            {
+            {   
+                ////// INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
+
                 //// 1. inyección de prueba: fuerza el error inmediatamente
                 //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
 
                 UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
-                Modelo nuevo = new Modelo();
+                ModeloCreacionDTO nuevoModeloDTO = new ModeloCreacionDTO();
                 ModeloNegocio negocio = new ModeloNegocio();
 
-                nuevo.Descripcion = txtModelo.Text;
+                nuevoModeloDTO.Descripcion = txtModelo.Text.Trim();
 
-                negocio.AgregarModelo(nuevo, usuarioActual.Id);
+                negocio.AgregarModelo(nuevoModeloDTO, usuarioActual.Id);
 
                 MostrarNotificacionVerde();
 
                 LimpiarCampos();
 
-                BloquearNotificacion();
+                //BloquearNotificacion();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }

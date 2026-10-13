@@ -24,11 +24,11 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    RolResumenDTO roleDTO = new RolResumenDTO();
-                    roleDTO.Id = (int)datos.Lector["RolId"];
-                    roleDTO.Descripcion = (string)datos.Lector["Descripcion"];
+                    RolResumenDTO rolDTO = new RolResumenDTO();
+                    rolDTO.Id = (int)datos.Lector["RolId"];
+                    rolDTO.Descripcion = (string)datos.Lector["Descripcion"];
 
-                    lista.Add(roleDTO);
+                    lista.Add(rolDTO);
                 }
 
                 return lista;
