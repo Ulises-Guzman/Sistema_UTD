@@ -241,7 +241,7 @@
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/modalRango.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/modalUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/validarCompAsocModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoCAModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>

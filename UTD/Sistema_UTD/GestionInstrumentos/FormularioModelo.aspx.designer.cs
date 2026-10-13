@@ -51,6 +51,15 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaSatisfactoria;
 
         /// <summary>
+        /// Control alertaNoSatisfactoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertaNoSatisfactoria;
+
+        /// <summary>
         /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace Sistema_UTD.GestionInstrumentos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTituloModalModelo;
+
+        /// <summary>
+        /// Control pnlModalUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlModalUsuario;
 
         /// <summary>
         /// Control txtModelo.

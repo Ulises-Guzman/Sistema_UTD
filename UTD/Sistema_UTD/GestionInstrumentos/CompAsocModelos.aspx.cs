@@ -83,7 +83,7 @@ namespace Sistema_UTD.GestionInstrumentos
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
-        } // TODO: Utilizar DTO crear ModeloResumenDTO
+        } // DONE: Utilizar DTO crear ModeloResumenDTO
 
         protected void btnAceptarNuevoRango_Click(object sender, EventArgs e)
         {

@@ -29,7 +29,7 @@ if (typeof Sys !== 'undefined') {
     Sys.Application.add_load(enlazarEventos);
 } else {
     // Si no hay UpdatePanel, usamos el método tradicional de HTML
-    //document.addEventListener("DOMContentLoaded", enlazarEventos);
+    document.addEventListener("DOMContentLoaded", enlazarEventos);
 }
 
 // 4. Función genérica que valida un solo campo

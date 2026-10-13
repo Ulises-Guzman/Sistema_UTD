@@ -110,7 +110,7 @@
     <Content Include="Scripts\validarCompAsocUnidad.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
-    <Content Include="Scripts\validarCompAsocModelo.js" />
+    <Content Include="Scripts\validarNuevoCAModelo.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />
     <Content Include="Web.config" />
   </ItemGroup>

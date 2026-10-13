@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    // TODO: Front BM de modelos de componentes asociados
     <!-- Cabecera -->
     <div class="row justify-content-center">
         <div class="col-xl-10 mt-3 mb-1">
@@ -28,9 +27,8 @@
                         ¡Los datos del modelo han sido modificados!
                     </div>
 
-                    <%--<div id="alertaNoSatisfactoria" class="alert alert-danger alert-dismissible fade show" role="alert" visible="false" runat="server">
-                        El usuario No ha sido creado!
-                    </div>--%>
+                    <div id="alertaNoSatisfactoria" class="alert alert-danger fade show" style="display: none" role="alert" runat="server">
+                    </div>
                 </div>
             </div>
 
@@ -141,19 +139,21 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <!-- Form -->
-                            <div class="mb-3">
-                                <label for="txtModelo" class="col-form-label">Modelo</label>
-                                <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese un modelo.</div>
-                                <div class="valid-feedback">Ok</div>
+                        <asp:Panel ID="pnlModalUsuario" DefaultButton="btnAceptarModificarModelo" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="mb-3">
+                                    <label for="txtModelo" class="col-form-label">Modelo</label>
+                                    <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese un modelo.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelarModificarModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarModificarModelo" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarModificarModelo_Click" runat="server" />
-                        </div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelarModificarModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptarModificarModelo" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarModificarModelo_Click" runat="server" />
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>
