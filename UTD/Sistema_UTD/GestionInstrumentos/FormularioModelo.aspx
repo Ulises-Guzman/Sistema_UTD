@@ -45,49 +45,6 @@
                                         <asp:TextBox ID="txtBuscar" ClientIDMode="Static" CssClass="form-control" placeholder="Buscar modelo..." AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-
-                                <%--<div class="d-flex align-items-center mt-4 mb-2">
-                                    <asp:CheckBox ID="chkFiltro" ClientIDMode="Static" CssClass="form-check mb-0 me-2" AutoPostBack="true" OnCheckedChanged="chkFiltro_CheckedChanged" runat="server" />
-                                    <label class="form-label mb-0">Filtro Avazado</label>
-                                </div>--%>
-
-                                <%--<!-- Menu filtro avanzado -->
-                                <asp:Panel ID="pnlFiltroAvanzado" Visible="false" runat="server">
-                                    <div class="row mt-3 mb-4">
-                                        <div class="col-md-4">
-                                            <label for="ddlCriterioCampo" class="form-label">Campo</label>
-                                            <asp:DropDownList ID="ddlCriterioCampo" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="ddlCriterioRol" class="form-label">Rol</label>
-                                            <asp:DropDownList ID="ddlCriterioRol" ClientIDMode="Static" CssClass="form-select" runat="server">
-                                            </asp:DropDownList>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="ddlCriterioEstado" class="form-label">Estado</label>
-                                            <asp:DropDownList ID="ddlCriterioEstado" ClientIDMode="Static" CssClass="form-select" runat="server"></asp:DropDownList>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mt-2 mb-3">
-                                        <div class="col-md-4">
-                                            <asp:TextBox ID="txtBuscarAvanzado" ClientIDMode="Static" CssClass="form-control" placeholder="Ingrese palabra clave..." runat="server"></asp:TextBox>
-                                            <div class="invalid-feedback">Por favor, ingrese una palabra clave.</div>
-                                            <div class="valid-feedback">Ok</div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <asp:Button ID="btnBuscarAvanzado"
-                                                ClientIDMode="Static"
-                                                CssClass="btn btn-primary"
-                                                Text="Buscar"
-                                                OnClientClick="return validarUsuarioBuscado();"
-                                                OnClick="btnBuscarAvanzado_Click"
-                                                runat="server" />
-                                        </div>
-                                    </div>
-                                </asp:Panel>--%>
                             </div>
                         </div>
                     </div>
@@ -142,16 +99,24 @@
                         <asp:Panel ID="pnlModalUsuario" DefaultButton="btnAceptarModificarModelo" runat="server">
                             <div class="modal-body">
                                 <!-- Form -->
-                                <div class="mb-3">
+                                <div class="row mb-2">
                                     <label for="txtModelo" class="col-form-label">Modelo</label>
-                                    <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <div class="invalid-feedback">Por favor, ingrese un modelo.</div>
-                                    <div class="valid-feedback">Ok</div>
+                                    <div class="col">
+                                        <asp:TextBox ID="txtModelo" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                        <div class="invalid-feedback">Por favor, ingrese un modelo.</div>
+                                        <div class="valid-feedback">Ok</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="form-check form-switch ms-1">
+                                            <input class="form-check-input" type="checkbox" ClientIDMode="Static" id="chkModeloActivo" OnClick="cambiarCampoModificar(this)" runat="server">
+                                            <label class="form-check-label" for="chkModeloActivo" runat="server">Activo</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer bg-body-tertiary">
                                 <asp:Button ID="btnCancelarModificarModelo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                                <asp:Button ID="btnAceptarModificarModelo" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModelo();" OnClick="btnAceptarModificarModelo_Click" runat="server" />
+                                <asp:Button ID="btnAceptarModificarModelo" ClientIDMode="Static" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarModeloModificado(chkModeloActivo);" OnClick="btnAceptarModificarModelo_Click" runat="server" />
                             </div>
                         </asp:Panel>
                     </div>
@@ -162,7 +127,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/validarCompAsocModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarModificarCAModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scrpts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

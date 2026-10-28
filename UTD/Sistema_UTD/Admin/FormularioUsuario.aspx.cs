@@ -131,6 +131,9 @@ namespace Sistema_UTD.Admin
         {
             try
             {
+                // INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
+
                 //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
                 //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
 
@@ -150,17 +153,6 @@ namespace Sistema_UTD.Admin
                 }
                 else if (chkUsuarioActivo.Checked && chkCambioContrasenia.Checked)
                 {
-                    //int usuarioId = usuarioSeleccionado.Id;
-
-                    //Usuario modificado = new Usuario();
-                    //modificado.NombUsuario = txtUsuario.Text;
-                    //modificado.Contrasenia = BCrypt.Net.BCrypt.HashPassword(txtContrasenia.Text);
-                    //modificado.Rol = new Rol();
-                    //modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
-                    //modificado.Apellido = txtApellido.Text;
-                    //modificado.Nombre = txtNombre.Text;
-                    //modificado.Id = usuarioSeleccionado.Id;
-
                     UsuarioEdicionDTO modificadoUsuarioDTO = new UsuarioEdicionDTO();
                     modificadoUsuarioDTO.Id = usuarioSeleccionado.Id;
                     modificadoUsuarioDTO.NombUsuario = txtUsuario.Text.Trim();
@@ -179,16 +171,6 @@ namespace Sistema_UTD.Admin
                 }
                 else if (chkUsuarioActivo.Checked && !chkCambioContrasenia.Checked)
                 {
-                    //int usuarioId = usuarioSeleccionado.Id;
-
-                    //Usuario modificado = new Usuario();
-                    //modificado.NombUsuario = txtUsuario.Text;
-                    //modificado.Rol = new Rol();
-                    //modificado.Rol.Id = int.Parse(ddlRol.SelectedValue);
-                    //modificado.Apellido = txtApellido.Text;
-                    //modificado.Nombre = txtNombre.Text;
-                    //modificado.Id = usuarioSeleccionado.Id;
-
                     UsuarioEdicionDTO modificadoUsuarioDTO = new UsuarioEdicionDTO();
                     modificadoUsuarioDTO.Id = usuarioSeleccionado.Id;
                     modificadoUsuarioDTO.NombUsuario = txtUsuario.Text.Trim();

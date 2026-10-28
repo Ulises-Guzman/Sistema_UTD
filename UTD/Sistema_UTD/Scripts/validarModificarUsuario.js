@@ -3,6 +3,32 @@
 // 1. Declaración las variables globales
 let txtUsuario, txtContrasenia, ddlRol, txtApellido, txtNombre;
 
+// Lógica para cambiar el texto del botón Aceptar (feedback)
+document.addEventListener("DOMContentLoaded", function () {
+    // Verificamos que el ScriptManager de ASP.NET esté cargado
+    if (typeof Sys !== 'undefined' && Sys.WebForms && Sys.WebForms.PageRequestManager) {
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+        // Se ejecuta apenas el usuario hace clic y la petición viaja al servidor
+        prm.add_beginRequest(function (sender, args) {
+            var btnAceptar = document.getElementById('btnAceptar'); // Asegúrate de tener ClientIDMode="Static"
+            if (btnAceptar) {
+                btnAceptar.disabled = true;
+                btnAceptar.value = "Guardando..."; // Feedback visual de espera
+            }
+        });
+
+        // Se ejecuta cuando el servidor devuelve la respuesta (éxito o error)
+        prm.add_endRequest(function (sender, args) {
+            var btnAceptar = document.getElementById('btnAceptar');
+            if (btnAceptar) {
+                btnAceptar.disabled = false;
+                btnAceptar.value = "Aceptar";
+            }
+        });
+    }
+});
+
 // 2. Función para enganchar eventos (preparada para el UpdatePanel)
 function enlazarEventos() {
     txtUsuario = document.getElementById("txtUsuario");

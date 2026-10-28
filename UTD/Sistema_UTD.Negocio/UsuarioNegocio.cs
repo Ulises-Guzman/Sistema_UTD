@@ -74,7 +74,6 @@ namespace Sistema_UTD.Negocio
         public void ModificarUsuario(bool cambioContrasenia, UsuarioEdicionDTO usuarioDTO, int usuarioLogueadoId)
         {
             AccesoDatos datos = new AccesoDatos();
-            //string hashContrasenia = BCrypt.Net.BCrypt.HashPassword(modificado.Contrasenia);
 
             // 1. Mapeo de DTO a Entidad de Dominio (POCO)
             Usuario modificadoUsuario = new Usuario();
@@ -203,10 +202,10 @@ namespace Sistema_UTD.Negocio
 
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
             finally
             {

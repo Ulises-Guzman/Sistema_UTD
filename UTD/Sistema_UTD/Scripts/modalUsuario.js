@@ -34,32 +34,3 @@ function limpiarFondoModal() {
     document.body.style.overflow = '';
     document.body.style.paddingRight = '';
 }
-
-// function cambiarCampos(chkUsuarioActivo) {
-//     var txtUsuario = document.getElementById('txtUsuario');
-//     var ddlRol = document.getElementById('ddlRol');
-//     var txtApellido = document.getElementById('txtApellido');
-//     var txtNombre = document.getElementById('txtNombre');
-
-//     if (!chkUsuarioActivo.checked) {
-//         txtUsuario.disabled = true;
-//         ddlRol.disabled = true;
-//         txtApellido.disabled = true;
-//         txtNombre.disabled = true;
-//     } else {
-//         txtUsuario.disabled = false;
-//         ddlRol.disabled = false;
-//         txtApellido.disabled = false;
-//         txtNombre.disabled = false;
-//     }
-// }
-
-// function cambiarCampoContrasenia(chkCambioContrasenia) {
-//     var txtContrasenia = document.getElementById('txtContrasenia');
-
-//     if (!chkCambioContrasenia.checked) {
-//         txtContrasenia.disabled = true;
-//     } else {
-//         txtContrasenia.disabled = false;
-//     }
-// }

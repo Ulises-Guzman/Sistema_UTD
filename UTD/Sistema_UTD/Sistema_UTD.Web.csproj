@@ -109,6 +109,7 @@
     <Content Include="Scripts\validarCompAsocRango.js" />
     <Content Include="Scripts\validarCompAsocUnidad.js" />
     <Content Include="Scripts\validarLogin.js" />
+    <Content Include="Scripts\validarModificarCAModelo.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarNuevoCAModelo.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />
