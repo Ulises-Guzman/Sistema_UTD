@@ -29,7 +29,7 @@ namespace Sistema_UTD.Negocio
                 int existe = (int)datos.EjecutarScalar();
                 if (existe > 0)
                 {
-                    throw new Exception("El nombre de usuario ya se encuentra registrado y/o se bloqueó multiples intentos.");
+                    throw new Exception("El nombre de modelo ya se encuentra registrado y/o se bloqueó multiples intentos.");
                 }
                 datos.LimpiarParametros();
                 datos.CerrarConexion();
@@ -85,7 +85,7 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // DONE: Completar la lógica para listar modelos en el grid
+        }
 
         public void DesactivarModelo(int modeloSeleccionadoId, int usuarioLogueadoId)
         {
