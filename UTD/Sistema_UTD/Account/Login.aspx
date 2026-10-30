@@ -27,7 +27,7 @@
                 <div class="valid-feedback">Ok</div>
             </div>
 
-            <asp:Button ID="btnIngresar" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClientClick="return validarLogin()" OnClick="btnIngresar_Click" runat="server" />
+            <asp:Button ID="btnIngresar" ClientIDMode="Static" Text="Ingresar" CssClass="btn btn-primary mb-2 w-100" OnClientClick="return validarLogin()" OnClick="btnIngresar_Click" runat="server" />
 
             <!-- Alerta de notificación -->
             <div id="alertaNoSatisfactoria" class="alert alert-danger fade show text-start" style="display: none" role="alert" runat="server">
