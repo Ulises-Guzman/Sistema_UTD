@@ -21,7 +21,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 List<BreadcrumbItem> listaRutas = new List<BreadcrumbItem>
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Gestión de componentes asociados", Url = "~/GestionInstrumentos/CompAsocModelos.aspx", EsActivo = false},
+                    new BreadcrumbItem { Titulo = "Gestión de Componentes Asociados", Url = "~/GestionInstrumentos/CompAsocModelos.aspx", EsActivo = false},
                     new BreadcrumbItem { Titulo = "Modificar Modelo", Url = "", EsActivo = true}
                 };
 
@@ -161,6 +161,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 ModeloEdicionDTO modificadoModeloDTO = new ModeloEdicionDTO();
                 modificadoModeloDTO.Id = modeloSeleccionado.Id;
                 modificadoModeloDTO.Descripcion = txtModelo.Text.Trim();
+                modificadoModeloDTO.Activo = chkModeloActivo.Checked;
 
                 modeloNegocio.ModificarModelo(modificadoModeloDTO, usuarioLogueado.Id);
 
@@ -197,5 +198,5 @@ namespace Sistema_UTD.GestionInstrumentos
             txtModelo.Text = string.Empty;
         }
 
-    } // TODO: Utilizar DTO
+    } // DONE: Utilizar DTO
 }

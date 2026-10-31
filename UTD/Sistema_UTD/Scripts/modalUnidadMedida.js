@@ -1,6 +1,6 @@
-﻿function abrirModalUnidad() {
+﻿function abrirModalUnidadMedida() {
     // 1. Buscar el elemento HTML del modal
-    var elementoModal = document.getElementById('frmModalUnidad');
+    var elementoModal = document.getElementById('frmModalUnidadMedida');
 
     // 2. Usar getOrCreateInstance para evitar crear modales duplicados en memoria
     var miModal = bootstrap.Modal.getOrCreateInstance(elementoModal);
@@ -11,7 +11,7 @@
 
 function cerrarModalUnidad() {
     // 1. Buscar el elemento HTML del modal
-    var elementoModal = document.getElementById('frmModalUnidad');
+    var elementoModal = document.getElementById('frmModalUnidadMedida');
 
     // 2. Obtener la instancia que ya está abierta
     var miModal = bootstrap.Modal.getInstance(elementoModal);

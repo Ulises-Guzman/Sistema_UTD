@@ -55,7 +55,7 @@ function validarLogin() {
         // Retrasamos el bloqueo del botón unos milisegundos
         setTimeout(function () {
             btnAceptar.disabled = true;
-        }, 50);
+        }, 25);
     }
 
     return true; // Permite que el PostBack viaje al CodeBehind de C#

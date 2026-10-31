@@ -100,7 +100,7 @@ namespace Sistema_UTD.Negocio
                     datos.SetearParametro("@apellido", modificadoUsuario.Apellido);
                     datos.SetearParametro("@nombre", modificadoUsuario.Nombre);
                     datos.SetearParametro("@rolId", modificadoUsuario.Rol.Id);
-                    datos.SetearParametro("@activo", true);
+                    datos.SetearParametro("@activo", modificadoUsuario.Activo);
                     datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
                     datos.SetearParametro("@id", modificadoUsuario.Id);
 
@@ -118,7 +118,7 @@ namespace Sistema_UTD.Negocio
                     datos.SetearParametro("@apellido", modificadoUsuario.Apellido);
                     datos.SetearParametro("@nombre", modificadoUsuario.Nombre);
                     datos.SetearParametro("@rolId", modificadoUsuario.Rol.Id);
-                    datos.SetearParametro("@activo", true);
+                    datos.SetearParametro("@activo", modificadoUsuario.Activo);
                     datos.SetearParametro("@modificacionUsuarioId", usuarioLogueadoId);
                     datos.SetearParametro("@id", modificadoUsuario.Id);
 

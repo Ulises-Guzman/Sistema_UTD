@@ -160,6 +160,7 @@ namespace Sistema_UTD.Admin
                     modificadoUsuarioDTO.RolId = int.Parse(ddlRol.SelectedValue);
                     modificadoUsuarioDTO.Apellido = txtApellido.Text.Trim();
                     modificadoUsuarioDTO.Nombre = txtNombre.Text.Trim();
+                    modificadoUsuarioDTO.Activo = chkUsuarioActivo.Checked;
 
                     negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificadoUsuarioDTO, usuarioLogueado.Id);
 
@@ -178,6 +179,7 @@ namespace Sistema_UTD.Admin
                     modificadoUsuarioDTO.RolId = int.Parse(ddlRol.SelectedValue);
                     modificadoUsuarioDTO.Apellido = txtApellido.Text.Trim();
                     modificadoUsuarioDTO.Nombre = txtNombre.Text.Trim();
+                    modificadoUsuarioDTO.Activo = chkUsuarioActivo.Checked;
 
                     negocio.ModificarUsuario(chkCambioContrasenia.Checked, modificadoUsuarioDTO, usuarioLogueado.Id); 
 

@@ -96,7 +96,7 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <asp:Panel ID="pnlModalUsuario" DefaultButton="btnAceptarModificarModelo" runat="server">
+                        <asp:Panel ID="pnlModalModelo" DefaultButton="btnAceptarModificarModelo" runat="server">
                             <div class="modal-body">
                                 <!-- Form -->
                                 <div class="row mb-2">
@@ -128,6 +128,5 @@
     </asp:UpdatePanel>
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarModificarCAModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scrpts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

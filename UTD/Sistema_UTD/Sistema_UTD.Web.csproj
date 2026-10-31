@@ -94,20 +94,21 @@
     <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
     <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
+    <Content Include="GestionInstrumentos\FormularioUnidadMedida.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\calibre.jpg" />
     <Content Include="Scripts\alertLogin.js" />
-    <Content Include="Scripts\alertModelo.js" />
-    <Content Include="Scripts\alertUsuario.js" />
+    <Content Include="Scripts\alertGeneral.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalRango.js" />
-    <Content Include="Scripts\modalUnidad.js" />
+    <Content Include="Scripts\modalUnidadMedida.js" />
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
     <Content Include="Scripts\validarCompAsocRango.js" />
-    <Content Include="Scripts\validarCompAsocUnidad.js" />
+    <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
+    <Content Include="Scripts\validarNuevoCAUnidadMedida.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarCAModelo.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioModelo.aspx.designer.cs">
       <DependentUpon>FormularioModelo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioUnidadMedida.aspx.cs">
+      <DependentUpon>FormularioUnidadMedida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioUnidadMedida.aspx.designer.cs">
+      <DependentUpon>FormularioUnidadMedida.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

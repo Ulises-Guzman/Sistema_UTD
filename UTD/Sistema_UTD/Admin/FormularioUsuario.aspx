@@ -207,5 +207,5 @@
     <script src="/Scripts/modalUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarModificarUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarBuscarAvanzado.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

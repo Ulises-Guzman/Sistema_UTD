@@ -178,5 +178,5 @@
     </asp:UpdatePanel>
     <script src="/Scripts/modalUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/alertUsuario.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

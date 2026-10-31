@@ -129,6 +129,7 @@
                     <asp:LinkButton ID="lnkModificarUnidadMedida"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                        OnClick="lnkModificarUnidadMedida_Click"
                         runat="server">
                         <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                         Modificar unidad de medida <span class="float-end">></span>
@@ -196,7 +197,7 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
+                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarRango();" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -204,32 +205,34 @@
             <!-- Fin formulario modal crear nuevo rango -->
 
             <!-- Formulario modal crear nueva unidad de medida -->
-            <div class="modal fade" id="frmModalUnidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="frmModalUnidadMedida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-body-tertiary">
                             <div class="d-flex flex-column flex-grow-1 me-2">
                                 <h1 class="modal-title fs-5">
                                     <i class="bi bi-ui-radios me-1"></i>
-                                    <asp:Label ID="lblTituloModalUnidad" ClientIDMode="Static" Text="Crear Unidad de medida" runat="server"></asp:Label>
+                                    <asp:Label ID="lblTituloModalUnidadMedida" ClientIDMode="Static" Text="Crear unidad de medida" runat="server"></asp:Label>
                                 </h1>
-                                <small class="mb-1 text-secondary" id="lblDescripcionModalUnidad">Cree una nueva unidad de medida para clasificar instrumentos</small>
+                                <small class="mb-1 text-secondary" id="lblDescripcionModalUnidadMedida">Cree una nueva unidad de medida para clasificar instrumentos</small>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <!-- Form -->
-                            <div class="mb-3">
-                                <label for="txtUnidad" class="col-form-label">Unidad de medida</label>
-                                <asp:TextBox ID="txtUnidad" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese la nueva unidad de medida.</div>
-                                <div class="valid-feedback">Ok</div>
+                        <asp:Panel ID="Panel1" DefaultButton="btnAceptarNuevaUnidadMedida" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="mb-3">
+                                    <label for="txtUnidadMedida" class="col-form-label">Unidad de medida</label>
+                                    <asp:TextBox ID="txtUnidadMedida" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese la nueva unidad de medida.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelarNuevaUnidad" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevaUnidad" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarUnidad()" OnClick="btnAceptarNuevaUnidad_Click" runat="server" />
-                        </div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelarNuevaUnidadMedida" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptarNuevaUnidadMedida" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarUnidadMedida();" OnClick="btnAceptarNuevaUnidadMedida_Click" runat="server" />
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>
@@ -240,9 +243,9 @@
     </asp:UpdatePanel>
     <script src="/Scripts/modalModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/modalRango.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/modalUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/modalUnidadMedida.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCAModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoCAUnidadMedida.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/validarCompAsocUnidad.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/alertModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>
