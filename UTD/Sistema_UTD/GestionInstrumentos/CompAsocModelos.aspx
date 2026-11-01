@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Cabecera -->
     <div class="row justify-content-center">
-        <div class="col-xl-10 mt-3 mb-4">
+        <div class="col-xl-10 mt-3 mb-3">
             <div class="p-4 bg-white shadow-sm rounded" data-bs-theme="ligth">
                 <h4>
                     <i class="bi bi-wrench-adjustable me-1"></i>
@@ -23,7 +23,7 @@
         <ContentTemplate>
             <!-- Alerta de notificación -->
             <div class="row justify-content-center">
-                <div class="col-xl-10 mt-1 mb-5">
+                <div class="col-xl-10 mb-5">
                     <div id="alertaSatisfactoria" class="alert alert-success fade show" style="display: none" role="alert" runat="server">
                         ¡El componente ha sido creado!
                     </div>
@@ -95,6 +95,7 @@
                     <asp:LinkButton ID="lnkModificarRango"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                        OnClick="lnkModificarRango_Click"
                         runat="server">
                         <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                         Modificar rango <span class="float-end">></span>
@@ -197,7 +198,7 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarRango();" runat="server" />
+                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
                         </div>
                     </div>
                 </div>

@@ -44,6 +44,9 @@
     <Compile Include="DTOs\ModeloCreacionDTO.cs" />
     <Compile Include="DTOs\ModeloEdicionDTO.cs" />
     <Compile Include="DTOs\ModeloResumenDTO.cs" />
+    <Compile Include="DTOs\RangoCreacionDTO.cs" />
+    <Compile Include="DTOs\RangoEdicionDTO.cs" />
+    <Compile Include="DTOs\RangoResumenDTO.cs" />
     <Compile Include="DTOs\RolResumenDTO.cs" />
     <Compile Include="DTOs\UnidadMedidaCreacionDTO.cs" />
     <Compile Include="DTOs\UnidadMedidaEdicionDTO.cs" />

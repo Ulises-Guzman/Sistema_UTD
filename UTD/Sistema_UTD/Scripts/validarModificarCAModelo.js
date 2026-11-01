@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Se ejecuta cuando el servidor devuelve la respuesta (éxito o error)
         prm.add_endRequest(function (sender, args) {
-            var btnAceptar = document.getElementById('btnAceptar');
+            var btnAceptar = document.getElementById('btnAceptarModificarModelo');
             if (btnAceptar) {
                 btnAceptar.disabled = false;
                 btnAceptar.value = "Aceptar";

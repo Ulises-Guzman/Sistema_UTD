@@ -104,6 +104,15 @@ namespace Sistema_UTD.GestionInstrumentos
             }
         }
 
+        protected void gvUnidadesMedida_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUnidadesMedida.PageIndex = e.NewPageIndex;
+            EnlazarPaginaGridView(sender, e);
+            gvUnidadesMedida.DataBind();
+
+            BloquearNotificacion();
+        }
+
         protected void EnlazarPaginaGridView(object sender, EventArgs e)
         {
             UnidadMedidaNegocio unidadMedidaNegocio = new UnidadMedidaNegocio();
@@ -184,13 +193,5 @@ namespace Sistema_UTD.GestionInstrumentos
             gvUnidadesMedida.DataBind();
         }
 
-        protected void gvUnidadesMedida_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvUnidadesMedida.PageIndex = e.NewPageIndex;
-            EnlazarPaginaGridView(sender, e);
-            gvUnidadesMedida.DataBind();
-
-            BloquearNotificacion();
-        }
     }
 }

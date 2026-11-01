@@ -94,6 +94,7 @@
     <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
     <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
+    <Content Include="GestionInstrumentos\FormularioRango.aspx" />
     <Content Include="GestionInstrumentos\FormularioUnidadMedida.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\calibre.jpg" />
@@ -107,7 +108,9 @@
     <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
     <Content Include="Scripts\validarCompAsocRango.js" />
+    <Content Include="Scripts\validarModificarCARango.js" />
     <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
+    <Content Include="Scripts\validarNuevoCARango.js" />
     <Content Include="Scripts\validarNuevoCAUnidadMedida.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarCAModelo.js" />
@@ -165,6 +168,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioModelo.aspx.designer.cs">
       <DependentUpon>FormularioModelo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioRango.aspx.cs">
+      <DependentUpon>FormularioRango.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioRango.aspx.designer.cs">
+      <DependentUpon>FormularioRango.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioUnidadMedida.aspx.cs">
       <DependentUpon>FormularioUnidadMedida.aspx</DependentUpon>

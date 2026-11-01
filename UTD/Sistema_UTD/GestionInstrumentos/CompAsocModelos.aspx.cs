@@ -38,21 +38,33 @@ namespace Sistema_UTD.GestionInstrumentos
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalModelo();", true);
         }
 
+        protected void lnkAgregarRango_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalRango();", true);
+        }
+
+        protected void lnkAgregarUnidadMedida_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUnidadMedida();", true);
+        }
+
         protected void lnkModificarModelo_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioModelo.aspx");
         }
 
+        protected void lnkModificarRango_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/FormularioRango.aspx");
+        }
+
         protected void lnkModificarUnidadMedida_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioUnidadMedida.aspx");
-        }
-
-        protected void BloquearNotificacion()
-        {
-            // Para eliminar la carga fantasma del modal y la ejecución del update panel
-            alertaSatisfactoria.Style["display"] = "none";
-            alertaNoSatisfactoria.Style["display"] = "none";
         }
 
         protected void btnAceptarNuevoModelo_Click(object sender, EventArgs e)
@@ -88,36 +100,37 @@ namespace Sistema_UTD.GestionInstrumentos
             }
         }
 
-        protected void lnkAgregarRango_Click(object sender, EventArgs e)
+        protected void btnAceptarNuevoRango_Click(object sender, EventArgs e)
         {
-            //BloquearNotificacion();
+            try
+            {
+                ////// INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
 
-            //ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalRango();", true);
-        }
+                //// 1. inyección de prueba: fuerza el error inmediatamente
+                //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
 
-        protected void lnkAgregarUnidadMedida_Click(object sender, EventArgs e)
-        {
-            BloquearNotificacion();
+                UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
+                RangoCreacionDTO nuevoRangoDTO = new RangoCreacionDTO();
+                RangoNegocio rangoNegocio = new RangoNegocio();
 
-            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalUnidadMedida();", true);
-        }
+                nuevoRangoDTO.Descripcion = txtRango.Text.Trim();
 
-        protected void MostrarNotificacionVerde()
-        {
-            alertaSatisfactoria.Style["display"] = "block";
-            alertaNoSatisfactoria.Style["display"] = "none";
-        }
+                rangoNegocio.AgregarRango(nuevoRangoDTO, usuarioActual.Id);
 
-        protected void MostrarNotificacionRoja()
-        {
-            alertaSatisfactoria.Style["display"] = "none";
-            alertaNoSatisfactoria.Style["display"] = "block";
-        }
+                MostrarNotificacionVerde();
 
-        protected void LimpiarCampos()
-        {
-            txtModelo.Text = string.Empty;
-            txtUnidadMedida.Text = string.Empty;
+                LimpiarCampos();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
+            catch (Exception ex)
+            {
+                alertaNoSatisfactoria.InnerText = "El rango no ha sido creado debido a un error: " + ex.Message;
+                MostrarNotificacionRoja();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
         }
 
         protected void btnAceptarNuevaUnidadMedida_Click(object sender, EventArgs e)
@@ -151,6 +164,31 @@ namespace Sistema_UTD.GestionInstrumentos
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
+        }
+
+        protected void BloquearNotificacion()
+        {
+            // Para eliminar la carga fantasma del modal y la ejecución del update panel
+            alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostrarNotificacionVerde()
+        {
+            alertaSatisfactoria.Style["display"] = "block";
+            alertaNoSatisfactoria.Style["display"] = "none";
+        }
+
+        protected void MostrarNotificacionRoja()
+        {
+            alertaSatisfactoria.Style["display"] = "none";
+            alertaNoSatisfactoria.Style["display"] = "block";
+        }
+
+        protected void LimpiarCampos()
+        {
+            txtModelo.Text = string.Empty;
+            txtUnidadMedida.Text = string.Empty;
         }
 
     }

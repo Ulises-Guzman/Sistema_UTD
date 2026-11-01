@@ -9,7 +9,7 @@
     miModal.show();
 }
 
-function cerrarModalUnidad() {
+function cerrarModalUnidadMedida() {
     // 1. Buscar el elemento HTML del modal
     var elementoModal = document.getElementById('frmModalUnidadMedida');
 

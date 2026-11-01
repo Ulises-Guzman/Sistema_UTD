@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Cabecera -->
     <div class="row justify-content-center">
-        <div class="col-xl-10 mt-3 mb-1">
+        <div class="col-xl-10 mt-3 mb-3">
             <div class="p-4 bg-white shadow-sm rounded" data-bs-theme="ligth">
                 <h4>
                     <i class="bi bi-ui-radios me-1"></i>
@@ -22,7 +22,7 @@
         <ContentTemplate>
             <!-- Alerta de notificación -->
             <div class="row justify-content-center">
-                <div class="col-xl-10 mt-1 mb-5">
+                <div class="col-xl-10 mb-5">
                     <div id="alertaSatisfactoria" class="alert alert-success fade show" style="display: none" role="alert" runat="server">
                         ¡Los datos del modelo han sido modificados!
                     </div>
