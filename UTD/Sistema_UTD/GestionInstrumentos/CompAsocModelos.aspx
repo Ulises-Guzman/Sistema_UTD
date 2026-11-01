@@ -198,7 +198,7 @@
                         </div>
                         <div class="modal-footer bg-body-tertiary">
                             <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
+                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
                         </div>
                     </div>
                 </div>
@@ -247,6 +247,6 @@
     <script src="/Scripts/modalUnidadMedida.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCAModelo.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCAUnidadMedida.js?v=<%= DateTime.Now.Ticks %>"></script>
-    <script src="/Scripts/validarCompAsocRango.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoCARango.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

@@ -93,6 +93,7 @@
     <Content Include="Default.aspx" />
     <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
     <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
+    <Content Include="GestionInstrumentos\FormularioDestino.aspx" />
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
     <Content Include="GestionInstrumentos\FormularioRango.aspx" />
     <Content Include="GestionInstrumentos\FormularioUnidadMedida.aspx" />
@@ -101,21 +102,23 @@
     <Content Include="Scripts\alertLogin.js" />
     <Content Include="Scripts\alertGeneral.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\modalDestino.js" />
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalRango.js" />
     <Content Include="Scripts\modalUnidadMedida.js" />
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
-    <Content Include="Scripts\validarCompAsocRango.js" />
     <Content Include="Scripts\validarModificarCARango.js" />
     <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
+    <Content Include="Scripts\validarModificarCADestino.js" />
     <Content Include="Scripts\validarNuevoCARango.js" />
     <Content Include="Scripts\validarNuevoCAUnidadMedida.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarCAModelo.js" />
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarNuevoCAModelo.js" />
+    <Content Include="Scripts\validarNuevoCADestino.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -161,6 +164,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\CompAsocModelos.aspx.designer.cs">
       <DependentUpon>CompAsocModelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioDestino.aspx.cs">
+      <DependentUpon>FormularioDestino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioDestino.aspx.designer.cs">
+      <DependentUpon>FormularioDestino.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioModelo.aspx.cs">
       <DependentUpon>FormularioModelo.aspx</DependentUpon>

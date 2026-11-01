@@ -54,8 +54,8 @@ function enlazarEventos() {
     });
 }
 
-// 3. ¡LA MAGIA DE ASP.NET!
-// Si existe el ScriptManager de ASP.NET, usamos su método de carga
+
+// 3. Si existe el ScriptManager de ASP.NET, usamos su método de carga
 if (typeof Sys !== 'undefined') {
     Sys.Application.add_load(enlazarEventos);
 } else {

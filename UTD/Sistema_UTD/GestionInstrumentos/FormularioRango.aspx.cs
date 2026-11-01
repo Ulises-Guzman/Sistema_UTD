@@ -118,7 +118,7 @@ namespace Sistema_UTD.GestionInstrumentos
         {
             RangoNegocio rangoNegocio = new RangoNegocio();
             Session.Add("listaRango", rangoNegocio.ListarRango());
-            gvRangos.DataSource = Session["listaUnidadMedida"];
+            gvRangos.DataSource = Session["listaRango"];
             gvRangos.DataBind();
         }
 

@@ -60,7 +60,8 @@ namespace Sistema_UTD.Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT ModeloId, Descripcion, Activo FROM Modelos");
+                datos.SetearConsulta("SELECT ModeloId, Descripcion, Activo FROM Modelos " +
+                                     "ORDER BY Descripcion ASC");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())

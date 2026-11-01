@@ -188,6 +188,7 @@ namespace Sistema_UTD.GestionInstrumentos
         protected void LimpiarCampos()
         {
             txtModelo.Text = string.Empty;
+            txtRango.Text = string.Empty;
             txtUnidadMedida.Text = string.Empty;
         }
 

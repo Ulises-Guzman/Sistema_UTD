@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <!-- Cabecera -->
+ <!-- Cabecera -->
  <div class="row justify-content-center">
      <div class="col-xl-10 mt-3 mb-3">
          <div class="p-4 bg-white shadow-sm rounded" data-bs-theme="ligth">

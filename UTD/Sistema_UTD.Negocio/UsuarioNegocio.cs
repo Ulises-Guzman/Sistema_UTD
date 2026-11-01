@@ -172,7 +172,8 @@ namespace Sistema_UTD.Negocio
             {
                 datos.SetearConsulta("SELECT U.UsuarioId, U.Usuario, U.Apellido, U.Nombre, U.Activo, U.RolId, R.Descripcion " +
                                      "FROM Usuarios U " +
-                                     "INNER JOIN Roles R ON U.RolId = R.RolId");
+                                     "INNER JOIN Roles R ON U.RolId = R.RolId " +
+                                     "ORDER BY U.Apellido ASC");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())

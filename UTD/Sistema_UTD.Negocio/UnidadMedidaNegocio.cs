@@ -58,7 +58,8 @@ namespace Sistema_UTD.Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT UnidadMedidaId, Descripcion, Activo FROM UnidadesMedida");
+                datos.SetearConsulta("SELECT UnidadMedidaId, Descripcion, Activo FROM UnidadesMedida " +
+                                     "ORDER BY Descripcion ASC");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())

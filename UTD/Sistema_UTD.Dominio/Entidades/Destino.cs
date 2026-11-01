@@ -9,6 +9,7 @@ namespace Sistema_UTD.Dominio.Entidades
     public class Destino
     {
         public int Id { get; set; }
+        public string Cuatrigrama { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
 

@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\DestinoCreacionDTO.cs" />
+    <Compile Include="DTOs\DestinoEdicionDTO.cs" />
+    <Compile Include="DTOs\DestinoResumenDTO.cs" />
     <Compile Include="DTOs\ModeloCreacionDTO.cs" />
     <Compile Include="DTOs\ModeloEdicionDTO.cs" />
     <Compile Include="DTOs\ModeloResumenDTO.cs" />

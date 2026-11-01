@@ -57,7 +57,8 @@ namespace Sistema_UTD.Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT RangoId, Descripcion, Activo FROM Rangos");
+                datos.SetearConsulta("SELECT RangoId, Descripcion, Activo FROM Rangos " +
+                                     "ORDER BY Descripcion ASC");
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
