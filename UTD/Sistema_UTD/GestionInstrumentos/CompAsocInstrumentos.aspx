@@ -81,6 +81,7 @@
                     <asp:LinkButton ID="lnkAgregarSeccion"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
+                        OnClick="lnkAgregarSeccion_Click"
                         runat="server">
                     <i class="bi bi-plus-circle me-2 icon-green"></i>
                     Agregar sección <span class="float-end">></span>
@@ -93,6 +94,7 @@
                     <asp:LinkButton ID="lnkModificarSeccion"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                        OnClick="lnkModificarSeccion_Click"
                         runat="server">
                     <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                     Modificar sección <span class="float-end">></span>
@@ -114,6 +116,7 @@
                     <asp:LinkButton ID="lnkAgregarEstadoInst"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
+                        OnClick="lnkAgregarEstadoInst_Click"
                         runat="server">
                     <i class="bi bi-plus-circle me-2 icon-green"></i>
                     Agregar estado de instrumento <span class="float-end">></span>
@@ -207,10 +210,79 @@
             </div>
             <!-- Fin formulario modal crear nuevo destino -->
 
+            <!-- Formulario modal crear nuevo seccion -->
+            <div class="modal fade" id="frmModalSeccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-body-tertiary">
+                            <div class="d-flex flex-column flex-grow-1 me-2">
+                                <h1 class="modal-title fs-5">
+                                    <i class="bi bi-ui-radios me-1"></i>
+                                    <asp:Label ID="lblTituloModalSeccion" ClientIDMode="Static" Text="Crear sección" runat="server"></asp:Label>
+                                </h1>
+                                <small class="mb-1 text-secondary" id="lblDescripcionModalSeccion">Cree una nueva sección para clasificar instrumentos</small>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <asp:Panel ID="pnlModalSeccion" DefaultButton="btnAceptarNuevaSeccion" runat="server">
+                        <div class="modal-body">
+                            <!-- Form -->
+                            <div class="mb-3">
+                                <label for="txtRango" class="col-form-label">Sección</label>
+                                <asp:TextBox ID="txtSeccion" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                <div class="invalid-feedback">Por favor, ingrese la nueva sección.</div>
+                                <div class="valid-feedback">Ok</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-body-tertiary">
+                            <asp:Button ID="btnCancelarNuevaSeccion" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                            <asp:Button ID="btnAceptarNuevaSeccion" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarNuevaSeccion();" OnClick="btnAceptarNuevaSeccion_Click" runat="server" />
+                        </div>
+                         </asp:Panel>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin formulario modal crear nuevo seccion -->
+             <div class="modal fade" id="frmModalEstadoInst" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header bg-body-tertiary">
+                 <div class="d-flex flex-column flex-grow-1 me-2">
+                     <h1 class="modal-title fs-5">
+                         <i class="bi bi-ui-radios me-1"></i>
+                         <asp:Label ID="lblTituloModalEstadoInst" ClientIDMode="Static" Text="Crear estado de instrumento" runat="server"></asp:Label>
+                     </h1>
+                     <small class="mb-1 text-secondary" id="lblDescripcionModalEstadoInst">Cree una nueva sección para clasificar instrumentos</small>
+                 </div>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <asp:Panel ID="Panel1" DefaultButton="btnAceptarNuevaSeccion" runat="server">
+             <div class="modal-body">
+                 <!-- Form -->
+                 <div class="mb-3">
+                     <label for="txtRango" class="col-form-label">Sección</label>
+                     <asp:TextBox ID="TextBox1" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                     <div class="invalid-feedback">Por favor, ingrese la nueva sección.</div>
+                     <div class="valid-feedback">Ok</div>
+                 </div>
+             </div>
+             <div class="modal-footer bg-body-tertiary">
+                 <asp:Button ID="Button1" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                 <asp:Button ID="Button2" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarNuevaSeccion();" OnClick="btnAceptarNuevaSeccion_Click" runat="server" />
+             </div>
+              </asp:Panel>
+         </div>
+     </div>
+ </div>
+            <!-- Formulario modal crear nuevo estado instrumento -->
+
+            <!-- Fin formulario modal crear nuevo estado instrumento -->
             <!-- Fin formularios modales para componentes asociados a instrumentos -->
         </ContentTemplate>
     </asp:UpdatePanel>
     <script src="/Scripts/modalDestino.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/modalSeccion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCADestino.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoCASeccion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

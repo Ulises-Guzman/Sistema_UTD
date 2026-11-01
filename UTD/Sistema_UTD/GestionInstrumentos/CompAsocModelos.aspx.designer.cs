@@ -159,6 +159,15 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Label lblTituloModalRango;
 
         /// <summary>
+        /// Control pnlModalRango.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlModalRango;
+
+        /// <summary>
         /// Control txtRango.
         /// </summary>
         /// <remarks>
@@ -195,13 +204,13 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Label lblTituloModalUnidadMedida;
 
         /// <summary>
-        /// Control Panel1.
+        /// Control pnlModalUnidadMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel pnlModalUnidadMedida;
 
         /// <summary>
         /// Control txtUnidadMedida.

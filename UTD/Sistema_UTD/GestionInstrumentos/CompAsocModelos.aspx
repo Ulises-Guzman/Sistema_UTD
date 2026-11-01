@@ -187,19 +187,21 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <!-- Form -->
-                            <div class="mb-3">
-                                <label for="txtRango" class="col-form-label">Rango</label>
-                                <asp:TextBox ID="txtRango" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
-                                <div class="invalid-feedback">Por favor, ingrese el nuevo rango.</div>
-                                <div class="valid-feedback">Ok</div>
+                        <asp:Panel ID="pnlModalRango" DefaultButton="btnAceptarNuevoRango" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="mb-3">
+                                    <label for="txtRango" class="col-form-label">Rango</label>
+                                    <asp:TextBox ID="txtRango" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese el nuevo rango.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer bg-body-tertiary">
-                            <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
-                            <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
-                        </div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelarNuevoRango" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptarNuevoRango" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarRango();" OnClick="btnAceptarNuevoRango_Click" runat="server" />
+                            </div>
+                        </asp:Panel>
                     </div>
                 </div>
             </div>
@@ -219,7 +221,7 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <asp:Panel ID="Panel1" DefaultButton="btnAceptarNuevaUnidadMedida" runat="server">
+                        <asp:Panel ID="pnlModalUnidadMedida" DefaultButton="btnAceptarNuevaUnidadMedida" runat="server">
                             <div class="modal-body">
                                 <!-- Form -->
                                 <div class="mb-3">

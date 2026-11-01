@@ -28,7 +28,7 @@ namespace Sistema_UTD.GestionInstrumentos
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
 
-                // Cargar el gv con la lista de unidades de medida
+                // Cargar el gv con la lista de rangos
                 RangoNegocio rangoNegocio = new RangoNegocio();
                 Session.Add("listaRango", rangoNegocio.ListarRango());
                 gvRangos.DataSource = Session["listaRango"];
