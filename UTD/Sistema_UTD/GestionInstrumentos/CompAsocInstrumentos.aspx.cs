@@ -45,7 +45,7 @@ namespace Sistema_UTD.GestionInstrumentos
         {
             BloquearNotificacion();
 
-            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalEstadoInst();", true);
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalEstado();", true);
         }
 
         protected void lnkModificarDestino_Click(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace Sistema_UTD.GestionInstrumentos
         protected void lnkModificarSeccion_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioSeccion.aspx");
+        }
+
+        protected void lnkModificarEstadoInst_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/FormularioEstado.aspx");
         }
 
         protected void btnAceptarNuevoDestino_Click(object sender, EventArgs e)
@@ -90,6 +95,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
         }
+
         protected void btnAceptarNuevaSeccion_Click(object sender, EventArgs e)
         {
             try
@@ -107,6 +113,39 @@ namespace Sistema_UTD.GestionInstrumentos
                 nuevaSeccionDTO.Descripcion = txtSeccion.Text.Trim();
 
                 seccionNegocio.AgregarSeccion(nuevaSeccionDTO, usuarioActual.Id);
+
+                MostrarNotificacionVerde();
+
+                LimpiarCampos();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
+            catch (Exception ex)
+            {
+                alertaNoSatisfactoria.InnerText = "La sección no ha sido creado debido a un error: " + ex.Message;
+                MostrarNotificacionRoja();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
+        }
+
+        protected void btnAceptarNuevoEstado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ////// INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
+
+                //// 1. inyección de prueba: fuerza el error inmediatamente
+                //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
+
+                UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
+                EstadoCreacionDTO nuevoEstadoDTO = new EstadoCreacionDTO();
+                EstadoNegocio estadoNegocio = new EstadoNegocio();
+
+                nuevoEstadoDTO.Descripcion = txtEstado.Text.Trim();
+
+                estadoNegocio.AgregarEstado(nuevoEstadoDTO, usuarioActual.Id);
 
                 MostrarNotificacionVerde();
 
@@ -147,6 +186,7 @@ namespace Sistema_UTD.GestionInstrumentos
             txtCuatrigrama.Text = string.Empty;
             txtDestino.Text = string.Empty;
             txtSeccion.Text = string.Empty;
+            txtEstado.Text = string.Empty;
         }
 
     }

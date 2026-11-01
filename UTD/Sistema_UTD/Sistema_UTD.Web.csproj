@@ -94,6 +94,7 @@
     <Content Include="GestionInstrumentos\CompAsocInstrumentos.aspx" />
     <Content Include="GestionInstrumentos\CompAsocModelos.aspx" />
     <Content Include="GestionInstrumentos\FormularioDestino.aspx" />
+    <Content Include="GestionInstrumentos\FormularioEstado.aspx" />
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
     <Content Include="GestionInstrumentos\FormularioRango.aspx" />
     <Content Include="GestionInstrumentos\FormularioSeccion.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="Scripts\alertGeneral.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\modalDestino.js" />
+    <Content Include="Scripts\modalEstado.js" />
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalRango.js" />
     <Content Include="Scripts\modalSeccion.js" />
@@ -111,10 +113,12 @@
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\sidebar.js" />
     <Content Include="Scripts\validarBuscarAvanzado.js" />
+    <Content Include="Scripts\validarModificarCAEstado.js" />
     <Content Include="Scripts\validarModificarCARango.js" />
     <Content Include="Scripts\validarModificarCASeccion.js" />
     <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
     <Content Include="Scripts\validarModificarCADestino.js" />
+    <Content Include="Scripts\validarNuevoCAEstado.js" />
     <Content Include="Scripts\validarNuevoCASeccion.js" />
     <Content Include="Scripts\validarNuevoCARango.js" />
     <Content Include="Scripts\validarNuevoCAUnidadMedida.js" />
@@ -175,6 +179,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioDestino.aspx.designer.cs">
       <DependentUpon>FormularioDestino.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioEstado.aspx.cs">
+      <DependentUpon>FormularioEstado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioEstado.aspx.designer.cs">
+      <DependentUpon>FormularioEstado.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioModelo.aspx.cs">
       <DependentUpon>FormularioModelo.aspx</DependentUpon>

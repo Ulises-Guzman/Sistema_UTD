@@ -222,49 +222,49 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Button btnAceptarNuevaSeccion;
 
         /// <summary>
-        /// Control lblTituloModalEstadoInst.
+        /// Control lblTituloModalEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloModalEstadoInst;
+        protected global::System.Web.UI.WebControls.Label lblTituloModalEstado;
 
         /// <summary>
-        /// Control Panel1.
+        /// Control pnlModalEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel pnlModalEstado;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEstado;
 
         /// <summary>
-        /// Control Button1.
+        /// Control btnCancelarNuevoEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnCancelarNuevoEstado;
 
         /// <summary>
-        /// Control Button2.
+        /// Control btnAceptarNuevoEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnAceptarNuevoEstado;
 
         /// <summary>
         /// Propiedad Master.
