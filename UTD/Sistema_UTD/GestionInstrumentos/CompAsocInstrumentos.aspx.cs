@@ -35,12 +35,14 @@ namespace Sistema_UTD.GestionInstrumentos
 
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalDestino();", true);
         }
+
         protected void lnkAgregarSeccion_Click(object sender, EventArgs e)
         {
             BloquearNotificacion();
 
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalSeccion();", true);
         }
+
         protected void lnkAgregarEstadoInst_Click(object sender, EventArgs e)
         {
             BloquearNotificacion();
@@ -48,10 +50,18 @@ namespace Sistema_UTD.GestionInstrumentos
             ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalEstado();", true);
         }
 
+        protected void lnkAgregarTiempoHab_Click(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "AbrirModal", "abrirModalTiempo();", true);
+        }
+
         protected void lnkModificarDestino_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioDestino.aspx");
         }
+
         protected void lnkModificarSeccion_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioSeccion.aspx");
@@ -60,6 +70,11 @@ namespace Sistema_UTD.GestionInstrumentos
         protected void lnkModificarEstadoInst_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/GestionInstrumentos/FormularioEstado.aspx");
+        }
+
+        protected void lnkModificarTiempoHab_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/FormularioTiempoHabilitacion.aspx");
         }
 
         protected void btnAceptarNuevoDestino_Click(object sender, EventArgs e)
@@ -162,6 +177,39 @@ namespace Sistema_UTD.GestionInstrumentos
             }
         }
 
+        protected void btnAceptarNuevoTiempo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ////// INYECCIÓN DE PRUEBA: Pausa el hilo del servidor por 2 segundos (2000 milisegundos)
+                //System.Threading.Thread.Sleep(6000);
+
+                //// 1. inyección de prueba: fuerza el error inmediatamente
+                //throw new Exception("simulación de fallo crítico para probar la alerta roja.");
+
+                UsuarioResumenDTO usuarioActual = (UsuarioResumenDTO)Session["UsuarioLogueado"];
+                TiempoHabilitacionCreacionDTO nuevoTiempoDTO = new TiempoHabilitacionCreacionDTO();
+                TiempoHabilitacionNegocio tiempoNegocio = new TiempoHabilitacionNegocio();
+
+                nuevoTiempoDTO.CantidadMeses = int.Parse(txtTiempo.Text);
+
+                tiempoNegocio.AgregarTiempoHabilitacion(nuevoTiempoDTO, usuarioActual.Id);
+
+                MostrarNotificacionVerde();
+
+                LimpiarCampos();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
+            catch (Exception ex)
+            {
+                alertaNoSatisfactoria.InnerText = "El tiempo de habilitación no ha sido creado debido a un error: " + ex.Message;
+                MostrarNotificacionRoja();
+
+                ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
+            }
+        }
+
         protected void BloquearNotificacion()
         {
             // Para eliminar la carga fantasma del modal y la ejecución del update panel
@@ -187,6 +235,7 @@ namespace Sistema_UTD.GestionInstrumentos
             txtDestino.Text = string.Empty;
             txtSeccion.Text = string.Empty;
             txtEstado.Text = string.Empty;
+            txtTiempo.Text = string.Empty;
         }
 
     }

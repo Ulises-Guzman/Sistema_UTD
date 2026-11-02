@@ -9,14 +9,9 @@ namespace Sistema_UTD.Dominio.Entidades
     public class TiempoHabilitacion
     {
         public int Id { get; set; }
-        public string Descripcion { get; set; }
+        public int CantidadMeses { get; set; }
         public bool Activo { get; set; }
 
         public byte[] VersionRow { get; set; }
-
-        public override string ToString()
-        {
-            return Descripcion;
-        }
     }
 }

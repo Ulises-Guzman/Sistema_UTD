@@ -57,6 +57,9 @@
     <Compile Include="DTOs\SeccionCreacionDTO.cs" />
     <Compile Include="DTOs\SeccionEdicionDTO.cs" />
     <Compile Include="DTOs\SeccionResumenDTO.cs" />
+    <Compile Include="DTOs\TiempoHabilitacionCreacionDTO.cs" />
+    <Compile Include="DTOs\TiempoHabilitacionEdicionDTO.cs" />
+    <Compile Include="DTOs\TiempoHabilitacionResumenDTO.cs" />
     <Compile Include="DTOs\UnidadMedidaCreacionDTO.cs" />
     <Compile Include="DTOs\UnidadMedidaEdicionDTO.cs" />
     <Compile Include="DTOs\UnidadMedidaResumenDTO.cs" />

@@ -64,6 +64,7 @@
     <Compile Include="RangoNegocio.cs" />
     <Compile Include="RolNegocio.cs" />
     <Compile Include="SeccionNegocio.cs" />
+    <Compile Include="TiempoHabilitacionNegocio.cs" />
     <Compile Include="UnidadMedidaNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />
   </ItemGroup>

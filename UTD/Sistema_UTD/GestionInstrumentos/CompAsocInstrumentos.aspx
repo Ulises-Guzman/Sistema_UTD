@@ -151,6 +151,7 @@
                     <asp:LinkButton ID="lnkAgregarTiempoHab"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
+                        OnClick="lnkAgregarTiempoHab_Click"
                         runat="server">
                     <i class="bi bi-plus-circle me-2 icon-green"></i>
                     Agregar tiempo de habilitación <span class="float-end">></span>
@@ -163,6 +164,7 @@
                     <asp:LinkButton ID="lnkModificarTiempoHab"
                         ClientIDMode="Static"
                         CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                        OnClick="lnkModificarTiempoHab_Click"
                         runat="server">
                     <i class="bi bi-exclamation-circle me-2 icon-orange"></i>
                     Modificar tiempo de habilitación <span class="float-end">></span>
@@ -278,14 +280,52 @@
                 </div>
             </div>
             <!-- Formulario modal crear nuevo estado -->
+
+            <!-- Fin formulario modal crear nuevo tiempo -->
+            <div class="modal fade" id="frmModalTiempo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-body-tertiary">
+                            <div class="d-flex flex-column flex-grow-1 me-2">
+                                <h1 class="modal-title fs-5">
+                                    <i class="bi bi-ui-radios me-1"></i>
+                                    <asp:Label ID="lblTituloModalTiempo" ClientIDMode="Static" Text="Crear tiempo de habilitación" runat="server"></asp:Label>
+                                </h1>
+                                <small class="mb-1 text-secondary" id="lblDescripcionModalTiempo">Cree un nuevo tiempo de habilitación para clasificar instrumentos</small>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <asp:Panel ID="Panel1" DefaultButton="btnAceptarNuevoTiempo" runat="server">
+                            <div class="modal-body">
+                                <!-- Form -->
+                                <div class="mb-3">
+                                    <label for="txtTiempo" class="col-form-label">Tiempo de habilitación</label>
+                                    <asp:TextBox ID="txtTiempo" ClientIDMode="Static" CssClass="form-control" TextMode="Number"
+                                        oninput="if(this.value.length > 2) this.value = this.value.slice(0, 2);" runat="server">
+                                    </asp:TextBox>
+                                    <div class="invalid-feedback">Por favor, ingrese el nuevo tiempo de habilitación.</div>
+                                    <div class="valid-feedback">Ok</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-body-tertiary">
+                                <asp:Button ID="btnCancelarNuevoTiempo" CssClass="btn btn-secondary" Text="Cancelar" data-bs-dismiss="modal" runat="server" />
+                                <asp:Button ID="btnAceptarNuevoTiempo" CssClass="btn btn-primary" ClientIDMode="Static" Text="Aceptar" OnClientClick="return validarNuevoTiempo();" OnClick="btnAceptarNuevoTiempo_Click" runat="server" />
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulario modal crear nuevo tiempo -->
             <!-- Fin formularios modales para componentes asociados a instrumentos -->
         </ContentTemplate>
     </asp:UpdatePanel>
     <script src="/Scripts/modalDestino.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/modalSeccion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/modalEstado.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/modalTiempoHabilitacion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCADestino.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCASeccion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/validarNuevoCAEstado.js?v=<%= DateTime.Now.Ticks %>"></script>
+    <script src="/Scripts/validarNuevoCATiempoHabilitacion.js?v=<%= DateTime.Now.Ticks %>"></script>
     <script src="/Scripts/alertGeneral.js?v=<%= DateTime.Now.Ticks %>"></script>
 </asp:Content>

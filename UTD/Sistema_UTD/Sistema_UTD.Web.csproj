@@ -98,6 +98,7 @@
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
     <Content Include="GestionInstrumentos\FormularioRango.aspx" />
     <Content Include="GestionInstrumentos\FormularioSeccion.aspx" />
+    <Content Include="GestionInstrumentos\FormularioTiempoHabilitacion.aspx" />
     <Content Include="GestionInstrumentos\FormularioUnidadMedida.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\calibre.jpg" />
@@ -109,6 +110,7 @@
     <Content Include="Scripts\modalModelo.js" />
     <Content Include="Scripts\modalRango.js" />
     <Content Include="Scripts\modalSeccion.js" />
+    <Content Include="Scripts\modalTiempoHabilitacion.js" />
     <Content Include="Scripts\modalUnidadMedida.js" />
     <Content Include="Scripts\modalUsuario.js" />
     <Content Include="Scripts\sidebar.js" />
@@ -116,11 +118,13 @@
     <Content Include="Scripts\validarModificarCAEstado.js" />
     <Content Include="Scripts\validarModificarCARango.js" />
     <Content Include="Scripts\validarModificarCASeccion.js" />
+    <Content Include="Scripts\validarModificarCATiempoHabilitacion.js" />
     <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
     <Content Include="Scripts\validarModificarCADestino.js" />
     <Content Include="Scripts\validarNuevoCAEstado.js" />
     <Content Include="Scripts\validarNuevoCASeccion.js" />
     <Content Include="Scripts\validarNuevoCARango.js" />
+    <Content Include="Scripts\validarNuevoCATiempoHabilitacion.js" />
     <Content Include="Scripts\validarNuevoCAUnidadMedida.js" />
     <Content Include="Scripts\validarLogin.js" />
     <Content Include="Scripts\validarModificarCAModelo.js" />
@@ -207,6 +211,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioSeccion.aspx.designer.cs">
       <DependentUpon>FormularioSeccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioTiempoHabilitacion.aspx.cs">
+      <DependentUpon>FormularioTiempoHabilitacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioTiempoHabilitacion.aspx.designer.cs">
+      <DependentUpon>FormularioTiempoHabilitacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioUnidadMedida.aspx.cs">
       <DependentUpon>FormularioUnidadMedida.aspx</DependentUpon>
