@@ -96,7 +96,7 @@
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <asp:Panel ID="pnlModalUnidadMedida" DefaultButton="btnAceptarModificarUnidadMedida" runat="server">
+                        <asp:Panel ID="pnlModalUnidadModificar" DefaultButton="btnAceptarModificarUnidadMedida" runat="server">
                             <div class="modal-body">
                                 <!-- Form -->
                                 <div class="row mb-2">

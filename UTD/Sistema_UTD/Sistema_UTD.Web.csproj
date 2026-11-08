@@ -96,12 +96,15 @@
     <Content Include="GestionInstrumentos\FormularioDestino.aspx" />
     <Content Include="GestionInstrumentos\FormularioEstado.aspx" />
     <Content Include="GestionInstrumentos\FormularioModelo.aspx" />
+    <Content Include="GestionInstrumentos\FormularioModeloInstrumento.aspx" />
     <Content Include="GestionInstrumentos\FormularioRango.aspx" />
     <Content Include="GestionInstrumentos\FormularioSeccion.aspx" />
     <Content Include="GestionInstrumentos\FormularioTiempoHabilitacion.aspx" />
     <Content Include="GestionInstrumentos\FormularioUnidadMedida.aspx" />
+    <Content Include="GestionInstrumentos\ModelosInstrumento.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\calibre.jpg" />
+    <Content Include="Scripts\alertGeneralNav.js" />
     <Content Include="Scripts\alertLogin.js" />
     <Content Include="Scripts\alertGeneral.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -121,6 +124,7 @@
     <Content Include="Scripts\validarModificarCATiempoHabilitacion.js" />
     <Content Include="Scripts\validarModificarCAUnidadMedida.js" />
     <Content Include="Scripts\validarModificarCADestino.js" />
+    <Content Include="Scripts\validarModificarModeloInstrumento.js" />
     <Content Include="Scripts\validarNuevoCAEstado.js" />
     <Content Include="Scripts\validarNuevoCASeccion.js" />
     <Content Include="Scripts\validarNuevoCARango.js" />
@@ -131,6 +135,7 @@
     <Content Include="Scripts\validarModificarUsuario.js" />
     <Content Include="Scripts\validarNuevoCAModelo.js" />
     <Content Include="Scripts\validarNuevoCADestino.js" />
+    <Content Include="Scripts\validarNuevoModeloInstrumento.js" />
     <Content Include="Scripts\validarNuevoUsuario.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -198,6 +203,13 @@
     <Compile Include="GestionInstrumentos\FormularioModelo.aspx.designer.cs">
       <DependentUpon>FormularioModelo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionInstrumentos\FormularioModeloInstrumento.aspx.cs">
+      <DependentUpon>FormularioModeloInstrumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\FormularioModeloInstrumento.aspx.designer.cs">
+      <DependentUpon>FormularioModeloInstrumento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionInstrumentos\FormularioRango.aspx.cs">
       <DependentUpon>FormularioRango.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +237,13 @@
     </Compile>
     <Compile Include="GestionInstrumentos\FormularioUnidadMedida.aspx.designer.cs">
       <DependentUpon>FormularioUnidadMedida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionInstrumentos\ModelosInstrumento.aspx.cs">
+      <DependentUpon>ModelosInstrumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionInstrumentos\ModelosInstrumento.aspx.designer.cs">
+      <DependentUpon>ModelosInstrumento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

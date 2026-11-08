@@ -105,13 +105,13 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Label lblTituloModalSeccion;
 
         /// <summary>
-        /// Control pnlModalSeccion.
+        /// Control pnlModalSeccionModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlModalSeccion;
+        protected global::System.Web.UI.WebControls.Panel pnlModalSeccionModificar;
 
         /// <summary>
         /// Control txtSeccion.

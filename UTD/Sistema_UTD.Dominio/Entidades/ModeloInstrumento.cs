@@ -9,7 +9,9 @@ namespace Sistema_UTD.Dominio.Entidades
     public class ModeloInstrumento
     {
         public int Id { get; set; }
+        public string NumParte { get; set; }
         public string Nomenclatura { get; set; }
+        public string Marca { get; set; }
         public Modelo Modelo { get; set; }
         public Rango Rango { get; set; }
         public UnidadMedida UnidadMedida { get; set; }

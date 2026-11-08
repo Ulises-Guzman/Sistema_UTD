@@ -28,7 +28,7 @@ namespace Sistema_UTD.GestionInstrumentos
                     Master.ActualizarBreadcrumb(listaRutas);
                 }
 
-                // Cargar el gv con la lista de secciones
+                // Cargar el gv con la lista de estados
                 EstadoNegocio estadoNegocio = new EstadoNegocio();
                 Session.Add("listaEstado", estadoNegocio.ListarEstado());
                 gvEstados.DataSource = Session["listaEstado"];
@@ -55,7 +55,7 @@ namespace Sistema_UTD.GestionInstrumentos
             catch (Exception ex)
             {
                 alertaNoSatisfactoria.InnerText = "La sección no ha sido encontrado debido a un error: " + ex.Message;
-                MostraNotificacionRoja();
+                MostrarNotificacionRoja();
             }
         }
 
@@ -99,7 +99,7 @@ namespace Sistema_UTD.GestionInstrumentos
             catch (Exception ex)
             {
                 alertaNoSatisfactoria.InnerText = "El estado no ha sido encontrado debido a un error: " + ex.Message;
-                MostraNotificacionRoja();
+                MostrarNotificacionRoja();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
@@ -175,7 +175,7 @@ namespace Sistema_UTD.GestionInstrumentos
             alertaNoSatisfactoria.Style["display"] = "none";
         }
 
-        protected void MostraNotificacionRoja()
+        protected void MostrarNotificacionRoja()
         {
             alertaSatisfactoria.Style["display"] = "none";
             alertaNoSatisfactoria.Style["display"] = "block";

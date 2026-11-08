@@ -33,7 +33,6 @@
             <div id="alertaNoSatisfactoria" class="alert alert-danger fade show text-start" style="display: none" role="alert" runat="server">
                 Usuario o contraseña incorrectos!
             </div>
-
         </div>
     </div>
     <script src="/Scripts/validarLogin.js?v=<%= DateTime.Now.Ticks %>"></script>

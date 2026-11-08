@@ -105,13 +105,13 @@ namespace Sistema_UTD.GestionInstrumentos
         protected global::System.Web.UI.WebControls.Label lblTituloModalRango;
 
         /// <summary>
-        /// Control pnlModalRango.
+        /// Control pnlModalRangoModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlModalRango;
+        protected global::System.Web.UI.WebControls.Panel pnlModalRangoModificar;
 
         /// <summary>
         /// Control txtRango.

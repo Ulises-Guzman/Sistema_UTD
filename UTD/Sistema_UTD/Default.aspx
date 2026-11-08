@@ -51,9 +51,10 @@
                     </div>
 
                     <div class="col-xl">
-                        <asp:LinkButton ID="lnkBtnModesIntrumento"
+                        <asp:LinkButton ID="lnkBtnModelosIntrumento"
                             ClientIDMode="Static"
                             CssClass="p-3 btn btn-light bg-white btn-lg text-start w-100 rounded-0 border-bottom"
+                            OnClick="lnkBtnModelosIntrumento_Click"
                             runat="server">
                             <i class="bi bi-wrench-adjustable-circle  me-2 fs-4"></i>
                             Modelos de instrumento <span class="float-end">></span>

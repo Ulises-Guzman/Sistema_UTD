@@ -44,5 +44,10 @@ namespace Sistema_UTD
         {
             Response.Redirect("~/Admin/Usuarios.aspx");
         }
+
+        protected void lnkBtnModelosIntrumento_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/ModelosInstrumento.aspx");
+        }
     }
 }

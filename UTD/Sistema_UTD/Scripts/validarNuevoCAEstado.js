@@ -76,7 +76,7 @@ function validarCampo(campo) {
 
 // 5. Función principal para el botón Guardar
 function validarNuevoEstado() {
-    // Forzamos la actualización de variables por seguridad antes de validar
+    // Forzar la actualización de variables por seguridad antes de validar
     enlazarEventos();
 
     const estadoValido = validarCampo(txtEstado);

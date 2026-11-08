@@ -1,5 +1,6 @@
 ﻿'use strict'
 
+// Para usar en la páginas generarles con modales
 var prm = Sys.WebForms.PageRequestManager.getInstance();
 
 prm.add_endRequest(function () {

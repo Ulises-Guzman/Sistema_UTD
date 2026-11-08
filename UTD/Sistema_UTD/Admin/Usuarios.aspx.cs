@@ -111,7 +111,7 @@ namespace Sistema_UTD.Admin
             catch (Exception ex)
             {
                 alertaNoSatisfactoria.InnerText = "El usuario no ha sido creado debido a un error: " + ex.Message;
-                MostraNotificacionRoja();
+                MostrarNotificacionRoja();
 
                 ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "LimpiarFondo", "limpiarFondoModal();", true);
             }
@@ -140,7 +140,7 @@ namespace Sistema_UTD.Admin
             alertaNoSatisfactoria.Style["display"] = "none";
         }
 
-        protected void MostraNotificacionRoja()
+        protected void MostrarNotificacionRoja()
         {
             alertaSatisfactoria.Style["display"] = "none";
             alertaNoSatisfactoria.Style["display"] = "block";

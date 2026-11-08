@@ -49,6 +49,9 @@
     <Compile Include="DTOs\EstadoResumenDTO.cs" />
     <Compile Include="DTOs\ModeloCreacionDTO.cs" />
     <Compile Include="DTOs\ModeloEdicionDTO.cs" />
+    <Compile Include="DTOs\ModeloInstrumentoCreacionDTO.cs" />
+    <Compile Include="DTOs\ModeloInstrumentoEdicionDTO.cs" />
+    <Compile Include="DTOs\ModeloInstrumentoResumenDTO.cs" />
     <Compile Include="DTOs\ModeloResumenDTO.cs" />
     <Compile Include="DTOs\RangoCreacionDTO.cs" />
     <Compile Include="DTOs\RangoEdicionDTO.cs" />

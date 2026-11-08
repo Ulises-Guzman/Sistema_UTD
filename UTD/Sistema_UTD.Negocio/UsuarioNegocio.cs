@@ -178,17 +178,6 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    //Usuario aux = new Usuario();
-                    //aux.Id = (int)datos.Lector["UsuarioId"];
-                    //aux.NombUsuario = (string)datos.Lector["Usuario"];
-                    //aux.Apellido = (string)datos.Lector["Apellido"];
-                    //aux.Nombre = (string)datos.Lector["Nombre"];
-
-                    //aux.Rol = new Rol();
-                    //aux.Rol.Id = (int)datos.Lector["RolId"];
-                    //aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
-                    //aux.Activo = (bool)datos.Lector["Activo"];
-
                     UsuarioResumenDTO usuarioDTO = new UsuarioResumenDTO();
                     usuarioDTO.Id = (int)datos.Lector["UsuarioId"];
                     usuarioDTO.NombUsuario = (string)datos.Lector["Usuario"];
@@ -212,11 +201,10 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // DONE: Utilizar DTO
+        }
 
         public List<UsuarioResumenDTO> BuscarAvanzado(string campo, string palabraClave, string rol = "", string estado = "")
         {
-            //List<Usuario> lista = new List<Usuario>();
             List<UsuarioResumenDTO> lista = new List<UsuarioResumenDTO>();
             AccesoDatos datos = new AccesoDatos();
 
@@ -262,17 +250,6 @@ namespace Sistema_UTD.Negocio
 
                 while (datos.Lector.Read())
                 {
-                    //Usuario aux = new Usuario();
-                    //aux.Id = (int)datos.Lector["UsuarioId"];
-                    //aux.NombUsuario = (string)datos.Lector["Usuario"];
-                    //aux.Apellido = (string)datos.Lector["Apellido"];
-                    //aux.Nombre = (string)datos.Lector["Nombre"];
-
-                    //aux.Rol = new Rol();
-                    //aux.Rol.Id = (int)datos.Lector["RolId"];
-                    //aux.Rol.Descripcion = (string)datos.Lector["Descripcion"];
-                    //aux.Activo = (bool)datos.Lector["Activo"];
-
                     UsuarioResumenDTO usuarioDTO = new UsuarioResumenDTO();
                     usuarioDTO.Id = (int)datos.Lector["UsuarioId"];
                     usuarioDTO.NombUsuario = (string)datos.Lector["Usuario"];
@@ -387,17 +364,6 @@ namespace Sistema_UTD.Negocio
 
                     if (loginValido)
                     {
-                        // Instancio y mapeo el objeto completo
-                        //usuarioLogueado = new Usuario();
-                        //usuarioLogueado.Id = (int)datos.Lector["UsuarioId"];
-                        //usuarioLogueado.NombUsuario = (string)datos.Lector["Usuario"];
-                        //usuarioLogueado.Apellido = (string)datos.Lector["Apellido"];
-                        //usuarioLogueado.Nombre = (string)datos.Lector["Nombre"];
-                        //usuarioLogueado.Activo = (bool)datos.Lector["Activo"];
-
-                        //usuarioLogueado.Rol = new Rol();
-                        //usuarioLogueado.Rol.Id = (int)datos.Lector["RolId"];
-                        //usuarioLogueado.Rol.Descripcion = (string)datos.Lector["Descripcion"];
                         usuarioLogueado = new UsuarioResumenDTO();
                         usuarioLogueado.Id = (int)datos.Lector["UsuarioId"];
                         usuarioLogueado.NombUsuario = (string)datos.Lector["Usuario"];
@@ -421,6 +387,6 @@ namespace Sistema_UTD.Negocio
             {
                 datos.CerrarConexion();
             }
-        } // DONE: Utilizar DTO
+        }
     }
 }
