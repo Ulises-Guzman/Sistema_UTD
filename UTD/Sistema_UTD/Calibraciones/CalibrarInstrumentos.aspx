@@ -112,12 +112,27 @@
             </div>
 
             <div class="row justify-content-center">
+                <div class="col-xl-10 mt-1 mb-2">
+                    <div class="p-3 bg-white shadow-sm rounded" data-bs-theme="ligth">
+                        <!-- Buscador -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="txtBuscar1" class="col-form-label">Buscador</label>
+                                <asp:TextBox ID="txtBuscar1" ClientIDMode="Static" CssClass="form-control" PlaceHolder="Número de serie..." AutoPostBack="true" OnTextChanged="txtBuscar1_TextChanged" runat="server"></asp:TextBox>
+                                <small class="mb-1 text-secondary" id="Small1" runat="server">Precione [Tab] para buscar </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título y botón actualizar -->
+            <div class="row justify-content-center">
                 <div class="col-xl-10 mt-3 mb-2 d-flex justify-content-between align-items-center">
                     <h4 class="m-0">Lista de instrumentos calibrados</h4>
-                    <%--<asp:LinkButton ID="LinkButton1" ClientIDMode="Static" CssClass="btn btn-success align-content-end" runat="server">
-                        <%--OnClick="lnkBtnActualizar_Click"
+                    <asp:LinkButton ID="lnkBtnActualizar1" ClientIDMode="Static" CssClass="btn btn-success align-content-end" OnClick="lnkBtnActualizar1_Click" runat="server">
                         <i class="bi bi-arrow-clockwise"></i> Actualizar
-                    </asp:LinkButton>--%>
+                    </asp:LinkButton>
                 </div>
             </div>
             <!-- Grilla instrumentos calibrados-->

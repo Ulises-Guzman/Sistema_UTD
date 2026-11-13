@@ -73,11 +73,6 @@ namespace Sistema_UTD.Calibraciones
             }
         }
 
-        protected void gvInstrumentos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-
-        }
-
         protected void BloquearNotificacion()
         {
             alertaSatisfactoria.Style["display"] = "none";
@@ -134,17 +129,41 @@ namespace Sistema_UTD.Calibraciones
 
         protected void gvNoHabilitados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            gvNoHabilitados.PageIndex = e.NewPageIndex;
+            EnlazarPaginaGridViewNoHabilitado(sender, e);
+            gvNoHabilitados.DataBind();
 
+            BloquearNotificacion();
+        }
+
+        protected void EnlazarPaginaGridViewNoHabilitado(object sender, EventArgs e)
+        {
+            InstrumentoNegocio instrumentoNegocio = new InstrumentoNegocio();
+            Session.Add("listaNoHabilitado", instrumentoNegocio.ListarNoHabilitados());
+            gvNoHabilitados.DataSource = Session["listaNoHabilitado"];
+            gvNoHabilitados.DataBind();
         }
 
         protected void gvHabilitados_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            //TODO: Generacion de certificados
         }
 
         protected void gvHabilitados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            gvHabilitados.PageIndex = e.NewPageIndex;
+            EnlazarPaginaGridViewHabilitado(sender, e);
+            gvHabilitados.DataBind();
 
+            BloquearNotificacion();
+        }
+
+        protected void EnlazarPaginaGridViewHabilitado(object sender, EventArgs e)
+        {
+            InstrumentoNegocio instrumentoNegocio = new InstrumentoNegocio();
+            Session.Add("listaHabilitado", instrumentoNegocio.ListarHabilitados());
+            gvHabilitados.DataSource = Session["listaHabilitado"];
+            gvHabilitados.DataBind();
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -173,9 +192,36 @@ namespace Sistema_UTD.Calibraciones
             }
         }
 
+        protected void txtBuscar1_TextChanged(object sender, EventArgs e)
+        {
+            BloquearNotificacion();
+
+            try
+            {
+                //// 1. INYECCIÓN DE PRUEBA: Fuerza el error inmediatamente
+                //throw new Exception("Simulación de fallo crítico para probar la alerta roja.");
+
+                List<InstrumentoResumenDTO> lista1 = (List<InstrumentoResumenDTO>)Session["listaHabilitado"];
+                List<InstrumentoResumenDTO> listaBusqueda1 = new List<InstrumentoResumenDTO>();
+                listaBusqueda1 = lista1.FindAll(x => x.NumSerie.ToLower().Contains(txtBuscar1.Text.ToLower()));
+                gvHabilitados.DataSource = listaBusqueda1;
+                gvHabilitados.DataBind();
+
+                LimpiarCampoBuscar();
+            }
+            catch (Exception ex)
+            {
+                alertaNoSatisfactoria.InnerText = "El instrumento no ha sido encontrado debido a un error: " + ex.Message;
+                MostrarNotificacionRoja();
+
+                LimpiarCampoBuscar();
+            }
+        }
+
         protected void LimpiarCampoBuscar()
         {
             txtBuscar.Text = string.Empty;
+            txtBuscar1.Text = string.Empty;
         }
 
         protected void lnkBtnActualizar_Click(object sender, EventArgs e)
@@ -185,5 +231,14 @@ namespace Sistema_UTD.Calibraciones
             gvNoHabilitados.DataSource = Session["listaNoHabilitado"];
             gvNoHabilitados.DataBind();
         }
+
+        protected void lnkBtnActualizar1_Click(object sender, EventArgs e)
+        {
+            InstrumentoNegocio noHabilitadoNegocio = new InstrumentoNegocio();
+            Session.Add("listaHabilitado", noHabilitadoNegocio.ListarHabilitados());
+            gvHabilitados.DataSource = Session["listaHabilitado"];
+            gvHabilitados.DataBind();
+        }
+
     }
 }

@@ -96,6 +96,33 @@ namespace Sistema_UTD.Calibraciones
         protected global::System.Web.UI.WebControls.GridView gvNoHabilitados;
 
         /// <summary>
+        /// Control txtBuscar1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar1;
+
+        /// <summary>
+        /// Control Small1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Small1;
+
+        /// <summary>
+        /// Control lnkBtnActualizar1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnActualizar1;
+
+        /// <summary>
         /// Control gvHabilitados.
         /// </summary>
         /// <remarks>
