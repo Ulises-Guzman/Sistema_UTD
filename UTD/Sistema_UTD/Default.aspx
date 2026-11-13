@@ -65,6 +65,7 @@
                         <asp:LinkButton ID="lnkBtnInstrumentosRecibidos"
                             ClientIDMode="Static"
                             CssClass="p-3 btn btn-light bg-white btn-lg shadow-sm text-start w-100 rounded-0 rounded-bottom"
+                            OnClick="lnkBtnInstrumentosRecibidos_Click"
                             runat="server">
                             <i class="bi bi-tools me-2 fs-4"></i>
                             Instrumentos recibidos <span class="float-end">></span>

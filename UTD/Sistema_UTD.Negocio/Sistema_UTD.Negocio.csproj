@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="DestinoNegocio.cs" />
     <Compile Include="EstadoNegocio.cs" />
+    <Compile Include="InstrumentoNegocio.cs" />
     <Compile Include="ModeloInstrumentoNegocio.cs" />
     <Compile Include="ModeloNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

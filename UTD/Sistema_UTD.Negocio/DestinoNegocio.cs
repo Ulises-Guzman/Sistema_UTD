@@ -61,6 +61,7 @@ namespace Sistema_UTD.Negocio
             try
             {
                 datos.SetearConsulta("SELECT DestinoId, Cuatrigrama, Descripcion, Activo FROM Destinos " +
+                                     "WHERE Activo = 1 " +
                                      "ORDER BY Descripcion ASC");
                 datos.EjecutarLectura();
 

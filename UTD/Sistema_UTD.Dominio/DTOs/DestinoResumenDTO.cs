@@ -12,5 +12,10 @@ namespace Sistema_UTD.Dominio.DTOs
         public string Cuatrigrama { get; set; }
         public string Descripcion { get; set; }
         public bool Activo { get; set; }
+
+        public string CuatrigramaYDescripcion
+        {
+            get { return $"{Cuatrigrama} - {Descripcion}"; }
+        }
     }
 }

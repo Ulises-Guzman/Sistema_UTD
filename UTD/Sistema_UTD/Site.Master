@@ -97,29 +97,76 @@
                                     <i class="fs-4 bi bi-columns-gap"></i><span class="ms-3 d-none d-sm-inline">Tablero</span> </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 1 </a>
+                                        <%-- <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 1 </a>--%>
+                                        <asp:HyperLink ID="HyperLink2"
+                                            ClientIDMode="Static"
+                                            CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                            NavigateUrl="~/Tablero.aspx"
+                                            runat="server">
+                                            <i class="fs-4 bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Tablero 1</span>
+                                        </asp:HyperLink>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 2 </a>
+                                        <%--<a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 2 </a>--%>
+                                        <asp:HyperLink ID="HyperLink3"
+                                            ClientIDMode="Static"
+                                            CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                            NavigateUrl="~/Tablero2.aspx"
+                                            runat="server">
+                                            <i class="fs-4 bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Tablero 2</span>
+                                        </asp:HyperLink>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0 align-middle text-white link-secondary">
-                                    <i class="fs-4 bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Instrumentos</span></a>
+                                <%--<a href="#" class="nav-link px-0 align-middle text-white link-secondary">
+                                    <i class="fs-4 bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Instrumentos</span></a>--%>
+                                <asp:HyperLink ID="HyperLink1"
+                                    ClientIDMode="Static"
+                                    CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                    NavigateUrl="~/GestionInstrumentos/Instrumento.aspx"
+                                    runat="server">
+                                    <i class="fs-4 bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Instrumentos</span>
+                                </asp:HyperLink>
+                            </li>
+
+                            <li>
+                                <asp:HyperLink ID="HyperLink6"
+                                    ClientIDMode="Static"
+                                    CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                    NavigateUrl="~/Calibraciones/CalibrarInstrumentos.aspx"
+                                    runat="server">
+                                    <i class="fs-4 bi bi-gear-wide-connected"></i><span class="ms-3 d-none d-sm-inline">Calibrar</span>
+                                </asp:HyperLink>
                             </li>
                             <li>
+                                <asp:HyperLink ID="HyperLink4"
+                                    ClientIDMode="Static"
+                                    CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                    NavigateUrl="~/Calibraciones/PlanillaCalibracion.aspx"
+                                    runat="server">
+                                    <i class="fs-4 bi bi-rulers"></i><span class="ms-3 d-none d-sm-inline">Planillas</span>
+                                </asp:HyperLink>
+                            </li>
+
+                            <%--<li>
                                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white link-secondary">
                                     <i class="fs-4 bi bi-rulers"></i><span class="ms-3 d-none d-sm-inline">Calibración</span><i class="ms-1 bi bi-caret-down-fill"></i></a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 1</a>
+                                        <asp:HyperLink ID="HyperLink5"
+                                            ClientIDMode="Static"
+                                            CssClass="nav-link px-0 align-middle text-white link-secondary"
+                                            NavigateUrl="~/Calibraciones/CalibrarInstrumentos.aspx"
+                                            runat="server">
+                                            <i class="bi bi-tools"></i><span class="ms-3 d-none d-sm-inline">Calibrar instrumento</span>
+                                        </asp:HyperLink>
                                     </li>
                                     <li>
                                         <a href="#" class="nav-link px-0 text-white link-secondary"><span class="d-none d-sm-inline">Item</span> 2</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>--%>
                             <li>
                                 <%--data-bs-toggle="collapse"--%>
                                 <%--<a href="Admin/usuarios.aspx" class="nav-link px-0 align-middle text-white link-secondary">
@@ -142,25 +189,25 @@
 
                 <!-- SCRIPT ANTI-PARPADEO -->
                 <script>
-                    (function () {
-                        if (localStorage.getItem("sidebarMinimizada") === "true") {
-                            var sidebar = document.getElementById("contenedorSidebar");
-                            if (sidebar) {
-                                // Quitar las clases de expansión antes de que se dibuje en pantalla
-                                sidebar.classList.remove("col-md-3", "col-xl-2", "px-sm-2");
+(function () {
+    if (localStorage.getItem("sidebarMinimizada") === "true") {
+        var sidebar = document.getElementById("contenedorSidebar");
+        if (sidebar) {
+            // Quitar las clases de expansión antes de que se dibuje en pantalla
+            sidebar.classList.remove("col-md-3", "col-xl-2", "px-sm-2");
 
-                                var spans = sidebar.querySelectorAll("span");
-                                spans.forEach(function (s) { s.classList.remove("d-sm-inline"); });
+            var spans = sidebar.querySelectorAll("span");
+            spans.forEach(function (s) { s.classList.remove("d-sm-inline"); });
 
-                                var divInt = sidebar.querySelector("div.d-flex.flex-column");
-                                if (divInt) divInt.classList.remove("align-items-sm-start");
+            var divInt = sidebar.querySelector("div.d-flex.flex-column");
+            if (divInt) divInt.classList.remove("align-items-sm-start");
 
-                                var ulMenu = document.getElementById("menu");
-                                if (ulMenu) ulMenu.classList.remove("align-items-sm-start");
-                            }
-                        }
-                    })();
-                </script>
+            var ulMenu = document.getElementById("menu");
+            if (ulMenu) ulMenu.classList.remove("align-items-sm-start");
+        }
+    }
+})();
+</script>
                 <!-- Fin script anti-parpadeo -->
 
                 <div class="col">

@@ -32,22 +32,27 @@ namespace Sistema_UTD
 
         protected void lnkBtnCompAsocModelos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/GestionInstrumentos/CompAsocModelos.aspx");
+            Response.Redirect("~/GestionInstrumentos/CompAsocModelos.aspx", false);
         }
 
         protected void lnkBtnCompAsocInstrumentos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/GestionInstrumentos/CompAsocInstrumentos.aspx");
+            Response.Redirect("~/GestionInstrumentos/CompAsocInstrumentos.aspx", false);
         }
 
         protected void lnkBtnUsuarios_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Admin/Usuarios.aspx");
+            Response.Redirect("~/Admin/Usuarios.aspx", false);
         }
 
         protected void lnkBtnModelosIntrumento_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/GestionInstrumentos/ModelosInstrumento.aspx");
+            Response.Redirect("~/GestionInstrumentos/ModelosInstrumento.aspx", false);
+        }
+
+        protected void lnkBtnInstrumentosRecibidos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/GestionInstrumentos/Instrumento.aspx", false);
         }
     }
 }

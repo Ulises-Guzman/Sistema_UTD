@@ -15,5 +15,10 @@ namespace Sistema_UTD.Dominio.DTOs
         public int RolId { get; set; }
         public string RolDescripcion { get; set; }
         public bool Activo { get; set; }
+
+        public string ApellidoYNombre
+        {
+            get { return $"{Apellido}, {Nombre}"; }
+        }
     }
 }

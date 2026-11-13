@@ -21,7 +21,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 List<BreadcrumbItem> listaRutas = new List<BreadcrumbItem>
                 {
                     new BreadcrumbItem { Titulo = "Inicio", Url = "~/Default.aspx", EsActivo = false },
-                    new BreadcrumbItem { Titulo = "Gestión de Instrumentos", Url = "", EsActivo = true }
+                    new BreadcrumbItem { Titulo = "Gestión Modelos de Instrumentos", Url = "", EsActivo = true }
                 };
 
                 if (Master != null)
@@ -63,6 +63,7 @@ namespace Sistema_UTD.GestionInstrumentos
                 ddlUnidadMedida.Items.Insert(0, new ListItem("Seleccione...", "0"));
             }
         }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             try

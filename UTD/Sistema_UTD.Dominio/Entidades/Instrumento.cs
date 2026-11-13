@@ -14,19 +14,13 @@ namespace Sistema_UTD.Dominio.Entidades
         public DateTime FechaRecepcion { get; set; }
         public Destino Destino { get; set; }
         public Seccion Seccion { get; set; }
+        public Usuario Usuario { get; set; }
         public Estado Estado { get; set; }
-        public bool Habilitacion { get; set; }
-        public DateTime FechaHabilitacion { get; set; }
+        public bool? Habilitacion { get; set; }
+        public DateTime? FechaHabilitacion { get; set; }
         public TiempoHabilitacion TiempoHabilitacion { get; set; }
         public new bool Activo { get; set; }
 
         public new byte[] VersionRow { get; set; }
-
-        // ProtoMetodo
-        // CrearHistorial()
-        // ListarHistorial()
-        // CrearPlanillaCalibracion()
-        // ListarPlanillaCalibracion()
-
     }
 }

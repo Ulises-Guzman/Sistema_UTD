@@ -58,6 +58,7 @@ namespace Sistema_UTD.Negocio
             try
             {
                 datos.SetearConsulta("SELECT SeccionId, Descripcion, Activo FROM Secciones " +
+                                     "WHERE Activo = 1 " +
                                      "ORDER BY Descripcion ASC");
                 datos.EjecutarLectura();
 

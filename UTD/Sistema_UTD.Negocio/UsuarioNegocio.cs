@@ -164,7 +164,6 @@ namespace Sistema_UTD.Negocio
 
         public List<UsuarioResumenDTO> ListarUsuario()
         {
-            // List<Usuario> lista = new List<Usuario>();
             List<UsuarioResumenDTO> lista = new List<UsuarioResumenDTO>();
             AccesoDatos datos = new AccesoDatos();
 
@@ -377,6 +376,47 @@ namespace Sistema_UTD.Negocio
 
                 // Retornará null si el usuario no existe o si la contraseña es incorrecta
                 return usuarioLogueado;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
+        public List<UsuarioResumenDTO> ListarCliente()
+        {
+            List<UsuarioResumenDTO> lista = new List<UsuarioResumenDTO>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT U.UsuarioId, U.Usuario, U.Apellido, U.Nombre, U.Activo, U.RolId, R.Descripcion " +
+                                     "FROM Usuarios U " +
+                                     "INNER JOIN Roles R ON U.RolId = R.RolId " +
+                                     "WHERE U.RolId = 3 AND U.Activo = 1 " +
+                                     "ORDER BY U.Apellido ASC");
+                datos.EjecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    UsuarioResumenDTO usuarioDTO = new UsuarioResumenDTO();
+                    usuarioDTO.Id = (int)datos.Lector["UsuarioId"];
+                    usuarioDTO.NombUsuario = (string)datos.Lector["Usuario"];
+                    usuarioDTO.Apellido = (string)datos.Lector["Apellido"];
+                    usuarioDTO.Nombre = (string)datos.Lector["Nombre"];
+                    usuarioDTO.RolId = (int)datos.Lector["RolId"];
+                    usuarioDTO.RolDescripcion = (string)datos.Lector["Descripcion"];
+                    usuarioDTO.Activo = (bool)datos.Lector["Activo"];
+
+                    lista.Add(usuarioDTO);
+                }
+
+                return lista;
             }
             catch (Exception)
             {

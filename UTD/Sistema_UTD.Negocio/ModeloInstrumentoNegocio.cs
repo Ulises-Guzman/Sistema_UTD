@@ -23,7 +23,7 @@ namespace Sistema_UTD.Negocio
                 Nomenclatura = modeloInstrumentoDTO.Nomenclatura,
                 Marca = modeloInstrumentoDTO.Marca,
                 Modelo = new Modelo { Id = modeloInstrumentoDTO.ModeloId },
-                Rango = new Rango() { Id = modeloInstrumentoDTO.RangoId },
+                Rango = new Rango { Id = modeloInstrumentoDTO.RangoId },
                 UnidadMedida = new UnidadMedida { Id = modeloInstrumentoDTO.UnidadMedidaId },
             };
 
